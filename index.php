@@ -1,4 +1,3 @@
-<!--Développé par MEGROUS MEHDI!-->
 <?php
 session_start();
 ?>
@@ -12,8 +11,9 @@ session_start();
 		<!--Favicon-->
 		<link rel="shortcut icon" href="Images/logo-racing-academy-2016.png" />
          <!--Fonctions JavaScript-->
-         <script type="text/javascript" src="JS/jquery.js"></script>
-		 <script type="text/javascript">$(document).ready(function(){$("div.messConf").delay(2000).fadeOut();});</script>
+		<script type="text/javascript">$(document).ready(function(){$("div.messConf").delay(2000).fadeOut();});</script>
+		<script type="text/javascript" src="JS/jquery.min.js"></script>
+		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
 	</HEAD>
 
      
@@ -29,7 +29,7 @@ session_start();
 			?>
 					 <div id='content'>
 						<center>
-							<img src="Images/1-sam_6012.jpg" name="accueil" onmouseover="accueil.src='Images/1-sam_6012.jpg'" onmouseout="accueil.src='Images/1-sam_6012.jpg'">
+							<img src="Images/1-sam_6012.jpg" name="accueil" onmouseover="accueil.src='Images/1-sam_6012.jpg'" onmouseout="accueil.src='Images/1-sam_6012.jpg'" width="1950">
 						</center>
 						<br>
 						<br>
