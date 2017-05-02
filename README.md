@@ -22,6 +22,8 @@ Le projet est créé par :
  - Finir le client lourd
  - Finir le site web
  - Finir la base de donnée
+ - Sur le client lourd : Héritage de joueur, classe Personnel, classe Staff qui hérite de personnel.
+ - Mettre à jour base de données et MEA.
 
 License
 ----
