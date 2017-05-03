@@ -8,12 +8,15 @@ session_start();
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <!--Feuilles de style globale-->
 		<link rel = "stylesheet" type = "text/css" href = "CSS/bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet">
 		<!--Favicon-->
 		<link rel="shortcut icon" href="Images/logo-racing-academy-2016.png" />
          <!--Fonctions JavaScript-->
 		<script type="text/javascript">$(document).ready(function(){$("div.messConf").delay(2000).fadeOut();});</script>
 		<script type="text/javascript" src="JS/jquery.min.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
+		<script type="text/javascript" src="JS/bootstrap-dropdownhover.min.js"></script>
 	</HEAD>
 
      

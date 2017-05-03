@@ -37,7 +37,7 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" title="Equipe" href="#">&nbsp;Equipe&nbsp;
+						<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" title="Equipe" href="#">&nbsp;Equipe&nbsp;
 						<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 							  <li><a href="index.php?do=joueurs" title="Joueurs">&nbsp;Joueurs&nbsp;</a></li>
