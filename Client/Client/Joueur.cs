@@ -16,7 +16,7 @@ namespace Client
         private DateTime dateVenueClub;
         
 
-        public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub) : base(num, taille, poids, pied,dateVenueClub, age)
+        public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, int age, String biographie) : base(id, nom,prenom,dateNaiss,lieuNaiss,age, biographie)
         {
             this.num = num;
             this.taille = taille;
