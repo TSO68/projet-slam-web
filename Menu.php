@@ -1,6 +1,6 @@
 <!--Menu du site-->
 <header>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="margin-left: 382px; margin-right: 380px">
 	  <div class="container-fluid">
 		<div class="navbar-header">
 		  <a class="navbar-brand" href="index.php"><img src ='Images/logo-racing-academy-2016.png' style="position:relative; top:-15px; left:5px;" width='62px'/></a>
@@ -16,6 +16,7 @@
 					</ul>
 			</li>
 		  <li><a href="index.php?do=saison" title="Saison">&nbsp;Saison&nbsp;</a></li>
+		  <li><a href="index.php?do=boutique" title="Boutique">&nbsp;Boutique&nbsp;</a></li>
 		  <li><a href="index.php?do=contacts" title="Contacts">&nbsp;Contacts&nbsp;</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

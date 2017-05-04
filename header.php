@@ -1,14 +1,7 @@
 <!-------------- AFFICHAGE DU FORMULAIRE DE CONNEXION-------------->
 <div id='header'>
     <?php
-
-        //si l'utilisateur n'est pas connecté on le signal à l'utilisateur( !isset =si la variable n'est pas affectée )
-        if(!isset($_SESSION['login']))
-        {
-            echo "&nbsp;Vous n'êtes pas connecté(e) ! ";
-        }
-		//Sinon on affiche son identifiant et un lien de déconnexion
-        else
+        if(isset($_SESSION['login']))
         {
             echo '<img src="Images/membres.png"/>';
             echo "<strong>{$_SESSION['login']}</strong>";
@@ -47,11 +40,11 @@
 					</li>
 					<li><a href="index.php?do=saison" title="Saison">&nbsp;Saison&nbsp;</a></li>
 					<li><a href="index.php?do=connectionMembre" title="Espace membre">&nbsp;Espace membre&nbsp;</a></li>
-					<li><a href="index.php?do=panier" title="Panier">&nbsp;Panier&nbsp;</a></li>
 					<li><a href="index.php?do=contacts" title="Contacts">&nbsp;Contacts&nbsp;</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-				  <li><a href="index.php?do=connexion" title="Connexion"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Déconnexion&nbsp;</a></li>
+				  <li><a href="index.php?do=panier" title="Panier"> <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Panier&nbsp;</a></li>
+				  <li><a href="index.php?do=connexion" title="Déconnexion"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Déconnexion&nbsp;</a></li>
 				</ul>
 			  </div>
 			</nav>

@@ -1,20 +1,19 @@
 <center>
 	<table class="tabFooter">
 		<tr>
-			<td width='300px'>
+			<td width='200px'>
 				Site réalisé dans le cadre des projets à présenter en deuxième année de BTS SIO
-				<br/>
 				<br/>
 				<strong>HAUSHERR Victor, KAMMERER Timothée, KANAWATI Samy</strong>
 			</td>
 				
-			<td width='1000px'>
+			<td width='740px'>
 			<!--Redirection vers le haut de la page-->
 			<center><a href="#" title="Haut de page"><img src ='Images/retour_haut_page.png' width='150px'/></a></center>
 					
 			</td>
 				
-			<td width='300px'>
+			<td width='200px'>
 				<!--Localisation de la société-->
 				<address>
 					FC SIO<br/>
