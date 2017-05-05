@@ -10,12 +10,12 @@
 		color:#fff;
 	}
 	tr.head td:first-child{
-		 border-top-left-radius: 10px;
-		 border-bottom-left-radius: 10px;
+		 border-top-left-radius: 9px;
+		 border-bottom-left-radius: 9px;
 	}
 	tr.head td:last-child{
-		 border-top-right-radius: 10px;
-		 border-bottom-right-radius: 10px;
+		 border-top-right-radius: 9px;
+		 border-bottom-right-radius: 9px;
 	}
 </style>
 <br>
@@ -23,13 +23,15 @@
 	<p class="contour">
 		<table class="tabFooter">
 			<tr class="head">
-				<td width='200px' style="padding-left:5px">
-					Site réalisé dans le cadre des projets à présenter en deuxième année de BTS SIO
-					<br/>
-					<strong>HAUSHERR Victor, KAMMERER Timothée, KANAWATI Samy</strong>
+				<td width='200px'>
+					<div style="padding-left:5px">
+						Site réalisé dans le cadre des projets à présenter en deuxième année de BTS SIO
+						<br/>
+						<strong>HAUSHERR Victor, KAMMERER Timothée, KANAWATI Samy</strong>
+					</div>
 				</td>
 					
-				<td width='780px'>
+				<td width='1000px'>
 				<!--Redirection vers le haut de la page-->
 				<center><a href="#" title="Haut de page"><img src ='Images/retour_haut_page.png' width='150px'/></a></center>
 						
@@ -37,7 +39,7 @@
 					
 				<td width='200px'>
 					<!--Localisation de la société-->
-					<address  style="padding-left:35px">
+					<address>
 						FC SIO<br/>
 						42 avenue de l'Europe<br/>
 						68000 Colmar Cedex<br/>
