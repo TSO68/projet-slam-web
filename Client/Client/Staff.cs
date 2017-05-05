@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    class Staff
+    class Staff : Personnel
     {
+        private string role;
+        public Staff(String role, int id, string nom, string prenom, DateTime dateNaiss, string lieuNaiss, string biographie) : base(id, nom, prenom, dateNaiss, lieuNaiss, biographie)
+        {
+            this.Role = role;
+        }
+
+        public string Role
+        {
+            get
+            {
+                return role;
+            }
+
+            set
+            {
+                role = value;
+            }
+        }
     }
 }

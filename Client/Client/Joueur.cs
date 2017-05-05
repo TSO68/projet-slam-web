@@ -12,8 +12,8 @@ namespace Client
         private float taille;
         private float poids;
         private String pied;
-        private int agee;
         private DateTime dateVenueClub;
+        private int idRole;
         
 
         public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, int age, String biographie) : base(id, nom,prenom,dateNaiss,lieuNaiss,age, biographie)
