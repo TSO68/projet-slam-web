@@ -43,7 +43,7 @@ session_start();
 								</ol>
 
 								<!-- Wrapper for slides -->
-								<div class="carousel-inner">
+								<div class="carousel-inner" style="border-radius:10px">
 
 								  <div class="item active">
 									<img src="Images/rc2.jpg" alt="Bienvenue" style="width:100%;">
@@ -72,11 +72,11 @@ session_start();
 								</div>
 
 								<!-- Left and right controls -->
-								<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+								<a class="left carousel-control" href="#myCarousel" data-slide="prev" style="border-radius:10px">
 								  <span class="glyphicon glyphicon-chevron-left"></span>
 								  <span class="sr-only">Previous</span>
 								</a>
-								<a class="right carousel-control" href="#myCarousel" data-slide="next">
+								<a class="right carousel-control" href="#myCarousel" data-slide="next" style="border-radius:10px">
 								  <span class="glyphicon glyphicon-chevron-right"></span>
 								  <span class="sr-only">Next</span>
 								</a>
