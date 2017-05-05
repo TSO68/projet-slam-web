@@ -83,7 +83,6 @@ session_start();
 							  </div>
 							</div>
 						</center>
-						<br>
 					</div>
 			<?php		
 				}

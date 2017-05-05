@@ -1,6 +1,6 @@
 <style>
 	p.contour{
-		border:1px solid black; 
+		border:1px solid #080808; 
 		border-radius:10px; 
 		display:inline-block; 
 		width: 62%;
@@ -18,6 +18,7 @@
 		 border-bottom-right-radius: 10px;
 	}
 </style>
+<br>
 <center>
 	<p class="contour">
 		<table class="tabFooter">

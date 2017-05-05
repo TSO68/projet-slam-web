@@ -22,8 +22,8 @@
 	else
 	{
 	?>
-		<header>
-			<nav class="navbar navbar-inverse" style="display:inline-block; width: 62%;">
+		<center>
+			<nav class="navbar navbar-inverse" style="display:inline-block; width: 62%; background-color:#0F7ED2;">
 			  <div class="container-fluid">
 				<div class="navbar-header">
 				  <a class="navbar-brand" href="index.php"><img src ='Images/logo-racing-academy-2016.png' style="position:relative; top:-15px; left:5px;" width='62px'/></a>
@@ -48,7 +48,8 @@
 				</ul>
 			  </div>
 			</nav>
-		</header>
+		</center>
+		<br>
 	<?php
 	}
 ?>
