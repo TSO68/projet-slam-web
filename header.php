@@ -23,7 +23,7 @@
 	{
 	?>
 		<header>
-			<nav class="navbar navbar-inverse" style="margin-left: 382px; margin-right: 380px">
+			<nav class="navbar navbar-inverse" style="display:inline-block; width: 62%;">
 			  <div class="container-fluid">
 				<div class="navbar-header">
 				  <a class="navbar-brand" href="index.php"><img src ='Images/logo-racing-academy-2016.png' style="position:relative; top:-15px; left:5px;" width='62px'/></a>

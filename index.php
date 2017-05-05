@@ -8,12 +8,12 @@ session_start();
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <!--Feuilles de style globale-->
 		<link rel = "stylesheet" type = "text/css" href = "CSS/bootstrap-3.3.7-dist/css/bootstrap.css">
-		<link href="css/animate.min.css" rel="stylesheet">
-		<link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+		<link href="CSS/animate.min.css" rel="stylesheet">
+		<link href="CSS/bootstrap-dropdownhover.min.css" rel="stylesheet">
 		<!--Favicon-->
 		<link rel="shortcut icon" href="Images/logo-racing-academy-2016.png" />
          <!--Fonctions JavaScript-->
-		<script type="text/javascript">$(document).ready(function(){$("div.messConf").delay(2000).fadeOut();});</script>
+		<!--<script type="text/javascript">$(document).ready(function(){$("div.messConf").delay(2000).fadeOut();});</script>-->
 		<script type="text/javascript" src="JS/jquery.min.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
 		<script type="text/javascript" src="JS/bootstrap-dropdownhover.min.js"></script>
@@ -21,6 +21,7 @@ session_start();
 
      
     <BODY>
+		<body background="Images/bg-9-full.jpg">
         <div id ='page'>
             <!--En-tête-->
             <?php include('header.php');?>
@@ -32,7 +33,7 @@ session_start();
 			?>
 					 <div id='content'>
 						<center>
-							<div class="container" style="margin-top: -20px;">
+							<div class="container" style="margin-top: -20px; display:inline-block; width: 62%;padding-left:0px;padding-right:0px;">
 							  <div id="myCarousel" class="carousel slide" data-ride="carousel">
 								<!-- Indicators -->
 								<ol class="carousel-indicators">
