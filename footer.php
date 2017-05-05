@@ -1,5 +1,5 @@
 <style>
-	p.contour{
+	div.contour{
 		border:1px solid #080808; 
 		border-radius:10px; 
 		display:inline-block; 
@@ -20,7 +20,7 @@
 </style>
 <br>
 <center>
-	<p class="contour">
+	<div class="contour">
 		<table class="tabFooter">
 			<tr class="head">
 				<td width='200px'>
@@ -48,7 +48,7 @@
 				</td>
 			</tr>
 		</table> 
-	<p>	
+	<div>	
 </center>
 
 
