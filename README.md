@@ -18,12 +18,10 @@ Le projet est créé par :
   - Base de donnée regroupant les informations.
 
 # A faire
-[==                                   ]  3 %
- - Finir le client lourd
- - Finir le site web
- - Finir la base de donnée
- - Sur le client lourd : Héritage de joueur, classe Personnel, classe Staff qui hérite de personnel.
- - Mettre à jour base de données et MEA.
+[===                                  ]  5 %
+
+Les tâches à faire sont désormais organisées et stockées dans l'onglet "Projects". 
+Pour les consulter : https://github.com/vic1997/projet-slam-web/projects
 
 License
 ----
