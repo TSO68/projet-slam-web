@@ -87,11 +87,10 @@ session_start();
 			<?php		
 				}
 				else {
-					
 					switch($_GET['do']){
 						//exemple
-						case 'listeProduits':{
-							include("Controleur/ctrl_liste_articles.php");
+						case 'joueurs':{
+							include("Controleur/ctrl_liste_joueurs.php");
 							break;
 						}
 					}
