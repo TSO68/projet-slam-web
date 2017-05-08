@@ -41,7 +41,8 @@
 					ON joue.id_PERSONNEL=JOUEUR.id
 					INNER JOIN POSTE
 					ON joue.id=POSTE.id
-					WHERE PERSONNEL.id = :id";
+					WHERE PERSONNEL.id = :id
+					GROUP BY PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, dateVenueClub, POSTE.libelle, NATIONALITE.libelle, lien";
 			
 			//je prépare ma requête
 			$prep = $this->cx->prepare($req);
