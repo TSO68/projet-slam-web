@@ -19,7 +19,7 @@
 					ON joue.id_PERSONNEL=JOUEUR.id
 					INNER JOIN POSTE
 					ON joue.id=POSTE.id
-					ORDER BY POSTE.id DESC";
+					ORDER BY POSTE.id, num ASC";
 			$curseur=$this->cx->query($req);
 			return $curseur;
 		}

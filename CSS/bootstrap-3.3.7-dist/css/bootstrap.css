@@ -1143,6 +1143,11 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+.img-circle:hover {
+   background: #0F7ED2;
+   opacity:0.5;
+   
+}
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
