@@ -1,23 +1,3 @@
-<style>
-	div.contour{
-		border:1px solid #080808; 
-		border-radius:10px; 
-		display:inline-block; 
-		width: 62%;
-	}
-	tr.head td{
-		background-color:#0F7ED2;
-		color:#fff;
-	}
-	tr.head td:first-child{
-		 border-top-left-radius: 9px;
-		 border-bottom-left-radius: 9px;
-	}
-	tr.head td:last-child{
-		 border-top-right-radius: 9px;
-		 border-bottom-right-radius: 9px;
-	}
-</style>
 <br>
 <center>
 	<div class="contour">

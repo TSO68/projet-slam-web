@@ -7,5 +7,5 @@
 	$unJoueur=$j->findById($_GET['idJoueur']);
 	
 	//je passe la main à la vue
-	include("Vues/vue_detail_joueur.php");
+	include("Vue/vue_detail_joueur.php");
 ?>

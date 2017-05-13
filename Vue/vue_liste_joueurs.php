@@ -2,6 +2,7 @@
 		<?php
 			$poste="";
 			$tab=0;
+			echo "<div class=\"liste\">";
 			while($unJoueur=$lesJoueurs->fetch(PDO::FETCH_OBJ))
 			{
 				if( $unJoueur->libelle != $poste){
@@ -15,20 +16,22 @@
 					else{
 						$posteCorrige=$poste."s";
 					}
-					echo "<h1>".$posteCorrige."</h1>
+					echo "<h1 style=\"color:#931414\">".$posteCorrige."</h1>
 						<br>
-						<div class=\"row\" style=\"display:inline-block; width: 62%;\">";
+						<div class=\"row\">";
 					$tab=$tab+1;
 				}
 					echo "
 							<div class=\"col-lg-4\">
-								<a href=\"index.php?do=detail&idJoueur=".$unJoueur->num."\">
+								<a href=\"index.php?do=detail&idJoueur=".$unJoueur->id."\">
 									<img class=\"img-circle\" src=".$unJoueur->lien.">
 								</a>
-								<h2 style=\"color:#0c64a8\">".$unJoueur->num."</h2>
-								<h3>".$unJoueur->nom." ".$unJoueur->prenom."</h3>
+								<h2 style=\"color:#db1111; font-weight:900\">".$unJoueur->num."</h2>
+								<h3 style=\"color:#fff\">".$unJoueur->nom." ".$unJoueur->prenom."</h3>
+								<br>
 							</div>
 					";
 			}
+			echo "</div>";
 		?>
 </center>

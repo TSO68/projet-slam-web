@@ -4,6 +4,31 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.liste{
+		background-color:#0F7ED2;
+		border-radius: 10px;
+		border:1px solid #080808; 
+		display:inline-block; 
+		width: 62%;
+	}
+div.contour{
+		border:1px solid #080808; 
+		border-radius:10px; 
+		display:inline-block; 
+		width: 62%;
+	}
+	tr.head td{
+		background-color:#0F7ED2;
+		color:#fff;
+	}
+	tr.head td:first-child{
+		 border-top-left-radius: 9px;
+		 border-bottom-left-radius: 9px;
+	}
+	tr.head td:last-child{
+		 border-top-right-radius: 9px;
+		 border-bottom-right-radius: 9px;
+	}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1143,6 +1168,7 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
 .img-circle:hover {
    background: #0F7ED2;
    opacity:0.5;
@@ -1189,7 +1215,7 @@ h6,
 .h5,
 .h6 {
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.1;
   color: inherit;
 }
@@ -1229,6 +1255,7 @@ h3,
 .h3 {
   margin-top: 20px;
   margin-bottom: 10px;
+}
 }
 h1 small,
 .h1 small,

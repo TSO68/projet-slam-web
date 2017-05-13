@@ -31,6 +31,7 @@ session_start();
 					
 				if(!isset($_GET['do'])){
 			?>
+					<br>
 					 <div id='content'>
 						<center>
 							<div class="container" style="margin-top: -20px; display:inline-block; width: 62%;padding-left:0px;padding-right:0px;">
@@ -91,6 +92,10 @@ session_start();
 						//exemple
 						case 'joueurs':{
 							include("Controleur/ctrl_liste_joueurs.php");
+							break;
+						}
+						case 'detail':{
+							include("Controleur/ctrl_detail_joueur.php");
 							break;
 						}
 					}

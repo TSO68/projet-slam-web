@@ -10,7 +10,7 @@
 		
 		//Retourne un curseur contenant tous les joueurs et leurs role
 		public function readAll(){
-			$req = "SELECT PERSONNEL.nom, prenom, num, POSTE.libelle, lien
+			$req = "SELECT PERSONNEL.id, PERSONNEL.nom, prenom, num, POSTE.libelle, lien
 					FROM PHOTO INNER JOIN PERSONNEL
 					ON PHOTO.id=PERSONNEL.id_PHOTO
 					INNER JOIN JOUEUR
@@ -28,21 +28,21 @@
 		//on utilise ici la technique des requêtes préparées qui permettent d'éviter les injonctions SQL
 		public function findById($idJoueur){
 			//je reçois ma requête SQL
-			$req = "SELECT PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, dateVenueClub, POSTE.libelle, SUM(butMarques) as nbButs, SUM(passeDecisives) as nbPassesDe, SUM(cartonJauneON) as nbCartonsJaunes, SUM(cartonRougeON) as nbCartonsRouges, SUM(minutesJouees) as nbMinutesJouees, NATIONALITE.libelle, lien
+			$req = "SELECT PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, venueClub, POSTE.libelle, SUM(butMarques) as nbButs, SUM(passeDecisives) as nbPassesDe, SUM(cartonJauneON) as nbCartonsJaunes, SUM(cartonRougeON) as nbCartonsRouges, SUM(minutesJouees) as nbMinutesJouees, NATIONALITE.libelle, lien
 					FROM PHOTO INNER JOIN PERSONNEL
 					ON PHOTO.id=PERSONNEL.id_PHOTO
 					INNER JOIN NATIONALITE
 					ON NATIONALITE.id=PERSONNEL.id_NATIONALITE
 					INNER JOIN JOUEUR
 					ON PERSONNEL.id=JOUEUR.id
-					INNER JOIN participe
+					LEFT OUTER JOIN participe
 					ON JOUEUR.id=participe.id_PERSONNEL
 					INNER JOIN joue 
 					ON joue.id_PERSONNEL=JOUEUR.id
 					INNER JOIN POSTE
 					ON joue.id=POSTE.id
 					WHERE PERSONNEL.id = :id
-					GROUP BY PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, dateVenueClub, POSTE.libelle, NATIONALITE.libelle, lien";
+					GROUP BY PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, venueClub, POSTE.libelle, NATIONALITE.libelle, lien";
 			
 			//je prépare ma requête
 			$prep = $this->cx->prepare($req);
