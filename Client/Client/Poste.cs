@@ -13,14 +13,34 @@ namespace Client
 
         public Poste(int id, string libelle)
         {
-            this.id = id;
-            this.libelle = libelle;
+            this.Id = id;
+            this.Libelle = libelle;
         }
 
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
 
-       public String getRoleJoueur(int idJoueur)
-       {
-            return null;
-       }
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string Libelle
+        {
+            get
+            {
+                return libelle;
+            }
+
+            set
+            {
+                libelle = value;
+            }
+        }
     }
 }

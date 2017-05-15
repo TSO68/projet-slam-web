@@ -14,6 +14,7 @@ namespace Client
         private String pied;
         private DateTime dateVenueClub;
         private int idRole;
+        private Poste lePoste;
         
 
         public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, int age, String biographie) : base(id, nom,prenom,dateNaiss,lieuNaiss,age, biographie)
@@ -89,6 +90,10 @@ namespace Client
             {
                 dateVenueClub = value;
             }
+        }
+        public String getRole(int id)
+        {
+            return lePoste.Libelle;
         }
     }
 }

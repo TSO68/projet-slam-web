@@ -90,19 +90,6 @@ namespace Client
             }
         }
 
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-
-            set
-            {
-                age = value;
-            }
-        }
-
         public string Biographie
         {
             get
