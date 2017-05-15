@@ -22,6 +22,7 @@
 	else
 	{
 	?>
+	<header>
 		<center>
 			<nav class="navbar navbar-inverse" style="display:inline-block; width: 62%; background-color:#0F7ED2;">
 			  <div class="container-fluid">
@@ -34,7 +35,7 @@
 						<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 							  <li><a href="index.php?do=joueurs" title="Joueurs">&nbsp;Joueurs&nbsp;</a></li>
-							  <li><a href="index.php?do=staff" title="Staff">&nbsp;Staff&nbsp;</a></li>
+							  <li><a href="index.php?do=staffs" title="Staff">&nbsp;Staff&nbsp;</a></li>
 							  <li><a href="index.php?do=stade" title="Stade">&nbsp;Stade&nbsp;</a></li>
 							</ul>
 					</li>
@@ -50,6 +51,7 @@
 			</nav>
 		</center>
 		<br>
+	</header>
 	<?php
 	}
 ?>

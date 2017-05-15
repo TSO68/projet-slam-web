@@ -16,7 +16,7 @@
 					else{
 						$posteCorrige=$poste."s";
 					}
-					echo "<h1 style=\"color:#931414; font-weight:700\">".$posteCorrige."</h1>
+					echo "<h1 style=\"color:#db1111; font-weight:700\">".$posteCorrige."</h1>
 						<br>
 						<div class=\"row\">";
 					$tab=$tab+1;

@@ -98,6 +98,14 @@ session_start();
 							include("Controleur/ctrl_detail_joueur.php");
 							break;
 						}
+						case 'staffs':{
+							include("Controleur/ctrl_liste_staff.php");
+							break;
+						}
+						case 'detailStaff':{
+							include("Controleur/ctrl_detail_staff.php");
+							break;
+						}
 					}
 				}
 			?>			
