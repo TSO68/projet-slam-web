@@ -28,7 +28,7 @@
 		//on utilise ici la technique des requêtes préparées qui permettent d'éviter les injonctions SQL
 		public function findById($idJoueur){
 			//je reçois ma requête SQL
-			$req = "SELECT PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, venueClub, POSTE.libelle, SUM(butMarques) as nbButs, SUM(passeDecisives) as nbPassesDe, SUM(cartonJauneON) as nbCartonsJaunes, SUM(cartonRougeON) as nbCartonsRouges, SUM(minutesJouees) as nbMinutesJouees, NATIONALITE.libelle, lien
+			$req = "SELECT PERSONNEL.nom, prenom, dateNaiss, lieuNaiss, biographie, num, taille, poids, pied, venueClub, POSTE.libelle, SUM(butMarques) as nbButs, SUM(passeDecisives) as nbPassesDe, SUM(cartonJauneON) as nbCartonsJaunes, SUM(cartonRougeON) as nbCartonsRouges, SUM(minutesJouees) as nbMinutesJouees, NATIONALITE.libelle AS libelleNat, lien, COUNT(participe.id_PERSONNEL) AS nbMatchsJoues
 					FROM PHOTO INNER JOIN PERSONNEL
 					ON PHOTO.id=PERSONNEL.id_PHOTO
 					INNER JOIN NATIONALITE
