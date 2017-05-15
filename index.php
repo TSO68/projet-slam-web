@@ -4,7 +4,7 @@ session_start();
 
 <HTML>
     <HEAD>
-        <TITLE>Accueil</TITLE>
+        <TITLE>Projet Slam</TITLE>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <!--Feuilles de style globale-->
 		<link rel = "stylesheet" type = "text/css" href = "CSS/bootstrap-3.3.7-dist/css/bootstrap.css">

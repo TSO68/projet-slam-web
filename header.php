@@ -16,7 +16,7 @@
     //Si l'utilisateur n'est pas connecté on affiche le menu complet
     if(!isset($_SESSION['login']))
     {
-		include('menu.php');
+		include('Menu.php');
     }
     //Sinon l'utilisateur est connecté, on supprime l'accès a la page inscription
 	else
