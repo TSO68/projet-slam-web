@@ -21,7 +21,7 @@ session_start();
 
      
     <BODY>
-		<body background="Images/bg-9-full.jpg">
+		<body background="Images/bg-9-full.png">
         <div id ='page'>
             <!--En-tête-->
             <?php include('header.php');?>
