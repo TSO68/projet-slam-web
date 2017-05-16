@@ -106,6 +106,10 @@ session_start();
 							include("Controleur/ctrl_detail_staff.php");
 							break;
 						}
+						case 'stade':{
+							include("Vue/vue_stade.php");
+							break;
+						}
 					}
 				}
 			?>			
