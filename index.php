@@ -110,6 +110,10 @@ session_start();
 							include("Vue/vue_stade.php");
 							break;
 						}
+						case 'contacts':{
+							include("Vue/vue_contacts.php");
+							break;
+						}
 					}
 				}
 			?>			

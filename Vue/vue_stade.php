@@ -8,30 +8,30 @@
 			<div class="col-md-5">
 				<br>
 				<br>
-				<img class="img-rounded" src="http://perso.wanadoo.fr/demeraux.jerome/Cartes/Colombes.jpg" >
+				<img class="img-rounded" style="margin-left:10%; margin-right:10%; max-width: 80%;" src="http://perso.wanadoo.fr/demeraux.jerome/Cartes/Colombes.jpg" >
 			</div>
 		</div>
 		<hr class="featurette-divider">
 		<div class="row featurette">
 			<div class="col-md-7 col-md-push-5" align="left">
-				<h2 class="featurette-heading" style="color:#db1111; margin-left:2%">Description</h2>
+				<h2 class="featurette-heading">Description</h2>
 				<p class="lead" style="color:#fff; text-align: justify; margin-right:2%; margin-left:2%">Le stade possède une capacité de 29 320 places dont 24 320 assises. La Meinau est, en 2016, le seizième plus grand stade français au nombre de places proposées (quatorzième rang national des stades de football puisque Gerland et Chaban-Delmas sont désormais destinés au rugby). Principal équipement sportif de la ville, stade du RC Strasbourg, l'enceinte accueille ponctuellement d'autres évènements sportifs ou culturels. Le stade se situe dans le quartier de la Meinau aux bords du Krimmeri.</p>
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<br>
-				<img class="img-rounded" height="280" width="382" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg/660px-Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg.png">
+				<img class="img-rounded" height="280" width="382" style="margin-left:10%; margin-right:10%; max-width: 80%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg/660px-Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg.png">
 			</div>
       </div>
 	  <hr class="featurette-divider">
 	  <div class="row featurette">
 			<div class="col-md-7" align="left">
-				<h2 class="featurette-heading" style="color:#db1111; margin-left:2%">Accès, desserte et transports</h2>
+				<h2 class="featurette-heading">Accès, desserte et transports</h2>
 				<p class="lead" style="color:#fff; text-align: justify; margin-left:2%; margin-right:2%">Le stade est desservi par le réseau de bus de la Compagnie des transports strasbourgeois (CTS). Il est également accessible depuis l'arrêt "Krimmeri Stade de la Meinau" de la ligne A du réseau de tramway de la ville. De plus, la gare de Strasbourg-Krimmeri-Meinau, appartenant au réseau SNCF, est située à proximité du stade. En voiture, le stade est accessible depuis le réseau autoroutier par la sortie numéro 5 « Baggersee » de l'A35 et dispose d'un parking d'une capacité estimée à mille places de stationnement. Enfin, le stade se trouve à seize kilomètres de l'aéroport de Strasbourg Entzheim. </p>
 			</div>
 			<div class="col-md-5">
 				<br>
 				<br>
-				<div id="googleMap" style="width:382px;height:280px; border-radius: 6px; margin-bottom:10%"></div>
+				<div id="googleMap" style="width:382px;height:280px; border-radius: 6px; margin-bottom:10%; margin-left:10%; margin-right:10%; max-width: 80%;"></div>
 			</div>
 		</div>
 
