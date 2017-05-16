@@ -80,6 +80,7 @@ CREATE TABLE MATCHS(
 CREATE TABLE ADVERSAIRE(
         id       int (11) Auto_increment  NOT NULL ,
         libelle  Varchar (25) ,
+        logo     Varchar (25) ,
         id_STADE Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
@@ -115,6 +116,7 @@ CREATE TABLE POSTE(
 CREATE TABLE PRODUIT(
         id          int (11) Auto_increment  NOT NULL ,
         nom         Varchar (25) ,
+        image       Varchar (25) ,
         prix        Float ,
         description Varchar (25) ,
         PRIMARY KEY (id )
@@ -138,7 +140,6 @@ CREATE TABLE TAILLE(
 
 CREATE TABLE PHOTO(
         id           int (11) Auto_increment  NOT NULL ,
-        nom          Varchar (25) ,
         lien         Varchar (25) ,
         id_PERSONNEL Int ,
         PRIMARY KEY (id )
