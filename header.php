@@ -39,7 +39,7 @@
 							  <li><a href="index.php?do=stade" title="Stade">&nbsp;Stade&nbsp;</a></li>
 							</ul>
 					</li>
-					<li><a href="index.php?do=saison" title="Saison">&nbsp;Saison&nbsp;</a></li>
+					<li><a href="index.php?do=matchs" title="Saison">&nbsp;Saison&nbsp;</a></li>
 					<li><a href="index.php?do=connectionMembre" title="Espace membre">&nbsp;Espace membre&nbsp;</a></li>
 					<li><a href="index.php?do=contacts" title="Contacts">&nbsp;Contacts&nbsp;</a></li>
 				</ul>

@@ -24,7 +24,7 @@
 						  <li><a href="index.php?do=stade" title="Stade">&nbsp;Stade&nbsp;</a></li>
 						</ul>
 				</li>
-			  <li><a href="index.php?do=saison" title="Saison">&nbsp;Saison&nbsp;</a></li>
+			  <li><a href="index.php?do=matchs" title="Saison">&nbsp;Saison&nbsp;</a></li>
 			  <li><a href="index.php?do=boutique" title="Boutique">&nbsp;Boutique&nbsp;</a></li>
 			  <li><a href="index.php?do=contacts" title="Contacts">&nbsp;Contacts&nbsp;</a></li>
 			</ul>

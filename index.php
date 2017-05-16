@@ -114,6 +114,10 @@ session_start();
 							include("Vue/vue_contacts.php");
 							break;
 						}
+						case 'matchs':{
+							include("Controleur/ctrl_liste_matchs.php");
+							break;
+						}
 					}
 				}
 			?>			
