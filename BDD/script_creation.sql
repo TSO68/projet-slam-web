@@ -8,12 +8,13 @@
 #------------------------------------------------------------
 
 CREATE TABLE JOUEUR(
-        num           Int ,
-        taille        Float ,
-        poids         Float ,
-        pied          Varchar (25) ,
-        dateVenueClub Date ,
-        id            Int NOT NULL ,
+        num       Int ,
+        taille    Float ,
+        poids     Float ,
+        pied      Varchar (25) ,
+        venueClub Varchar (25) ,
+        id        Int NOT NULL ,
+        id_POSTE  Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
 
@@ -40,8 +41,8 @@ CREATE TABLE PERSONNEL(
 #------------------------------------------------------------
 
 CREATE TABLE STAFF(
-        role Varchar (25) ,
-        id   Int NOT NULL ,
+        id      Int NOT NULL ,
+        id_ROLE Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
 
@@ -64,9 +65,7 @@ CREATE TABLE NATIONALITE(
 CREATE TABLE MATCHS(
         id            int (11) Auto_increment  NOT NULL ,
         dateMatch     Date ,
-        heure         Datetime ,
-        scoreDom      Int ,
-        scoreExt      Int ,
+        heure         Time ,
         exterieurON   Bool ,
         id_STADE      Int ,
         id_ADVERSAIRE Int ,
@@ -171,7 +170,18 @@ CREATE TABLE COMPTE(
 CREATE TABLE COMMANDE(
         id           int (11) Auto_increment  NOT NULL ,
         dateCommande Date ,
-        id_COMPTE    Int ,
+        id_COMPTE    Int NOT NULL ,
+        PRIMARY KEY (id ,id_COMPTE )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: ROLE
+#------------------------------------------------------------
+
+CREATE TABLE ROLE(
+        id      int (11) Auto_increment  NOT NULL ,
+        libelle Varchar (25) ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
 
@@ -188,17 +198,6 @@ CREATE TABLE participe(
         minutesJouees  Int ,
         id             Int NOT NULL ,
         id_PERSONNEL   Int NOT NULL ,
-        PRIMARY KEY (id ,id_PERSONNEL )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: joue
-#------------------------------------------------------------
-
-CREATE TABLE joue(
-        id           Int NOT NULL ,
-        id_PERSONNEL Int NOT NULL ,
         PRIMARY KEY (id ,id_PERSONNEL )
 )ENGINE=InnoDB;
 
@@ -221,13 +220,16 @@ CREATE TABLE fait(
 CREATE TABLE contient(
         id          Int NOT NULL ,
         id_COMMANDE Int NOT NULL ,
-        PRIMARY KEY (id ,id_COMMANDE )
+        id_COMPTE   Int NOT NULL ,
+        PRIMARY KEY (id ,id_COMMANDE ,id_COMPTE )
 )ENGINE=InnoDB;
 
 ALTER TABLE JOUEUR ADD CONSTRAINT FK_JOUEUR_id FOREIGN KEY (id) REFERENCES PERSONNEL(id);
+ALTER TABLE JOUEUR ADD CONSTRAINT FK_JOUEUR_id_POSTE FOREIGN KEY (id_POSTE) REFERENCES POSTE(id);
 ALTER TABLE PERSONNEL ADD CONSTRAINT FK_PERSONNEL_id_NATIONALITE FOREIGN KEY (id_NATIONALITE) REFERENCES NATIONALITE(id);
 ALTER TABLE PERSONNEL ADD CONSTRAINT FK_PERSONNEL_id_PHOTO FOREIGN KEY (id_PHOTO) REFERENCES PHOTO(id);
 ALTER TABLE STAFF ADD CONSTRAINT FK_STAFF_id FOREIGN KEY (id) REFERENCES PERSONNEL(id);
+ALTER TABLE STAFF ADD CONSTRAINT FK_STAFF_id_ROLE FOREIGN KEY (id_ROLE) REFERENCES ROLE(id);
 ALTER TABLE MATCHS ADD CONSTRAINT FK_MATCHS_id_STADE FOREIGN KEY (id_STADE) REFERENCES STADE(id);
 ALTER TABLE MATCHS ADD CONSTRAINT FK_MATCHS_id_ADVERSAIRE FOREIGN KEY (id_ADVERSAIRE) REFERENCES ADVERSAIRE(id);
 ALTER TABLE ADVERSAIRE ADD CONSTRAINT FK_ADVERSAIRE_id_STADE FOREIGN KEY (id_STADE) REFERENCES STADE(id);
@@ -235,9 +237,8 @@ ALTER TABLE PHOTO ADD CONSTRAINT FK_PHOTO_id_PERSONNEL FOREIGN KEY (id_PERSONNEL
 ALTER TABLE COMMANDE ADD CONSTRAINT FK_COMMANDE_id_COMPTE FOREIGN KEY (id_COMPTE) REFERENCES COMPTE(id);
 ALTER TABLE participe ADD CONSTRAINT FK_participe_id FOREIGN KEY (id) REFERENCES MATCHS(id);
 ALTER TABLE participe ADD CONSTRAINT FK_participe_id_PERSONNEL FOREIGN KEY (id_PERSONNEL) REFERENCES PERSONNEL(id);
-ALTER TABLE joue ADD CONSTRAINT FK_joue_id FOREIGN KEY (id) REFERENCES POSTE(id);
-ALTER TABLE joue ADD CONSTRAINT FK_joue_id_PERSONNEL FOREIGN KEY (id_PERSONNEL) REFERENCES PERSONNEL(id);
 ALTER TABLE fait ADD CONSTRAINT FK_fait_id FOREIGN KEY (id) REFERENCES PRODUIT(id);
 ALTER TABLE fait ADD CONSTRAINT FK_fait_id_TAILLE FOREIGN KEY (id_TAILLE) REFERENCES TAILLE(id);
 ALTER TABLE contient ADD CONSTRAINT FK_contient_id FOREIGN KEY (id) REFERENCES PRODUIT(id);
 ALTER TABLE contient ADD CONSTRAINT FK_contient_id_COMMANDE FOREIGN KEY (id_COMMANDE) REFERENCES COMMANDE(id);
+ALTER TABLE contient ADD CONSTRAINT FK_contient_id_COMPTE FOREIGN KEY (id_COMPTE) REFERENCES COMPTE(id);

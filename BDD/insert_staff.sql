@@ -1,11 +1,11 @@
-INSERT INTO STAFF (role, id) VALUES
-('Président', 31),
-('Entraîneur', 32),
-('Entraîneur-Adjoint', 33),
-('Entraîneur-Adjoint', 34),
-('Entraîneur des gardiens', 35),
-('Préparateur Physique', 36),
-('Team Manager', 37),
-('Médecin', 38),
-('Kinésithérapeuthe', 39),
-('Ostéopathe', 40);
+INSERT INTO `STAFF` (`id`, `id_ROLE`) VALUES
+(31, 1),
+(32, 2),
+(33, 3),
+(34, 3),
+(35, 4),
+(36, 5),
+(37, 6),
+(38, 7),
+(39, 8),
+(40, 9);
