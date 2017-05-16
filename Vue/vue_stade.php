@@ -55,6 +55,6 @@
 			
 		</script>
 
-		<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAofwdDf5UQftH_1BJyfTyz00tnc9uwAAQ&callback=myMap"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofwdDf5UQftH_1BJyfTyz00tnc9uwAAQ&callback=myMap"></script>
 	</div>
 </center>
