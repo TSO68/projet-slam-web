@@ -122,6 +122,11 @@ session_start();
 							include("Controleur/ctrl_detail_match.php");
 							break;
 						}
+						case 'inscription':{
+
+							include("Controleur/ctrl_inscription.php");
+							break;
+						}
 					}
 				}
 			?>			
