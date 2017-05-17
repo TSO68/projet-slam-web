@@ -18,7 +18,7 @@ Le projet est créé par :
   - Base de donnée regroupant les informations.
 
 # A faire
-[===                                  ]  5 %
+[==========                           ]  24 %
 
 Les tâches à faire sont désormais organisées et stockées dans l'onglet "Projects". 
 Pour les consulter : https://github.com/vic1997/projet-slam-web/projects
