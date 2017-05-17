@@ -1166,6 +1166,8 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
+  min-width: 50px;
+  min-height: 50px;
   height: auto;
 }
 .img-rounded {

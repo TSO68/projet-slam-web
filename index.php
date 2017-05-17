@@ -118,6 +118,10 @@ session_start();
 							include("Controleur/ctrl_liste_matchs.php");
 							break;
 						}
+						case 'detailsMatch':{
+							include("Controleur/ctrl_detail_match.php");
+							break;
+						}
 					}
 				}
 			?>			

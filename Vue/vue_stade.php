@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-md-5 col-md-pull-7">
 				<br>
-				<img class="img-rounded" height="280" width="382" style="margin-left:10%; margin-right:10%; max-width: 80%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg/660px-Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg.png">
+				<img class="img-rounded" height="280" width="382" style="margin-left:10%; margin-right:10%; max-width: 80%; height:auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg/660px-Stade_de_la_Meinau_-_Strasbourg_-_map-fr.svg.png">
 			</div>
       </div>
 	  <hr class="featurette-divider">
