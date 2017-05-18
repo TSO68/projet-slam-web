@@ -54,11 +54,15 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Joueur.cs" />
+    <Compile Include="JoueurDAO.cs" />
     <Compile Include="Personnel.cs" />
+    <Compile Include="PersonnelDAO.cs" />
     <Compile Include="Poste.cs" />
+    <Compile Include="PosteDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff.cs" />
+    <Compile Include="StaffDAO.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -19,8 +19,8 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            MessageBox.Show("Connecté sur "+ cnGC.DataSource +"-->"+ cnGC.Database);
+           // Connexion c;
+           // MessageBox.Show("Connecté sur "+ c.DataSource +"-->"+ c.Database);
         }
     }
 }

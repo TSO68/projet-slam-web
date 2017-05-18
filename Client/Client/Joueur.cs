@@ -13,11 +13,11 @@ namespace Client
         private float poids;
         private String pied;
         private DateTime dateVenueClub;
-        private int idRole;
+
         private Poste lePoste;
         
 
-        public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, int age, String biographie) : base(id, nom,prenom,dateNaiss,lieuNaiss,age, biographie)
+        public Joueur(int num, float taille, float poids, string pied, DateTime dateVenueClub, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, int age, String biographie) : base(id, nom,prenom,dateNaiss,lieuNaiss, biographie)
         {
             this.num = num;
             this.taille = taille;
@@ -91,9 +91,18 @@ namespace Client
                 dateVenueClub = value;
             }
         }
-        public String getRole(int id)
+
+        public String getLePoste
         {
-            return lePoste.Libelle;
+            get
+            {
+                return lePoste.Libelle;
+            }
+
+            set
+            {
+                lePoste.Libelle = value;
+            }
         }
     }
 }

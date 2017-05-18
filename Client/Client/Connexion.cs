@@ -19,13 +19,13 @@ namespace Client
             if (c == null)
             {
                 String chaineDeConnexion;
-                chaineDeConnexion = "Data Source front-ha-mysql-01.shpv.fr;"
+                chaineDeConnexion = "Data Source=front-ha-mysql-01.shpv.fr;"
                  +
                 "Initial Catalog=rnsycxun_projet_slam_bdd;"
                  +
                 "User ID=rnsycxun_root;"
                  +
-                "Password=admin68";
+                "Password=admin68;";
                 c = new SqlConnection(chaineDeConnexion);
                 c.Open();
 
