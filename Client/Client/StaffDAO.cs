@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Client
 {
     class StaffDAO
     {
-        private SqlConnection c;
+        private MySqlConnection c;
 
         public StaffDAO()
         {
@@ -20,20 +21,20 @@ namespace Client
 
         public void create(Staff s)
         {
-            SqlCommand cmd;
-            String req = "INSERT INTO Staff VALUES ('" + s.Role + "')";
+            MySqlCommand cmd;
+            String req = "INSERT INTO STAFF VALUES ('" + s.Role + "')";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
 
         public bool update(Staff s)
         {
-            SqlCommand cmd;
-            String req = "UPDATE Staff SET nom='" + s.Role + "'";
+            MySqlCommand cmd;
+            String req = "UPDATE STAFF SET nom='" + s.Role + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -49,10 +50,10 @@ namespace Client
 
         public bool delete(Staff s)
         {
-            SqlCommand cmd;
-            String req = "DELETE FROM Staff WHERE id='" + s.Id + "'";
+            MySqlCommand cmd;
+            String req = "DELETE FROM STAFF WHERE id='" + s.Id + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -68,10 +69,10 @@ namespace Client
 
         public Staff findById(String code)
         {
-            SqlCommand cmd;
-            String req = "SELECT * FROM Staff WHERE id='" + code + "'";
-            cmd = new SqlCommand(req, this.c);
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlCommand cmd;
+            String req = "SELECT * FROM STAFF WHERE id='" + code + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             Staff m = null;
             if (dr.Read())
@@ -85,11 +86,11 @@ namespace Client
         public List<Staff> readAll()
         {
             List<Staff> lesStaffs = new List<Staff>();
-            SqlCommand cmd;
-            String req = "SELECT * FROM Staff";
-            cmd = new SqlCommand(req, this.c);
+            MySqlCommand cmd;
+            String req = "SELECT * FROM STAFF";
+            cmd = new MySqlCommand(req, this.c);
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {

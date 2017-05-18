@@ -4,36 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using MySql.Data.MySqlClient;
 namespace Client
 {
     class JoueurDAO
     {
-        private SqlConnection c;
+        private MySqlConnection c;
 
         public JoueurDAO()
         {
             this.c = Connexion.getIntstance();
         }
 
-
+        
 
         public void create(Joueur j)
         {
-            SqlCommand cmd;
-            String req = "INSERT INTO Joueur VALUES ('" + j.Id + "','" + j.Nom + "','" + j.Prenom + "','" + j.DateNaiss + "','" + j.LieuNaiss + "','" + j.Biographie + "')";
+            MySqlCommand cmd;
+            String req = "INSERT INTO JOUEUR VALUES ('" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied+ "','" + j.DateVenueClub+ "')";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
 
         public bool update(Joueur j)
         {
-            SqlCommand cmd;
-            String req = "UPDATE Joueur SET nom='" + j.Nom + "', prenom='" + j.Prenom + "', dateNaiss='" + j.DateNaiss + "', lieuNaiss='" + j.LieuNaiss + "', biographie='" + j.Biographie + "' WHERE mag_num='" + j.Id + "'";
+            MySqlCommand cmd;
+            String req = "UPDATE JOUEUR SET taille='" + j.Taille + "', poids='" + j.Poids + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE num='" + j.Num + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -49,10 +49,10 @@ namespace Client
 
         public bool delete(Joueur j)
         {
-            SqlCommand cmd;
-            String req = "DELETE FROM Joueur WHERE id='" + j.Id + "'";
+            MySqlCommand cmd;
+            String req = "DELETE FROM JOUEUR WHERE num='" + j.Num + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -68,11 +68,11 @@ namespace Client
 
         public Joueur findById(String code)
         {
-            SqlCommand cmd;
-            String req = "SELECT * FROM Joueur WHERE id='" + code + "'";
-            cmd = new SqlCommand(req, this.c);
-            SqlDataReader dr = cmd.ExecuteReader();
-
+            MySqlCommand cmd;
+            String req = "SELECT * FROM JOUEUR WHERE num='" + code + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            
             Joueur m = null;
             if (dr.Read())
             {//je peux le faire
@@ -85,11 +85,11 @@ namespace Client
         public List<Joueur> readAll()
         {
             List<Joueur> lesJoueurs = new List<Joueur>();
-            SqlCommand cmd;
-            String req = "SELECT * FROM Joueur";
-            cmd = new SqlCommand(req, this.c);
+            MySqlCommand cmd;
+            String req = "SELECT * FROM JOUEUR";
+            cmd = new MySqlCommand(req, this.c);
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {

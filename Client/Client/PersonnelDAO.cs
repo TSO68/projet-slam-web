@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Client
 {
     class PersonnelDAO
     {
-        private SqlConnection c;
+        private MySqlConnection c;
 
         public PersonnelDAO()
         {
@@ -20,20 +21,20 @@ namespace Client
 
         public void create(Personnel p)
         {
-            SqlCommand cmd;
-            String req = "INSERT INTO Personnel VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prenom + "','" + p.DateNaiss + "','" + p.LieuNaiss + "','" + p.Biographie + "')";
+            MySqlCommand cmd;
+            String req = "INSERT INTO PERSONNEL VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prenom + "','" + p.DateNaiss + "','" + p.LieuNaiss + "','" + p.Biographie + "')";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
 
         public bool update(Personnel p)
         {
-            SqlCommand cmd;
-            String req = "UPDATE Personnel SET nom='" + p.Nom + "', prenom='" + p.Prenom + "', dateNaiss='" + p.DateNaiss + "', lieuNaiss='" + p.LieuNaiss + "', biographie='" + p.Biographie + "' WHERE mag_num='" + p.Id + "'";
+            MySqlCommand cmd;
+            String req = "UPDATE PERSONNEL SET nom='" + p.Nom + "', prenom='" + p.Prenom + "', dateNaiss='" + p.DateNaiss + "', lieuNaiss='" + p.LieuNaiss + "', biographie='" + p.Biographie + "' WHERE mag_num='" + p.Id + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -49,10 +50,10 @@ namespace Client
 
         public bool delete(Personnel p)
         {
-            SqlCommand cmd;
-            String req = "DELETE FROM Personnel WHERE id='" + p.Id + "'";
+            MySqlCommand cmd;
+            String req = "DELETE FROM PERSONNEL WHERE id='" + p.Id + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -68,10 +69,10 @@ namespace Client
 
         public Personnel findById(String code)
         {
-            SqlCommand cmd;
-            String req = "SELECT * FROM Personnel WHERE id='" + code + "'";
-            cmd = new SqlCommand(req, this.c);
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlCommand cmd;
+            String req = "SELECT * FROM PERSONNEL WHERE id='" + code + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             Personnel m = null;
             if (dr.Read())
@@ -85,11 +86,11 @@ namespace Client
         public List<Personnel> readAll()
         {
             List<Personnel> lesPersonnels = new List<Personnel>();
-            SqlCommand cmd;
-            String req = "SELECT * FROM Personnel";
-            cmd = new SqlCommand(req, this.c);
+            MySqlCommand cmd;
+            String req = "SELECT * FROM PERSONNEL";
+            cmd = new MySqlCommand(req, this.c);
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {

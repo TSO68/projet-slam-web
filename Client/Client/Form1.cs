@@ -19,8 +19,8 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // Connexion c;
-           // MessageBox.Show("Connecté sur "+ c.DataSource +"-->"+ c.Database);
+            JoueurDAO perso = new JoueurDAO();
+            MessageBox.Show("Connecté\n\n"+perso.findById("1").Prenom+" "+perso.findById("1").Nom+" "+perso.findById("1").getLePoste+" "+perso.findById("1").Taille);
         }
     }
 }

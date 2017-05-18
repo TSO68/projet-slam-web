@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Client
 {
     class PosteDAO
     {
-        private SqlConnection c;
+        private MySqlConnection c;
 
         public PosteDAO()
         {
@@ -20,20 +21,20 @@ namespace Client
 
         public void create(Poste p)
         {
-            SqlCommand cmd;
-            String req = "INSERT INTO Poste VALUES ('" + p.Id + "','" + p.Libelle + "')";
+            MySqlCommand cmd;
+            String req = "INSERT INTO POSTE VALUES ('" + p.Id + "','" + p.Libelle + "')";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
 
         public bool update(Poste p)
         {
-            SqlCommand cmd;
-            String req = "UPDATE Poste SET nom='" + p.Id + "', prenom='" + p.Libelle + "'";
+            MySqlCommand cmd;
+            String req = "UPDATE POSTE SET nom='" + p.Id + "', prenom='" + p.Libelle + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -49,10 +50,10 @@ namespace Client
 
         public bool delete(Poste p)
         {
-            SqlCommand cmd;
-            String req = "DELETE FROM Poste WHERE id='" + p.Id + "'";
+            MySqlCommand cmd;
+            String req = "DELETE FROM POSTE WHERE id='" + p.Id + "'";
 
-            cmd = new SqlCommand(req, this.c);
+            cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
             {
@@ -68,10 +69,10 @@ namespace Client
 
         public Poste findById(String code)
         {
-            SqlCommand cmd;
-            String req = "SELECT * FROM Poste WHERE id='" + code + "'";
-            cmd = new SqlCommand(req, this.c);
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlCommand cmd;
+            String req = "SELECT * FROM POSTE WHERE id='" + code + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             Poste m = null;
             if (dr.Read())
@@ -85,11 +86,11 @@ namespace Client
         public List<Poste> readAll()
         {
             List<Poste> lesPostes = new List<Poste>();
-            SqlCommand cmd;
-            String req = "SELECT * FROM Poste";
-            cmd = new SqlCommand(req, this.c);
+            MySqlCommand cmd;
+            String req = "SELECT * FROM POSTE";
+            cmd = new MySqlCommand(req, this.c);
 
-            SqlDataReader dr = cmd.ExecuteReader();
+            MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {

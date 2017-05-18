@@ -6,27 +6,28 @@ using System.Threading.Tasks;
 using System.Data.SqlClient; //bibliothèques à importer
 using System.Data.Odbc;
 using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace Client
 {
     class Connexion
     {
-        private static SqlConnection c;
+        private static MySqlConnection c;
         private Connexion() { } // Constructeur privé vide
 
-        public static SqlConnection getIntstance()
+        public static MySqlConnection getIntstance()
         {
             if (c == null)
             {
                 String chaineDeConnexion;
-                chaineDeConnexion = "Data Source=front-ha-mysql-01.shpv.fr;"
+                chaineDeConnexion = "server=front-ha-mysql-01.shpv.fr;" // serveur
                  +
-                "Initial Catalog=rnsycxun_projet_slam_bdd;"
+                "database=rnsycxun_projet_slam_bdd;" // nom de la base de données
                  +
-                "User ID=rnsycxun_root;"
+                "uid=rnsycxun_root;" // nom de compte
                  +
-                "Password=admin68;";
-                c = new SqlConnection(chaineDeConnexion);
+                "pwd=admin68;"; // mot de passe
+                c = new MySqlConnection(chaineDeConnexion);
                 c.Open();
 
             }
