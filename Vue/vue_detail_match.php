@@ -46,7 +46,7 @@
 									<td>
 										<img class=\"img-responsive\" width=100; heigth=100; src=\"".$logoDom."\"></img>
 									</td>
-									<td align=\"center\"><h4>".$unMatch->scoreDom." - ".$unMatch->scoreExt."</h4></td>
+									<td align=\"center\" style=\"min-width: 50px\"><h3>".$unMatch->scoreDom." - ".$unMatch->scoreExt."</h3></td>
 									<td>
 										<img class=\"img-responsive\" width=100; heigth=100; src=\"".$logoExt."\"></img>
 									</td>";
@@ -97,7 +97,7 @@
 						$resume=$resume.", ".$unMatch->cartonRougeON." carton rouge";
 					}
 					echo"<td>
-							<h4>".$unMatch->nom." ".$unMatch->prenom.", ".$resume."</h4><a class=\"btn btn-default\" href=\"index.php?do=detail&idJoueur=".$unMatch->idPersonnel."\" role=\"button\">Afficher la fiche du joueur</a>
+							<h4><a href=\"index.php?do=detail&idJoueur=".$unMatch->idPersonnel."\" style=\"color: #fff\">".$unMatch->nom." ".$unMatch->prenom."</a> : ".$resume."</h4>
 						</td>";
 					echo"</tr>";
 					
