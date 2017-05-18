@@ -127,6 +127,16 @@ session_start();
 							include("Controleur/ctrl_inscription.php");
 							break;
 						}
+						case 'connexionMembre':{
+
+							include("Controleur/ctrl_connexion_membre.php");
+							break;
+						}
+						case 'deconnexion':{
+
+							include("Controleur/ctrl_deconnexion.php");
+							break;
+						}
 					}
 				}
 			?>			

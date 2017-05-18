@@ -12,7 +12,7 @@
 				echo"<script> alert ('Votre inscription a été prise en compte !');</script>";
 				// et redirection vers la page d'accueil
 				print ("<script language = \"JavaScript\">");
-				print ("location.href = 'index.php?do=connexion';");
+				print ("location.href = 'index.php?do=connexionMembre';");
 				print ("</script>");
 			}else{
 				echo"<script> alert('Email déja présent dans la base de données !');</script>";

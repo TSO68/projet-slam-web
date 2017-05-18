@@ -30,7 +30,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			  <li><a href="index.php?do=inscription" title="Inscription"><span class="glyphicon glyphicon-user"></span>&nbsp;Inscription&nbsp;</a></li>
-			  <li><a href="index.php?do=connexion" title="Connexion"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Connexion&nbsp;</a></li>
+			  <li><a href="index.php?do=connexionMembre" title="Connexion"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Connexion&nbsp;</a></li>
 			</ul>
 		  </div>
 		</nav>
