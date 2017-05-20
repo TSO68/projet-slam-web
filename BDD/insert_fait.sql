@@ -27,4 +27,5 @@ INSERT INTO `fait` (`id`, `id_TAILLE`) VALUES
 (6, 6),
 (7, 6),
 (8, 6),
+(9, 6),
 (10, 6);

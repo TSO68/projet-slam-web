@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  front-ha-mysql-01.shpv.fr:3306
--- Généré le :  Mar 16 Mai 2017 à 16:28
+-- Généré le :  Sam 20 Mai 2017 à 18:06
 -- Version du serveur :  5.6.31
 -- Version de PHP :  5.6.30
 
@@ -54,7 +54,7 @@ CREATE TABLE `COMMANDE` (
 CREATE TABLE `COMPTE` (
   `id` int(11) NOT NULL,
   `mail` varchar(25) DEFAULT NULL,
-  `mdp` varchar(25) DEFAULT NULL,
+  `mdp` varchar(50) DEFAULT NULL,
   `nom` varchar(25) DEFAULT NULL,
   `prenom` varchar(25) DEFAULT NULL,
   `tel` varchar(25) DEFAULT NULL,
@@ -170,8 +170,7 @@ CREATE TABLE `PERSONNEL` (
 
 CREATE TABLE `PHOTO` (
   `id` int(11) NOT NULL,
-  `lien` varchar(100) DEFAULT NULL,
-  `id_PERSONNEL` int(11) DEFAULT NULL
+  `lien` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -194,9 +193,9 @@ CREATE TABLE `POSTE` (
 CREATE TABLE `PRODUIT` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) DEFAULT NULL,
-  `image` varchar(500) DEFAULT NULL,
   `prix` float DEFAULT NULL,
-  `description` varchar(100) DEFAULT NULL
+  `description` varchar(100) DEFAULT NULL,
+  `id_PHOTO` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -322,8 +321,7 @@ ALTER TABLE `PERSONNEL`
 -- Index pour la table `PHOTO`
 --
 ALTER TABLE `PHOTO`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_PHOTO_id_PERSONNEL` (`id_PERSONNEL`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Index pour la table `POSTE`
@@ -335,7 +333,8 @@ ALTER TABLE `POSTE`
 -- Index pour la table `PRODUIT`
 --
 ALTER TABLE `PRODUIT`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_PRODUIT_id_PHOTO` (`id_PHOTO`);
 
 --
 -- Index pour la table `ROLE`
@@ -380,7 +379,7 @@ ALTER TABLE `COMMANDE`
 -- AUTO_INCREMENT pour la table `COMPTE`
 --
 ALTER TABLE `COMPTE`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `MATCHS`
 --
@@ -400,7 +399,7 @@ ALTER TABLE `PERSONNEL`
 -- AUTO_INCREMENT pour la table `PHOTO`
 --
 ALTER TABLE `PHOTO`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT pour la table `POSTE`
 --
@@ -485,10 +484,10 @@ ALTER TABLE `PERSONNEL`
   ADD CONSTRAINT `FK_PERSONNEL_id_PHOTO` FOREIGN KEY (`id_PHOTO`) REFERENCES `PHOTO` (`id`);
 
 --
--- Contraintes pour la table `PHOTO`
+-- Contraintes pour la table `PRODUIT`
 --
-ALTER TABLE `PHOTO`
-  ADD CONSTRAINT `FK_PHOTO_id_PERSONNEL` FOREIGN KEY (`id_PERSONNEL`) REFERENCES `PERSONNEL` (`id`);
+ALTER TABLE `PRODUIT`
+  ADD CONSTRAINT `FK_PRODUIT_id_PHOTO` FOREIGN KEY (`id_PHOTO`) REFERENCES `PHOTO` (`id`);
 
 --
 -- Contraintes pour la table `STAFF`
