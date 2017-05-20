@@ -10,6 +10,7 @@ session_start();
 		<link rel = "stylesheet" type = "text/css" href = "CSS/bootstrap-3.3.7-dist/css/bootstrap.css">
 		<link href="CSS/animate.min.css" rel="stylesheet">
 		<link href="CSS/bootstrap-dropdownhover.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
 		<!--Favicon-->
 		<link rel="shortcut icon" href="Images/logo-racing-academy-2016.png" />
          <!--Fonctions JavaScript-->
@@ -17,6 +18,7 @@ session_start();
 		<script type="text/javascript" src="JS/jquery.min.js"></script>
 		<script type="text/javascript" src="JS/bootstrap.min.js"></script>
 		<script type="text/javascript" src="JS/bootstrap-dropdownhover.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
 	</HEAD>
 
      
@@ -135,6 +137,15 @@ session_start();
 						case 'deconnexion':{
 
 							include("Controleur/ctrl_deconnexion.php");
+							break;
+						}
+						case 'boutique':{
+
+							include("Controleur/ctrl_liste_produits.php");
+							break;
+						}
+						case 'detailProduit':{
+							include("Controleur/ctrl_detail_produit.php");
 							break;
 						}
 					}

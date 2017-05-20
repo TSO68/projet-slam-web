@@ -5,8 +5,8 @@
 		echo "<div class=\"liste\">
 				<div class=\"row\">
 					<br>
-					<div class=\"col-lg-6\" align=\"left\">
-						<img class=\"img-rounded\" style=\"margin-left:37%;\" height=\"200\" width=\"140\" src=".$unStaff->lien.">		
+					<div class=\"col-lg-6\">
+						<img class=\"img-rounded\" style=\"max-width: 80%; height:auto;\" height=\"200\" width=\"140\" src=".$unStaff->lien.">		
 					</div>
 					<div class=\"col-lg-6\" style=\"color:#fff;\" align=\"left\">
 						<div style=\"margin-left:18%; margin-right:37%;\">
