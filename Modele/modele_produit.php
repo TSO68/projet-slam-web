@@ -19,7 +19,7 @@
 		
 		public function findByID($idProduit){
 			//je conçois ma requête sql 
-			$req = "SELECT nom, lien, prix, description, libelle FROM PRODUIT 
+			$req = "SELECT PRODUIT.id, nom, lien, prix, description, libelle FROM PRODUIT 
 					INNER JOIN PHOTO ON PRODUIT.id_PHOTO=PHOTO.id 
 					INNER JOIN fait ON PRODUIT.id=fait.id
 					INNER JOIN TAILLE ON fait.id_TAILLE=TAILLE.id

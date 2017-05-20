@@ -17,28 +17,29 @@
 								<h3 style=\"color:fff\">Prix : ".$unProduit->prix." € </h3>
 								<h3 style=\"color:fff\">Description : <br>".$unProduit->description."</h3>
 								<h3 style=\"color:fff\">Sélectionnez votre taille : </h3>
-								<select class=\"selectpicker show-tick\" data-width=\"100px\">
+								<select id=\"taille\" class=\"selectpicker show-tick\" data-width=\"100px\">
 					";
+					$lien= "index.php?do=panier&action=ajout&pdt_ref=".$unProduit->id."&pdt_designation=".$unProduit->nom."&pdt_prix=".$unProduit->prix;
 				}
-				echo "		<option>".$unProduit->libelle."</option>";
+				echo "		<option value=".$unProduit->libelle.">".$unProduit->libelle."</option>";
 				$i=$i+1;
 			}
 			$nb=1;
-			echo"				</select>
+			echo"					</select>
 								<h3 style=\"color:fff\">Quantité : </h3>
-								<select class=\"selectpicker show-tick\" data-width=\"100px\" data-dropup-auto=\"false\">";
+								<select name=\"qte\" class=\"selectpicker show-tick\" data-width=\"100px\" data-dropup-auto=\"false\">";
 								while($nb != 11){
 									echo"
-											<option>".$nb."</option>
+											<option value=".$nb.">".$nb."</option>
 										";
 										$nb=$nb+1;
 								}
 			echo"				</select>
 								<br>
 								<br>
-								<button type=\"button\" class=\"btn btn-default btn-lg\">
+								<a type=\"button\" class=\"btn btn-default btn-lg\" href=\"".$lien."&quantite=".$_POST['qte']."&taille=".$_POST['taille']."\">
 								  <span class=\"glyphicon glyphicon-shopping-cart\"></span> Ajouter au panier
-								</button>
+								</a>
 							</div>
 							<br>
 						</div>
