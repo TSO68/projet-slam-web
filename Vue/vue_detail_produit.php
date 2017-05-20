@@ -47,14 +47,30 @@
 				</div>";
 		?>
 </center>
-<script type="text/javascript">
-function myFunction() {
-	var msg='<?PHP echo $lien;?>';
-	var e = document.getElementById("taille");
-	var taille = e.options[e.selectedIndex].value;
-	var a = document.getElementById("qte");
-	var qte = a.options[a.selectedIndex].value;
-	msg=msg+"&quantite="+qte+"&taille="+taille;
-	document.location.href=msg;
-}
-</script>
+<?php
+if(isset($_SESSION['login']))
+	{
+?>
+	<script type="text/javascript">
+	function myFunction() {
+		var msg='<?PHP echo $lien;?>';
+		var e = document.getElementById("taille");
+		var taille = e.options[e.selectedIndex].value;
+		var a = document.getElementById("qte");
+		var qte = a.options[a.selectedIndex].value;
+		msg=msg+"&quantite="+qte+"&taille="+taille;
+		document.location.href=msg;
+	}
+	</script>
+<?php
+	}
+	else{
+?>
+		<script type="text/javascript">
+		function myFunction() {
+			alert('Vous devez être connecté afin de réaliser cette opération!');
+		}
+		</script>
+<?php
+	}
+?>
