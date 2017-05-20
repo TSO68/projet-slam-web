@@ -27,7 +27,7 @@
 			$nb=1;
 			echo"					</select>
 								<h3 style=\"color:fff\">Quantité : </h3>
-								<select name=\"qte\" class=\"selectpicker show-tick\" data-width=\"100px\" data-dropup-auto=\"false\">";
+								<select name=\"qte\" id=\"qte\" class=\"selectpicker show-tick\" data-width=\"100px\" data-dropup-auto=\"false\">";
 								while($nb != 11){
 									echo"
 											<option value=".$nb.">".$nb."</option>
@@ -37,7 +37,7 @@
 			echo"				</select>
 								<br>
 								<br>
-								<a type=\"button\" class=\"btn btn-default btn-lg\" href=\"".$lien."&quantite=".$_POST['qte']."&taille=".$_POST['taille']."\">
+								<a type=\"button\" class=\"btn btn-default btn-lg\" onclick=\"myFunction()\">
 								  <span class=\"glyphicon glyphicon-shopping-cart\"></span> Ajouter au panier
 								</a>
 							</div>
@@ -47,3 +47,14 @@
 				</div>";
 		?>
 </center>
+<script type="text/javascript">
+function myFunction() {
+	var msg='<?PHP echo $lien;?>';
+	var e = document.getElementById("taille");
+	var taille = e.options[e.selectedIndex].value;
+	var a = document.getElementById("qte");
+	var qte = a.options[a.selectedIndex].value;
+	msg=msg+"&quantite="+qte+"&taille="+taille;
+	document.location.href=msg;
+}
+</script>
