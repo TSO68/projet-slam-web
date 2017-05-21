@@ -28,8 +28,7 @@
 					foreach($_POST['panier'] as $_GET['cle']=>$_GET['valeur']){
 						$modifierQTeArticle=$fp->modifierQTeArticle($_GET['cle'],$_GET['valeur'],$creationPanier);
 					}
-					break;
-			  break;	  
+					break;  
 
 			  Default:
 			  break;

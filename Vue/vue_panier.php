@@ -1,4 +1,3 @@
-<!-- Développé par Mehdi MEGROUS-->
 <?php
 //On initialise erreur à false
 $erreur = false;
@@ -36,9 +35,7 @@ if($action !== null)
 }
 
 ?>
-<HTML>
-  <BODY>
-  <center>
+<center>
     <div class ='liste'>
         <div style="overflow-x:auto;">
         <!--Contenu de la page-->
@@ -137,6 +134,4 @@ if($action !== null)
                         ?>
         </div>
     </div>
-	</center>
-  </BODY>
-</HTML>
+</center>
