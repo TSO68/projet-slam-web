@@ -148,6 +148,10 @@ session_start();
 							include("Controleur/ctrl_detail_produit.php");
 							break;
 						}
+						case 'panier':{
+							include("Controleur/ctrl_fonction_panier.php");
+							break;
+						}
 					}
 				}
 			?>			

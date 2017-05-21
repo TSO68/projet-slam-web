@@ -18,7 +18,7 @@
 			<h4 class="coord">ce.0680008P@ac-strasbourg.fr</h4>
 			<br>
 			<h4 class="sous-titre">Site : </h4>
-			<a href="http://www.lyc-see-colmar.ac-strasbourg.fr"><h4 class="coord" style="margin-bottom:3%;">http://www.lyc-see-colmar.ac-strasbourg.fr</h4></a>
+			<a href="http://www.lyc-see-colmar.ac-strasbourg.fr" style="color: #fff"><h4 class="coord" style="margin-bottom:3%;">http://www.lyc-see-colmar.ac-strasbourg.fr</h4></a>
 		</div>
 		<div class="col-md-6" align="left">
 			<h4 class="sous-titre" style="margin-top:5%">Emplacement : </h4>

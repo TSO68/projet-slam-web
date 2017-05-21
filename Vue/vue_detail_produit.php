@@ -19,7 +19,7 @@
 								<h3 style=\"color:fff\">Sélectionnez votre taille : </h3>
 								<select id=\"taille\" class=\"selectpicker show-tick\" data-width=\"100px\">
 					";
-					$lien= "index.php?do=panier&action=ajout&pdt_ref=".$unProduit->id."&pdt_designation=".$unProduit->nom."&pdt_prix=".$unProduit->prix;
+					$lien= "index.php?do=panier&action=ajout&pdt_ref=".$unProduit->lien."&pdt_designation=".$unProduit->nom."&pdt_prix=".$unProduit->prix;
 				}
 				echo "		<option value=".$unProduit->libelle.">".$unProduit->libelle."</option>";
 				$i=$i+1;
