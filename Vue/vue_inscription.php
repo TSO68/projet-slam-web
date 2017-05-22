@@ -35,16 +35,16 @@
 								<td class="coord">Ville :</td>
 								<td><input type="text" class="form-control" name="ins_ville" id="ins_ville"></td>
 							</tr>
-
-							<tr>
-								<td class="coord">E-mail :</td>
-								<td><input type="text" class="form-control" name="ins_email" id="ins_email"></td>
-							</tr>   
 							
 							<tr>
 								<td class="coord">Téléphone :</td>
 								<td><input type="text" class="form-control" name="ins_tel" id="ins_tel"></td>
 							</tr>
+
+							<tr>
+								<td class="coord">E-mail :</td>
+								<td><input type="text" class="form-control" name="ins_email" id="ins_email"></td>
+							</tr>   
 
 							<tr>
 								<td class="coord">Mot de passe :</td>
