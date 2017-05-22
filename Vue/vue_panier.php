@@ -74,7 +74,7 @@ if($action !== null)
                                         echo "<td><h4>".$_SESSION['panier']['pdt_designation'][$i]."</h4></td>"; //designation du produit
 										echo "<td><h4>".$_SESSION['panier']['taille'][$i]."</h4></td>"; //taille du produit
                                         echo "<td><h4>".$_SESSION['panier']['pdt_prix'][$i]." €</h4></td>"; //affichage du prix du produit
-                                        echo "<td><input class=\"form-control\" style=\"color: #333; width: 150px\" type='text' name='panier[".$_SESSION['panier']['pdt_ref'][$i]."&".$_SESSION['panier']['taille'][$i]."]' id='quantite' value='".$_SESSION['panier']['quantite'][$i]."'></td>"; //quantité du produit sélectionné
+                                        echo "<td><input class=\"form-control\" style=\"color: #333; width: 150px\" type='text' name='panier[".$_SESSION['panier']['pdt_designation'][$i]."&".$_SESSION['panier']['taille'][$i]."]' id='quantite' value='".$_SESSION['panier']['quantite'][$i]."'></td>"; //quantité du produit sélectionné
 										
                                         //Permet la suppression d'un article du panier
 										echo "

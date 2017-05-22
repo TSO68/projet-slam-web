@@ -7,7 +7,7 @@
     regexpass="^[A-Za-zéèç-0-9-]{2,20}$";
     regexEmail="^[a-z0-9._-]+[^._-]@[a-z0-9._-]+([a-z0-9]+[^._-])?[.-]+[a-z0-9]{2,4}$";
     regexCP="^[0-9]{5}$";
-	regexTel="[0-9]{10}$";
+	regexTel="^[0-9]{10}$";
     
     /* regex est un objet permettant de manipuler des expressions régulières (caractère ASCII)*/
     

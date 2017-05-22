@@ -97,21 +97,21 @@ function supprimerArticle($pdt_ref,$taille,$creationPanier)
 /////////////////////////////////////////////////////////////////////////
 //////////////////////Fonction modifier quantite d' un article////////////////
 ////////////////////////////////////////////////////////////////////////
-function modifierQTeArticle($pdt_ref,$quantite,$creationPanier)
+function modifierQTeArticle($pdt_designation,$quantite,$creationPanier)
 {
-	$tab=explode("&", $pdt_ref);
+	$tab=explode("&", $pdt_designation);
 	$ref= $tab[0];
 	$taille= $tab[1];
+	$nb=count($_SESSION['panier']['pdt_ref']);
    //Si le panier éxiste
    if ($creationPanier)
    {
      //Si la quantité est positive on modifie sinon on supprime l'article
      if ($quantite > 0)
      {
-		 $nb=count($_SESSION['panier']['pdt_ref']);
 		 for($i = 0; $i < $nb; $i++)
 		 {
-			 if($_SESSION['panier']['pdt_ref'][$i] == $ref && $_SESSION['panier']['taille'][$i] == $taille)
+			 if($_SESSION['panier']['pdt_designation'][$i] == $ref && $_SESSION['panier']['taille'][$i] == $taille)
 			 {
 				 $_SESSION['panier']['quantite'][$i] = $quantite ;
 			 }
@@ -119,7 +119,13 @@ function modifierQTeArticle($pdt_ref,$quantite,$creationPanier)
      }
      else
 	 {
-		$this->supprimerArticle($ref, $taille, $creationPanier);
+	     for($i = 0; $i < $nb; $i++)
+		 {
+			 if($_SESSION['panier']['pdt_designation'][$i] == $ref && $_SESSION['panier']['taille'][$i] == $taille)
+			 {
+				 $this->supprimerArticle($_SESSION['panier']['pdt_ref'][$i], $taille, $creationPanier);
+			 }
+		 }
 	 }
    }
    else
