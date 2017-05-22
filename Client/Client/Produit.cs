@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Client
+{
+    class Produit
+    {
+        private int id;
+        private String nom;
+        private float prix;
+        private String description;
+
+        public Produit(int id, string nom, float prix, string description)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.prix = prix;
+            this.description = description;
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string Nom
+        {
+            get
+            {
+                return nom;
+            }
+
+            set
+            {
+                nom = value;
+            }
+        }
+
+        public float Prix
+        {
+            get
+            {
+                return prix;
+            }
+
+            set
+            {
+                prix = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+
+            set
+            {
+                description = value;
+            }
+        }
+    }
+}
