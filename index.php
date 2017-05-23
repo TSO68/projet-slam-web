@@ -152,6 +152,10 @@ session_start();
 							include("Controleur/ctrl_fonction_panier.php");
 							break;
 						}
+						case 'traitementCommandes':{
+							include("Controleur/ctrl_traitement_commandes.php");
+							break;
+						}
 					}
 				}
 			?>			
