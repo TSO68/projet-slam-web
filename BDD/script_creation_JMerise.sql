@@ -12,7 +12,7 @@ CREATE TABLE JOUEUR(
         taille    Float ,
         poids     Float ,
         pied      Varchar (25) ,
-        venueClub Varchar (25) ,
+        venueClub Varchar (50) ,
         id        Int NOT NULL ,
         id_POSTE  Int ,
         PRIMARY KEY (id )
@@ -29,7 +29,7 @@ CREATE TABLE PERSONNEL(
         prenom         Varchar (25) ,
         dateNaiss      Date ,
         lieuNaiss      Varchar (25) ,
-        biographie     Varchar (25) ,
+        biographie     Varchar (2000) ,
         id_NATIONALITE Int ,
         id_PHOTO       Int ,
         PRIMARY KEY (id )
@@ -80,7 +80,7 @@ CREATE TABLE MATCHS(
 CREATE TABLE ADVERSAIRE(
         id       int (11) Auto_increment  NOT NULL ,
         libelle  Varchar (25) ,
-        logo     Varchar (25) ,
+        logo     Varchar (100) ,
         id_STADE Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
@@ -92,7 +92,7 @@ CREATE TABLE ADVERSAIRE(
 
 CREATE TABLE STADE(
         id       int (11) Auto_increment  NOT NULL ,
-        libelle  Varchar (25) ,
+        libelle  Varchar (50) ,
         nbPlaces Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
@@ -115,9 +115,9 @@ CREATE TABLE POSTE(
 
 CREATE TABLE PRODUIT(
         id          int (11) Auto_increment  NOT NULL ,
-        nom         Varchar (25) ,
+        nom         Varchar (50) ,
         prix        Float ,
-        description Varchar (25) ,
+        description Varchar (100) ,
         id_PHOTO    Int ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
@@ -154,11 +154,11 @@ CREATE TABLE PHOTO(
 CREATE TABLE COMPTE(
         id      int (11) Auto_increment  NOT NULL ,
         mail    Varchar (25) ,
-        mdp     Varchar (25) ,
+        mdp     Varchar (50) ,
         nom     Varchar (25) ,
         prenom  Varchar (25) ,
         tel     Varchar (25) ,
-        adresse Varchar (25) ,
+        adresse Varchar (50) ,
         cp      Varchar (25) ,
         ville   Varchar (25) ,
         PRIMARY KEY (id )
@@ -170,10 +170,10 @@ CREATE TABLE COMPTE(
 #------------------------------------------------------------
 
 CREATE TABLE COMMANDE(
-        id           int (11) Auto_increment  NOT NULL ,
+        id           Varchar (25) NOT NULL ,
         dateCommande Date ,
-        id_COMPTE    Int NOT NULL ,
-        PRIMARY KEY (id ,id_COMPTE )
+        id_COMPTE    Int ,
+        PRIMARY KEY (id )
 )ENGINE=InnoDB;
 
 
@@ -216,14 +216,15 @@ CREATE TABLE fait(
 
 
 #------------------------------------------------------------
-# Table: contient
+# Table: ligneCmd
 #------------------------------------------------------------
 
-CREATE TABLE contient(
+CREATE TABLE ligneCmd(
+        quantite    Int ,
         id          Int NOT NULL ,
-        id_COMMANDE Int NOT NULL ,
-        id_COMPTE   Int NOT NULL ,
-        PRIMARY KEY (id ,id_COMMANDE ,id_COMPTE )
+        id_COMMANDE Varchar (25) NOT NULL ,
+        id_TAILLE   Int NOT NULL ,
+        PRIMARY KEY (id ,id_COMMANDE ,id_TAILLE )
 )ENGINE=InnoDB;
 
 ALTER TABLE JOUEUR ADD CONSTRAINT FK_JOUEUR_id FOREIGN KEY (id) REFERENCES PERSONNEL(id);
@@ -243,6 +244,6 @@ ALTER TABLE participe ADD CONSTRAINT FK_participe_id FOREIGN KEY (id) REFERENCES
 ALTER TABLE participe ADD CONSTRAINT FK_participe_id_PERSONNEL FOREIGN KEY (id_PERSONNEL) REFERENCES PERSONNEL(id);
 ALTER TABLE fait ADD CONSTRAINT FK_fait_id FOREIGN KEY (id) REFERENCES PRODUIT(id);
 ALTER TABLE fait ADD CONSTRAINT FK_fait_id_TAILLE FOREIGN KEY (id_TAILLE) REFERENCES TAILLE(id);
-ALTER TABLE contient ADD CONSTRAINT FK_contient_id FOREIGN KEY (id) REFERENCES PRODUIT(id);
-ALTER TABLE contient ADD CONSTRAINT FK_contient_id_COMMANDE FOREIGN KEY (id_COMMANDE) REFERENCES COMMANDE(id);
-ALTER TABLE contient ADD CONSTRAINT FK_contient_id_COMPTE FOREIGN KEY (id_COMPTE) REFERENCES COMPTE(id);
+ALTER TABLE ligneCmd ADD CONSTRAINT FK_ligneCmd_id FOREIGN KEY (id) REFERENCES PRODUIT(id);
+ALTER TABLE ligneCmd ADD CONSTRAINT FK_ligneCmd_id_COMMANDE FOREIGN KEY (id_COMMANDE) REFERENCES COMMANDE(id);
+ALTER TABLE ligneCmd ADD CONSTRAINT FK_ligneCmd_id_TAILLE FOREIGN KEY (id_TAILLE) REFERENCES TAILLE(id);

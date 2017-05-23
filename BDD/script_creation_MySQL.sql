@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  front-ha-mysql-01.shpv.fr:3306
--- Généré le :  Sam 20 Mai 2017 à 18:06
+-- Généré le :  Mar 23 Mai 2017 à 18:21
 -- Version du serveur :  5.6.31
 -- Version de PHP :  5.6.30
 
@@ -40,7 +40,7 @@ CREATE TABLE `ADVERSAIRE` (
 --
 
 CREATE TABLE `COMMANDE` (
-  `id` int(11) NOT NULL,
+  `id` varchar(25) NOT NULL,
   `dateCommande` date DEFAULT NULL,
   `id_COMPTE` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -61,17 +61,6 @@ CREATE TABLE `COMPTE` (
   `adresse` varchar(50) DEFAULT NULL,
   `cp` varchar(25) DEFAULT NULL,
   `ville` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `contient`
---
-
-CREATE TABLE `contient` (
-  `id` int(11) NOT NULL,
-  `id_COMMANDE` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,6 +88,19 @@ CREATE TABLE `JOUEUR` (
   `venueClub` varchar(50) DEFAULT NULL,
   `id` int(11) NOT NULL,
   `id_POSTE` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ligneCmd`
+--
+
+CREATE TABLE `ligneCmd` (
+  `id_PRODUIT` int(11) NOT NULL,
+  `id_TAILLE` int(11) NOT NULL,
+  `id_COMMANDE` varchar(25) NOT NULL,
+  `quantite` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -240,7 +242,7 @@ CREATE TABLE `STAFF` (
 
 CREATE TABLE `TAILLE` (
   `id` int(11) NOT NULL,
-  `libelle` varchar(25) DEFAULT NULL
+  `libelle` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -268,13 +270,6 @@ ALTER TABLE `COMPTE`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `contient`
---
-ALTER TABLE `contient`
-  ADD PRIMARY KEY (`id`,`id_COMMANDE`),
-  ADD KEY `FK_contient_id_COMMANDE` (`id_COMMANDE`);
-
---
 -- Index pour la table `fait`
 --
 ALTER TABLE `fait`
@@ -287,6 +282,14 @@ ALTER TABLE `fait`
 ALTER TABLE `JOUEUR`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_JOUEUR_id_POSTE` (`id_POSTE`);
+
+--
+-- Index pour la table `ligneCmd`
+--
+ALTER TABLE `ligneCmd`
+  ADD PRIMARY KEY (`id_PRODUIT`,`id_COMMANDE`,`id_TAILLE`),
+  ADD KEY `FK_ligneCmd_id_COMMANDE` (`id_COMMANDE`),
+  ADD KEY `FK_ligneCmd_id_TAILLE` (`id_TAILLE`);
 
 --
 -- Index pour la table `MATCHS`
@@ -371,15 +374,10 @@ ALTER TABLE `TAILLE`
 ALTER TABLE `ADVERSAIRE`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT pour la table `COMMANDE`
---
-ALTER TABLE `COMMANDE`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT pour la table `COMPTE`
 --
 ALTER TABLE `COMPTE`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT pour la table `MATCHS`
 --
@@ -442,13 +440,6 @@ ALTER TABLE `COMMANDE`
   ADD CONSTRAINT `FK_COMMANDE_id_COMPTE` FOREIGN KEY (`id_COMPTE`) REFERENCES `COMPTE` (`id`);
 
 --
--- Contraintes pour la table `contient`
---
-ALTER TABLE `contient`
-  ADD CONSTRAINT `FK_contient_id` FOREIGN KEY (`id`) REFERENCES `PRODUIT` (`id`),
-  ADD CONSTRAINT `FK_contient_id_COMMANDE` FOREIGN KEY (`id_COMMANDE`) REFERENCES `COMMANDE` (`id`);
-
---
 -- Contraintes pour la table `fait`
 --
 ALTER TABLE `fait`
@@ -461,6 +452,14 @@ ALTER TABLE `fait`
 ALTER TABLE `JOUEUR`
   ADD CONSTRAINT `FK_JOUEUR_id` FOREIGN KEY (`id`) REFERENCES `PERSONNEL` (`id`),
   ADD CONSTRAINT `FK_JOUEUR_id_POSTE` FOREIGN KEY (`id_POSTE`) REFERENCES `POSTE` (`id`);
+
+--
+-- Contraintes pour la table `ligneCmd`
+--
+ALTER TABLE `ligneCmd`
+  ADD CONSTRAINT `FK_ligneCmd_id_COMMANDE` FOREIGN KEY (`id_COMMANDE`) REFERENCES `COMMANDE` (`id`),
+  ADD CONSTRAINT `FK_ligneCmd_id_PRODUIT` FOREIGN KEY (`id_PRODUIT`) REFERENCES `PRODUIT` (`id`),
+  ADD CONSTRAINT `FK_ligneCmd_id_TAILLE` FOREIGN KEY (`id_TAILLE`) REFERENCES `TAILLE` (`id`);
 
 --
 -- Contraintes pour la table `MATCHS`
