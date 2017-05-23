@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  front-ha-mysql-01.shpv.fr:3306
--- Généré le :  Mar 23 Mai 2017 à 18:22
+-- Généré le :  Mar 23 Mai 2017 à 22:02
 -- Version du serveur :  5.6.31
 -- Version de PHP :  5.6.30
 
@@ -75,7 +75,10 @@ CREATE TABLE `COMMANDE` (
 --
 
 INSERT INTO `COMMANDE` (`id`, `dateCommande`, `id_COMPTE`) VALUES
-('59245eb46b083', '2017-05-23', 10);
+('59245eb46b083', '2017-05-23', 10),
+('5924687b0e06a', '2017-05-23', 10),
+('59246f8427c33', '2017-05-23', 40),
+('59246fe6a524b', '2017-05-23', 40);
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,8 @@ INSERT INTO `COMPTE` (`id`, `mail`, `mdp`, `nom`, `prenom`, `tel`, `adresse`, `c
 (12, 'tordux2000@gmail.com', '0360f275c2c5363482c0dc54fd98a33f', 'Quintero', 'Jesus', '0641250014', '25 rue Tordue', '68000', 'Colmar'),
 (22, 'tffezf@live.fr', 'e358efa489f58062f10dd7316b65649e', 'Sou', 'Is', '0345645641', 't', '78945', 'ISSOU'),
 (23, 'gkjroifjgoeif@live.fr', '0cc175b9c0f1b6a831c399e269772661', 'Fzefz', 'POIFJUez', '4567894245', '1427575686917;', '78945', 'Mabite'),
-(24, 'fezfgaegagez@live.fr', 'ab4f63f9ac65152575886860dde480a1', 'test', 'test', '1234567890', '5 rue pet', '78945', 'issou');
+(24, 'fezfgaegagez@live.fr', 'ab4f63f9ac65152575886860dde480a1', 'test', 'test', '1234567890', '5 rue pet', '78945', 'issou'),
+(40, 'risitas68000@gmail.com', '0360f275c2c5363482c0dc54fd98a33f', 'Kanawati', 'Samy', '0606060606', '4, chemin du Galtz', '68410', 'Trois-Epis');
 
 -- --------------------------------------------------------
 
@@ -222,7 +226,18 @@ CREATE TABLE `ligneCmd` (
 
 INSERT INTO `ligneCmd` (`id_PRODUIT`, `id_TAILLE`, `id_COMMANDE`, `quantite`) VALUES
 (1, 3, '59245eb46b083', 1),
-(1, 5, '59245eb46b083', 1);
+(1, 5, '59245eb46b083', 1),
+(1, 2, '5924687b0e06a', 2),
+(1, 4, '5924687b0e06a', 3),
+(1, 1, '59246f8427c33', 1),
+(1, 4, '59246f8427c33', 2),
+(3, 1, '5924687b0e06a', 1),
+(4, 1, '5924687b0e06a', 3),
+(4, 4, '59246fe6a524b', 1),
+(7, 6, '59246f8427c33', 1),
+(9, 6, '5924687b0e06a', 4),
+(10, 6, '5924687b0e06a', 5),
+(10, 6, '59246f8427c33', 3);
 
 -- --------------------------------------------------------
 
@@ -487,7 +502,7 @@ INSERT INTO `PERSONNEL` (`id`, `nom`, `prenom`, `dateNaiss`, `lieuNaiss`, `biogr
 (20, 'NDOYE', 'Mayoro', '1991-12-18', 'Mbao (SEN)', 'Comme N\'Dour, il est venu du Sénégal à Metz, où il disputé plusieurs saisons en National et en Ligue 2. Il a ensuite rejoint Strasbourg pour jouer un rôle de complément.', 3, 16),
 (21, 'DOS SANTOS', 'Laurent', '1993-03-21', 'Montmorencey', 'Après trois saisons à Guingamp où il a peu joué, il est venu à Strasbourg où il est venu faire profiter de sa polyvalence au milieu et en défense.', 1, 17),
 (22, 'CACI', 'Anthony', '1997-07-01', 'Forbach', 'Jeune du club, il a déjà disputé quelques matchs en équipe première.', 1, 18),
-(23, 'SOLVET', 'Steve', '1996-03-20', '?', 'Jeune du club, il n\'a pas encore débuté officiellement avec le groupe pro.', 1, 19),
+(23, 'SOLVET', 'Steve', '1996-03-20', 'France', 'Jeune du club, il n\'a pas encore débuté officiellement avec le groupe pro.', 1, 19),
 (24, 'WEISSBECK', 'Gaëtan', '1997-01-17', 'Wissembourg', 'Grand espoir du club, il a déjà disputé un match de Coupe de France...', 1, 20),
 (25, 'GUILLAUME', 'Baptiste', '1995-06-16', 'Bruxelles (BEL.)', 'Lancé à Lens, il a rejoint le voisin Lillois où il a vite été écarté. Il est venu au RCS pour se relancer et enfin faire décoller sa carrière.', 6, 21),
 (26, 'LIENARD', 'Dimitri', '1988-02-13', 'Belfort', 'Venu des divisions inférieurs entre Belfort et Mulhouse, il découvre le monde professionnel à Strasbourg cette saison après de bonnes saisons en National.', 1, 22),
@@ -497,14 +512,14 @@ INSERT INTO `PERSONNEL` (`id`, `nom`, `prenom`, `dateNaiss`, `lieuNaiss`, `biogr
 (30, 'BOUTAIB', 'Khalid', '1987-04-24', 'Bagnols-sur-Cèze', 'Révélé tardivement après de nombreuses saisons dans les divisions amateurs, il a suivi son coach d\'Ajaccio à Strasbourg où il est l\'un des artisans majeurs de la belle saison du club. ', 7, 26),
 (31, 'KELLER', 'Marc', '1968-01-14', 'Colmar', 'Joueur dans les années 90 puis dirigeant dans les années 2000 avant de vivre deux expériences délicates à Monaco, il a récupéré le Racing en CFA2 pour le mener jusqu\'à la Ligue 2.', 1, 27),
 (32, 'LAUREY', 'Thierry', '1964-02-17', 'Troyes', 'Connaisseur de la Ligue 2, il est venu en Alsace pour réaliser la même prouesse réussie au GFC Ajaccio, à savoir enchaîner une montée en Ligue 2 puis en Ligue 1 en deux saisons.', 1, 28),
-(33, 'LEFEVRE', 'Fabien', '1971-11-14', 'Montpellier', '', 1, 29),
-(34, 'ROI', 'Sébastien', '1978-08-02', 'Valence', '', 1, 30),
-(35, 'HOURS', 'Jean-Yves', '1964-12-28', 'Alès', '', 1, 31),
-(36, 'BAILLEUX', 'Florian', '1987-06-18', 'Boulogne-sur-Mer', '', 1, 32),
-(37, 'FEIGENBRUGEL', 'Guy', '1974-02-26', 'Strasbourg', '', 1, 33),
-(38, 'PIETRA', 'François', '1960-05-15', '', '', 1, 34),
-(39, 'ROTH', 'Antoine', '1986-01-27', 'Dambach-la-Ville', '', 1, 35),
-(40, 'GARNIER', 'Franck', '1982-09-13', 'Strasbourg', '', 1, 36);
+(33, 'LEFEVRE', 'Fabien', '1971-11-14', 'Montpellier', 'Ancien coéquipier de Laurey à Montpellier dans les années 90, il a retrouvé ce dernier au GFC Ajaccio en 2015 pour être son entraîneur adjoint avant de la suivre en Alsace un an plus tard.', 1, 29),
+(34, 'ROI', 'Sébastien', '1978-08-02', 'Valence', 'Passé par le centre de formation du Racing il y a une vingtaine d\'années, il n\'a connu que le foot amateur avant de revenir au RCS en tant qu\'entraîneur adjoint de François Keller en 2011. Il n\'a pas quitté le poste depuis.', 1, 30),
+(35, 'HOURS', 'Jean-Yves', '1964-12-28', 'Alès', 'Comme Lefèvre, il a connu Laurey à Montpellier. Après sa carrière, il a connu les staffs de Sedan, Évian, la Guinée et enfin le Racing.', 1, 31),
+(36, 'BAILLEUX', 'Florian', '1987-06-18', 'Boulogne-sur-Mer', 'Après avoir exercé à Boulogne-sur-Mer et Carquefou, il est venu poursuivre sa carrière en Alsace en 2014.', 1, 32),
+(37, 'FEIGENBRUGEL', 'Guy', '1974-02-26', 'Strasbourg', 'Il a rejoint le club en 2011 alors qu\'il était en CFA2.', 1, 33),
+(38, 'PIETRA', 'François', '1960-05-15', 'Saint-Dizier', 'Médecin historique du club, il occupe le poste depuis 1990', 1, 34),
+(39, 'ROTH', 'Antoine', '1986-01-27', 'Dambach-la-Ville', 'Il a rejoint le Racing en 2016.', 1, 35),
+(40, 'GARNIER', 'Franck', '1982-09-13', 'Strasbourg', 'Il occupe le poste d’ostéopathe du Racing depuis plusieurs saisons.', 1, 36);
 
 -- --------------------------------------------------------
 
@@ -866,7 +881,7 @@ ALTER TABLE `ADVERSAIRE`
 -- AUTO_INCREMENT pour la table `COMPTE`
 --
 ALTER TABLE `COMPTE`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT pour la table `MATCHS`
 --
