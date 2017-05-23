@@ -156,6 +156,14 @@ session_start();
 							include("Controleur/ctrl_traitement_commandes.php");
 							break;
 						}
+						case 'espaceMembre':{
+							include("Controleur/ctrl_commandes_utilisateur.php");
+							break;
+						}
+						case 'facture':{
+							include("Controleur/ctrl_traitement_facture.php");
+							break;
+						}
 					}
 				}
 			?>			

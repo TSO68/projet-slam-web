@@ -15,7 +15,7 @@
 		echo"<script> alert ('Votre commande a été prise en compte ! Merci');</script>";
 		//Redirection vers la page d'accueil
 		print ("<script language = \"JavaScript\">");
-		print ("location.href = 'index.php';");
+		print ("location.href = 'index.php?do=espaceMembre';");
 		print ("</script>");
 	  }
 	else
