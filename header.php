@@ -29,7 +29,7 @@
 					</li>
 					<li><a href="index.php?do=matchs" title="Saison">&nbsp;Saison&nbsp;</a></li>
 					<li><a href="index.php?do=boutique" title="Boutique">&nbsp;Boutique&nbsp;</a></li>
-					<li><a href="index.php?do=espaceMembre" title="Espace membre">&nbsp;Espace membre&nbsp;</a></li>
+					<li><a href="index.php?do=espaceMembre" title="Espace membre">&nbsp;Mes Commandes&nbsp;</a></li>
 					<li><a href="index.php?do=contacts" title="Contacts">&nbsp;Contacts&nbsp;</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

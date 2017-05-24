@@ -22,7 +22,7 @@
 		</div>
 		<div class="col-md-6" align="left">
 			<h4 class="sous-titre" style="margin-top:5%">Emplacement : </h4>
-			<div id="googleMap" style="width:400px;height:400px; border-radius: 6px; margin-bottom:3%; margin-left:10%; margin-top:10%; margin-right:10%; max-width: 80%;"></div>
+			<div id="googleMap" style="width:450px; height:400px; border-radius: 6px; margin-bottom:3%; margin-left:10%; margin-top:10%; margin-right:10%; max-width: 80%;"></div>
 		</div>
 		<script>
 			function myMap() {

@@ -52,23 +52,23 @@ session_start();
 									<img src="Images/rc2.jpg" alt="Bienvenue" style="width:100%;">
 									<div class="carousel-caption">
 									  <h3>Bienvenue!</h3>
-									  <p>Nous sommes heureux de vous accueillir sur le site offciel du FC SIO, nous espèrons que vous passerez un bon moment sur ce dernier, en vous remerçiant de votre passage!</p>
+									  <h4>Nous sommes heureux de vous accueillir sur le site offciel du FC SIO, nous espèrons que vous passerez un bon moment sur ce dernier, en vous remerçiant de votre passage!</h4>
 									</div>
 								  </div>
 								  
 								  <div class="item">
 									<img src="Images/rc3.jpg" alt="Supporters" style="width:100%;">
-									<div class="carousel-caption">
+									<div class="carousel-caption" style="color:#ff1919;">
 									  <h3>Des supporters toujours au rendez-vous</h3>
-									  <p>Avec un cop de supporters très soudés et toujours derrière leurs équipe, le FC SIO est l'une des équipes les plus suivies du championnat! Merci à tous pour votre soutien!</p>
+									  <h4>Avec un cop de supporters très soudés et toujours derrière leurs équipe, le FC SIO est l'une des équipes les plus suivies du championnat! Merci à tous pour votre soutien!</h4>
 									</div>
 								  </div>
 
 								  <div class="item">
 									<img src="Images/rc1.jpg" alt="Dernier match" style="width:100%;">
-									<div class="carousel-caption">
+									<div class="carousel-caption" style="color:#1400b7;">
 									  <h3>Victoire!</h3>
-									  <p>Nos joueurs sont allés s'imposer sur la pelouse du RC SISR lors de leurs dernière rencontre 3-0! Félicitations à eux!</p>
+									  <h4>Nos joueurs sont allés s'imposer sur la pelouse du RC SISR lors de leurs dernière rencontre 3-0! Félicitations à eux!</h4>
 									</div>
 								  </div>
 							  
