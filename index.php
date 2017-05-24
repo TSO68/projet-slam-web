@@ -21,7 +21,7 @@ session_start();
 		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
 	</HEAD>
 
-     
+     <meta name="viewport" content="width=device-width, initial-scale=0.45"/>
     <BODY>
 		<body background="Images/bg-9-full.png">
         <div id ='page'>

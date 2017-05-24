@@ -27,7 +27,6 @@
 								42 avenue de l'Europe<br/>
 								68000 Colmar Cedex<br/>
 							</address>
-							<br/>
 						</td>
 					</tr>
 				</table> 
