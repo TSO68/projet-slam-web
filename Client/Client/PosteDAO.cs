@@ -80,6 +80,7 @@ namespace Client
                 m = new Poste(Convert.ToInt32(dr[0]), dr[1].ToString());
             }
             dr.Close();
+            
             return m;
         }
 
