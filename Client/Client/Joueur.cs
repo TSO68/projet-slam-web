@@ -94,7 +94,7 @@ namespace Client
             }
         }
 
-        public Poste getLePoste
+        public Poste LePoste
         {
             get
             {

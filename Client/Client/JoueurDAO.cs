@@ -79,16 +79,21 @@ namespace Client
 
             
             Joueur m = null;
+            string idPoste = null;
+
             if (dr.Read())
             {//je peux le faire
-                String []test = {dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString(), dr[10].ToString(), dr[11].ToString()} ;
-                System.Diagnostics.Debug.Write("test"+test[9]+" ttttt");
-                dr.Close();
-                
-                m = new Joueur(Convert.ToInt32(test[0]), Convert.ToInt32(test[1]), Convert.ToInt32(test[2]), test[3].ToString(), test[4].ToString(), pDAO.findById(test[5].ToString()), Convert.ToInt32(test[6]), test[7].ToString(), test[8].ToString(), Convert.ToDateTime(test[9]), test[10].ToString(), test[11].ToString());
+                idPoste = dr[5].ToString();
+
+                m = new Joueur(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), Convert.ToInt32(dr[2]), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString());
                 
             }
-            dr.Close();
+            dr.Close(); // On coupte la connexion
+            dr.Dispose();
+            if (!String.IsNullOrEmpty(idPoste)) // Si idPoste n'est pas null
+            {
+                m.LePoste = pDAO.findById(idPoste); // On attribue le poste au joueur
+            }
             return m;
         }
 
