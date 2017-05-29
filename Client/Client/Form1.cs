@@ -20,7 +20,11 @@ namespace Client
         private void button1_Click(object sender, EventArgs e)
         {
             JoueurDAO perso = new JoueurDAO();
-            MessageBox.Show("Connecté\n\n"+perso.findById("1").Prenom+" "+perso.findById("1").Nom+" "+" "+perso.findById("1").LePoste.Libelle);
+            foreach(Joueur j in perso.readAll())
+            {
+                MessageBox.Show(j.Prenom+" "+j.Nom+" est le numéro "+j.Num);
+            }
+            
         }
     }
 }

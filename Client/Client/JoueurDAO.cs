@@ -85,7 +85,7 @@ namespace Client
             {//je peux le faire
                 idPoste = dr[5].ToString();
 
-                m = new Joueur(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), Convert.ToInt32(dr[2]), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString());
+                m = new Joueur(Convert.ToInt32(dr[0]), float.Parse(dr[1].ToString()), float.Parse(dr[2].ToString()), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString());
                 
             }
             dr.Close(); // On coupte la connexion
@@ -101,19 +101,30 @@ namespace Client
         {
             List<Joueur> lesJoueurs = new List<Joueur>();
             MySqlCommand cmd;
-            String req = "SELECT num,taille,poids,pied,venueClub, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id";
+            String req = "SELECT num,taille,poids,pied,venueClub,id_POSTE, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id";
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
-            Poste p;
             PosteDAO pDAO = new PosteDAO();
-            p = pDAO.findById(dr[5].ToString());
+            
+            Joueur m = null;
+            string[] idPoste = new string[req.Count()];
+            int i=0;
             while (dr.Read())
             {
-                Joueur mag = new Joueur(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), Convert.ToInt32(dr[2]), dr[3].ToString(), dr[4].ToString(), p, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString());
-                lesJoueurs.Add(mag);
+                idPoste[i] = dr[5].ToString();
+                i++;
+                
+                m = new Joueur(Convert.ToInt32(dr[0]), float.Parse(dr[1].ToString()), float.Parse(dr[2].ToString()), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), Convert.ToDateTime(dr[9]), dr[10].ToString(), dr[11].ToString());
+                lesJoueurs.Add(m);
+                
             }
             dr.Close();
+            dr.Dispose();
+            for(int k = 0; k < i ;k++)
+            {
+                lesJoueurs[k].LePoste = pDAO.findById(idPoste[k]);
+            }
             return lesJoueurs;
         }
     }
