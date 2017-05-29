@@ -19,11 +19,13 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            JoueurDAO perso = new JoueurDAO();
-            foreach(Joueur j in perso.readAll())
+            PhotoDAO p = new PhotoDAO();
+            foreach(Photo ph in p.readAll())
             {
-                MessageBox.Show(j.Prenom+" "+j.Nom+" est le numéro "+j.Num);
+                MessageBox.Show(p.findById("15").LePersonnel);
             }
+
+
             
         }
     }
