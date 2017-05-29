@@ -10,15 +10,21 @@ namespace Client
     {
         private int id;
         private DateTime dateMatch;
-        private DateTime heure;
+        private int scoreDom;
+        private int scoreExt;
         private Boolean exterieurON;
+        private Adversaire lAdversaire;
+        private Stade leStade;
 
-        public Matchs(int id, DateTime dateMatch, DateTime heure, bool exterieurON)
+        public Matchs(int id, DateTime dateMatch, int sd, int se, bool exterieurON, Adversaire a, Stade s)
         {
             this.id = id;
             this.dateMatch = dateMatch;
-            this.heure = heure;
+            this.scoreDom = sd;
+            this.scoreExt = se;
             this.exterieurON = exterieurON;
+            this.lAdversaire = a;
+            this.leStade = s;
         }
 
         public int Id
@@ -47,16 +53,29 @@ namespace Client
             }
         }
 
-        public DateTime Heure
+        public int ScoreDom
         {
             get
             {
-                return heure;
+                return scoreDom;
             }
 
             set
             {
-                heure = value;
+                scoreDom = value;
+            }
+        }
+
+        public int ScoreExt
+        {
+            get
+            {
+                return scoreExt;
+            }
+
+            set
+            {
+                scoreExt = value;
             }
         }
 
@@ -70,6 +89,30 @@ namespace Client
             set
             {
                 exterieurON = value;
+            }
+        }
+        public Stade LeStade
+        {
+            get
+            {
+                return leStade;
+            }
+
+            set
+            {
+                leStade = value;
+            }
+        }
+        public Adversaire LAdversaire
+        {
+            get
+            {
+                return lAdversaire;
+            }
+
+            set
+            {
+                lAdversaire = value;
             }
         }
     }
