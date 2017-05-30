@@ -19,13 +19,14 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* MatchsDAO perso = new MatchsDAO();
-             foreach(Matchs j in perso.readAll())
+            participeDAO perso = new participeDAO();
+             foreach(participe j in perso.readAll())
              {
-                 MessageBox.Show(j.Id+" "+j.DateMatch+" "+j.Heure+" " + j.ExterieurON + " Stade :" + j.LeStade.Libelle+ " " + j.LeStade.NbPlaces+" Adversaire : "+j.LAdversaire.Libelle);
-             }*/
-            MatchsDAO p = new MatchsDAO();
-            MessageBox.Show(p.findById("1").LAdversaire.Libelle.ToString());
+                 MessageBox.Show(j.ButMarques.ToString());
+             }
+            /*
+           participeDAO p = new participeDAO();
+           MessageBox.Show(p.findById("1").ButMarques.ToString());*/
         }
     }
 }

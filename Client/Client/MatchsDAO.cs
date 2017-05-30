@@ -18,20 +18,26 @@ namespace Client
 
 
 
-       /* public void create(Matchs m)
+        public void create(Matchs m)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + m.DateMatch + "','" + m.Heure + "','" + m.ExterieurON + "')";
+            string[] res = m.DateMatch.ToString().Split(' ');
+            string date = res[0];
+            string heure = res[1];
+            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + date + "','" + heure + "','" + m.ScoreDom + "','" + m.ScoreExt + "','" + m.ExterieurON + "','" + m.LAdversaire.Id + "','" + m.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
-
+        
         public bool update(Matchs m)
         {
             MySqlCommand cmd;
-            String req = "UPDATE MATCHS SET dateMatch='" + m.DateMatch + "', heure='" + m.Heure + "', exterieurON='" + m.ExterieurON + "' WHERE id='" + m.Id + "'";
+            string[] res = m.DateMatch.ToString().Split(' ');
+            string date = res[0];
+            string heure = res[1];
+            String req = "UPDATE MATCHS SET dateMatch='" + date + "', heure='" + heure + "', scoreDom='" + m.ScoreDom + "', scoreExt='" + m.ScoreExt + "', exterieurON='" + m.ExterieurON + "', id_ADVERSAIRE='" + m.LAdversaire.Id + "', id_STADE='" + m.LeStade.Id + "' WHERE id='" + m.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -45,8 +51,8 @@ namespace Client
             }
 
 
-        }*/
-
+        }
+        
         public bool delete(Matchs m)
         {
             MySqlCommand cmd;
@@ -81,11 +87,11 @@ namespace Client
 
             if (dr.Read())
             {//je peux le faire
-                System.Diagnostics.Debug.Write(dr[4]+ " " + dr[5]);
                 idStade = dr[7].ToString();
                 idAdversaire = dr[6].ToString();
-                System.Diagnostics.Debug.Write(dr[1].ToString());
-                DateTime date= Convert.ToDateTime(Convert.ToString(dr[1].ToString())+ " " +Convert.ToString(dr[2].ToString()));
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                string[] res2 = dr[2].ToString().Split(':');
+                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]), Int32.Parse(res2[0]), Int32.Parse(res2[1]), Int32.Parse(res2[2]));
                 m = new Matchs(Convert.ToInt32(dr[0]), date, Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), null, null);
             }
             dr.Close();
@@ -103,7 +109,7 @@ namespace Client
             return m;
         }
 
-        /*public List<Matchs> readAll()
+        public List<Matchs> readAll()
         {
             List<Matchs> lesMatchs = new List<Matchs>();
             MySqlCommand cmd;
@@ -122,7 +128,10 @@ namespace Client
                 idStade[i] = dr[7].ToString();
                 idAdversaire[i] = dr[6].ToString();
                 i++;
-                Matchs mag = new Matchs(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]), dr[2].ToString(), Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), null, null);
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                string[] res2 = dr[2].ToString().Split(':');
+                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]), Int32.Parse(res2[0]), Int32.Parse(res2[1]), Int32.Parse(res2[2]));
+                Matchs mag = new Matchs(Convert.ToInt32(dr[0]), date, Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), null, null);
                 lesMatchs.Add(mag);
             }
             dr.Close();
@@ -132,6 +141,6 @@ namespace Client
                 lesMatchs[k].LAdversaire = aDAO.findById(idAdversaire[k]);
             }
             return lesMatchs;
-        }*/
+        }
     }
 }
