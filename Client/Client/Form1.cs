@@ -19,19 +19,24 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*participeDAO perso = new participeDAO();
-            foreach(participe j in perso.readAll())
+            ligneCmdDAO perso = new ligneCmdDAO();
+            foreach(ligneCmd j in perso.readAll())
             {
-                MessageBox.Show(j.ButMarques.ToString());
-            }*/
-
-            /*participeDAO p = new participeDAO();
-            MessageBox.Show(p.findByIdMatch("1").ButMarques.ToString());*/
-            participeDAO perso = new participeDAO();
-            foreach (participe j in perso.findByIdJoueur("16"))
-            {
-                MessageBox.Show(j.ButMarques.ToString());
+                MessageBox.Show(j.Quantite.ToString());
             }
+
+            /*CommandeDAO p = new CommandeDAO();
+            MessageBox.Show(p.findById("59245eb46b083").DateCommande.ToString());
+            ligneCmdDAO perso = new ligneCmdDAO();*/
+            /* foreach (ligneCmd j in perso.findByIdCommandeEtProduit("59245eb46b083", "1"))
+             {
+                 MessageBox.Show(j.Quantite.ToString()+" "+j.LaCommande.Id+" "+j.LaTaille.Id+" "+j.LeProduit.Id);
+             }*/
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
