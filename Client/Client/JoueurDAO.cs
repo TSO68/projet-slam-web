@@ -21,7 +21,7 @@ namespace Client
         public void create(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO JOUEUR VALUES ('" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied+ "','" + j.DateVenueClub+ "')";
+            String req = "INSERT INTO JOUEUR VALUES ('"+ j.Id + "','"+ j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied+ "','" + j.DateVenueClub+ "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "UPDATE JOUEUR SET taille='" + j.Taille + "', poids='" + j.Poids + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE num='" + j.Num + "'";
+            String req = "UPDATE JOUEUR SET taille='" + j.Taille + "', poids='" + j.Poids + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE id='" + j.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -50,7 +50,7 @@ namespace Client
         public bool delete(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "DELETE FROM JOUEUR WHERE num='" + j.Num + "'";
+            String req = "DELETE FROM JOUEUR WHERE id='" + j.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace Client
         public Joueur findById(String code)
         {
             MySqlCommand cmd;
-            String req = "SELECT num,taille,poids,pied,venueClub, id_POSTE, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id WHERE num='" + code + "'";
+            String req = "SELECT num,taille,poids,pied,venueClub, id_POSTE, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id WHERE JOUEUR.id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
             
