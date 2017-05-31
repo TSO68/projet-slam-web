@@ -22,7 +22,7 @@ namespace Client
         public void create(Staff s)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO STAFF VALUES ('" + s.Role + "')";
+            String req = "INSERT INTO STAFF VALUES ('" + s.LeRole.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -32,7 +32,7 @@ namespace Client
         public bool update(Staff s)
         {
             MySqlCommand cmd;
-            String req = "UPDATE STAFF SET nom='" + s.Role + "'";
+            String req = "UPDATE STAFF SET id_ROLE='" + s.LeRole.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -70,16 +70,38 @@ namespace Client
         public Staff findById(String code)
         {
             MySqlCommand cmd;
-            String req = "SELECT * FROM STAFF WHERE id='" + code + "'";
+            String req = "SELECT PERSONNEL.id, id_ROLE, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON PERSONNEL.id=STAFF.id WHERE PERSONNEL.id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            PhotoDAO phDAO = new PhotoDAO();
+            NationaliteDAO nDAO = new NationaliteDAO();
+            RoleDAO rDAO = new RoleDAO();
+            string idNationalite = null;
+            string idPhoto = null;
+            string idRole = null;
             Staff m = null;
             if (dr.Read())
             {//je peux le faire
-                m = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                idNationalite = dr[7].ToString();
+                idPhoto = dr[8].ToString();
+                idRole = dr[0].ToString();
+                string[] res = dr[4].ToString().Split('/', ':', ' ');
+                m = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
             }
             dr.Close();
+            if (!String.IsNullOrEmpty(idRole)) // Si idPoste n'est pas null
+            {
+                m.LeRole = rDAO.findById(idRole); // On attribue le poste au joueur
+            }
+            if (!String.IsNullOrEmpty(idNationalite)) // Si idPoste n'est pas null
+            {
+                m.LaNationalite = nDAO.findById(idNationalite); // On attribue le poste au joueur
+            }
+            if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
+            {
+                m.LaPhoto = phDAO.findById(idPhoto); // On attribue le poste au joueur
+            }
             return m;
         }
 
@@ -87,17 +109,35 @@ namespace Client
         {
             List<Staff> lesStaffs = new List<Staff>();
             MySqlCommand cmd;
-            String req = "SELECT * FROM STAFF";
+            String req = "SELECT PERSONNEL.id, id_ROLE, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON PERSONNEL.id=STAFF.id";
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
-
+            RoleDAO pDAO = new RoleDAO();
+            PhotoDAO phDAO = new PhotoDAO();
+            NationaliteDAO nDAO = new NationaliteDAO();
+            
+            string[] idRole = new string[req.Count()];
+            string[] idNationalite = new string[req.Count()];
+            string[] idPhoto = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
-                Staff mag = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                idRole[i] = dr[0].ToString();
+                idNationalite[i] = dr[7].ToString();
+                idPhoto[i] = dr[8].ToString();
+                i++;
+                string[] res = dr[4].ToString().Split('/', ':', ' ');
+                Staff mag = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
                 lesStaffs.Add(mag);
             }
             dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesStaffs[k].LeRole = pDAO.findById(idRole[k]);
+                lesStaffs[k].LaNationalite = nDAO.findById(idNationalite[k]);
+                lesStaffs[k].LaPhoto = phDAO.findById(idPhoto[k]);
+            }
             return lesStaffs;
         }
     }

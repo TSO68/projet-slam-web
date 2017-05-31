@@ -11,10 +11,15 @@ namespace Client
         private int id;
         private String lien;
 
-        public Photo(int id, string lien)
+        private Personnel lePersonnel;
+        private Produit leProduit;
+
+        public Photo(int id, string lien, Personnel personnel, Produit produit)
         {
             this.id = id;
             this.lien = lien;
+            this.lePersonnel = personnel;
+            this.leProduit = produit;
         }
 
         public int Id
@@ -40,6 +45,32 @@ namespace Client
             set
             {
                 lien = value;
+            }
+        }
+
+        public Personnel LePersonnel
+        {
+            get
+            {
+                return lePersonnel;
+            }
+
+            set
+            {
+                lePersonnel = value;
+            }
+        }
+
+        public Produit LeProduit
+        {
+            get
+            {
+                return leProduit;
+            }
+
+            set
+            {
+                leProduit = value;
             }
         }
     }

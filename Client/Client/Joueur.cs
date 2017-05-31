@@ -16,7 +16,7 @@ namespace Client
 
         private Poste lePoste;
 
-        public Joueur(int num, float taille, float poids, string pied, String dateVenueClub, Poste poste, int id, String nom, String prenom, DateTime dateNaiss, String lieuNaiss, String biographie) : base(id, nom, prenom, dateNaiss, lieuNaiss, biographie)
+        public Joueur(int num, float taille, float poids, string pied, String dateVenueClub, Poste poste, int id, String nom, String prenom, string dateNaiss, String lieuNaiss, String biographie, Nationalite n, Photo p) : base(id, nom, prenom, dateNaiss, lieuNaiss, biographie, n, p)
         {
             this.num = num;
             this.taille = taille;

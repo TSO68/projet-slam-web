@@ -19,16 +19,16 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ligneCmdDAO perso = new ligneCmdDAO();
-            foreach(ligneCmd j in perso.readAll())
+            /*JoueurDAO perso = new JoueurDAO();
+            foreach(Joueur j in perso.readAll())
             {
-                MessageBox.Show(j.Quantite.ToString());
-            }
+                MessageBox.Show(j.LaPhoto.Id.ToString());
+            }*/
 
-            /*CommandeDAO p = new CommandeDAO();
-            MessageBox.Show(p.findById("59245eb46b083").DateCommande.ToString());
-            ligneCmdDAO perso = new ligneCmdDAO();*/
-            /* foreach (ligneCmd j in perso.findByIdCommandeEtProduit("59245eb46b083", "1"))
+            JoueurDAO p = new JoueurDAO();
+            MessageBox.Show(p.findById("11").DateNaiss.ToString());
+            /*ligneCmdDAO perso = new ligneCmdDAO();
+             foreach (ligneCmd j in perso.findByIdCommandeEtProduit("59245eb46b083", "1"))
              {
                  MessageBox.Show(j.Quantite.ToString()+" "+j.LaCommande.Id+" "+j.LaTaille.Id+" "+j.LeProduit.Id);
              }*/
