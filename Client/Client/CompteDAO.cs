@@ -15,7 +15,27 @@ namespace Client
             this.c = Connexion.getIntstance();
         }
 
-
+        public Compte chercherCompteAvecIdCommande(string id)
+        {
+            CommandeDAO cdao = new CommandeDAO();
+            Commande com = null;
+            Compte unCompte = null;
+            foreach (Commande co in cdao.readAll())
+            {
+                if (co.Id.ToString() == id)
+                {
+                    com = co;
+                }
+            }
+            foreach (Compte c in readAll())
+            {
+                if (com.LeCompte == c.Id)
+                {
+                    unCompte = c;
+                }
+            }
+            return unCompte;
+        }
 
         public void create(Compte c)
         {

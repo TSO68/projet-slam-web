@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Windows.Forms;
 namespace Client
 {
     class CommandeDAO
@@ -74,11 +74,13 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Commande m = null;
-            if (dr.Read())
-            {//je peux le faire
-                m = new Commande(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]));
+            foreach (Commande c in readAll())
+            {
+                if (c.Id.ToString() == dr[0].ToString())
+                {
+                    m = c;
+                }
             }
-            dr.Close();
             return m;
         }
 
@@ -90,10 +92,15 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
+            CompteDAO cDAO = new CompteDAO();
+            string[] idCompte = new string[req.Count()];
 
             while (dr.Read())
             {
-                Commande mag = new Commande(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]));
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]));
+                DateTime dateOnly = date.Date;
+                Commande mag = new Commande(dr[0].ToString(), dateOnly, Int32.Parse(dr[2].ToString()));
                 lesCommandes.Add(mag);
             }
             dr.Close();

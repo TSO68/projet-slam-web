@@ -11,12 +11,14 @@ namespace Client
         private int id;
         private String libelle;
         private String logo;
+        private Stade leStade;
 
-        public Adversaire(int id, string libelle, string logo)
+        public Adversaire(int id, string libelle, string logo, Stade s)
         {
             this.id = id;
             this.libelle = libelle;
             this.logo = logo;
+            this.leStade = s;
         }
 
         public int Id
@@ -55,6 +57,18 @@ namespace Client
             set
             {
                 logo = value;
+            }
+        }
+        public Stade LeStade
+        {
+            get
+            {
+                return leStade;
+            }
+
+            set
+            {
+                leStade = value;
             }
         }
     }

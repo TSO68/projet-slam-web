@@ -69,7 +69,7 @@ namespace Client
         public Photo findById(String code)
         {
             MySqlCommand cmd;
-            String req = "SELECT PHOTO.id, lien, 'PERSONNEL.id_PHOTO', 'PRODUIT.id_PHOTO' FROM PHOTO WHERE PHOTO.id='" + code + "' AND (PHOTO.id = 'PERSONNEL.id_PHOTO' OR PHOTO.id = 'PRODUIT.id_PHOTO')";
+            String req = "SELECT PHOTO.id, lien, PERSONNEL.id_PHOTO, PRODUIT.id_PHOTO FROM PHOTO LEFT OUTER JOIN PERSONNEL ON PHOTO.id = PERSONNEL.id_PHOTO LEFT OUTER JOIN PRODUIT ON PHOTO.id = PRODUIT.id_PHOTO WHERE PHOTO.id='" + code + "' AND (PHOTO.id = PERSONNEL.id_PHOTO OR PHOTO.id = PRODUIT.id_PHOTO)";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 

@@ -21,17 +21,23 @@ namespace Client
         public void create(Matchs m)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + m.DateMatch + "','" + m.Heure + "','" + m.ExterieurON + "')";
+            string[] res = m.DateMatch.ToString().Split(' ');
+            string date = res[0];
+            string heure = res[1];
+            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + date + "','" + heure + "','" + m.ScoreDom + "','" + m.ScoreExt + "','" + m.ExterieurON + "','" + m.LAdversaire.Id + "','" + m.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
         }
-
+        
         public bool update(Matchs m)
         {
             MySqlCommand cmd;
-            String req = "UPDATE MATCHS SET dateMatch='" + m.DateMatch + "', heure='" + m.Heure + "', exterieurON='" + m.ExterieurON + "' WHERE id='" + m.Id + "'";
+            string[] res = m.DateMatch.ToString().Split(' ');
+            string date = res[0];
+            string heure = res[1];
+            String req = "UPDATE MATCHS SET dateMatch='" + date + "', heure='" + heure + "', scoreDom='" + m.ScoreDom + "', scoreExt='" + m.ScoreExt + "', exterieurON='" + m.ExterieurON + "', id_ADVERSAIRE='" + m.LAdversaire.Id + "', id_STADE='" + m.LeStade.Id + "' WHERE id='" + m.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -46,7 +52,7 @@ namespace Client
 
 
         }
-
+        
         public bool delete(Matchs m)
         {
             MySqlCommand cmd;
@@ -74,30 +80,67 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Matchs m = null;
+            string idStade = null;
+            string idAdversaire = null;
+            StadeDAO sDAO = new StadeDAO();
+            AdversaireDAO aDAO = new AdversaireDAO();
+
             if (dr.Read())
             {//je peux le faire
-                m = new Matchs(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]), Convert.ToDateTime(dr[2].ToString()), Convert.ToBoolean(dr[3]));
+                idStade = dr[7].ToString();
+                idAdversaire = dr[6].ToString();
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                string[] res2 = dr[2].ToString().Split(':');
+                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]), Int32.Parse(res2[0]), Int32.Parse(res2[1]), Int32.Parse(res2[2]));
+                m = new Matchs(Convert.ToInt32(dr[0]), date, Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), null, null);
             }
             dr.Close();
+
+            if (!String.IsNullOrEmpty(idStade))
+            {
+                m.LeStade = sDAO.findById(idStade.ToString());
+            }
+
+            if (!String.IsNullOrEmpty(idAdversaire))
+            {
+                m.LAdversaire = aDAO.findById(idAdversaire.ToString());
+            }
+
             return m;
         }
 
         public List<Matchs> readAll()
         {
-            List<Matchs> lesMatchss = new List<Matchs>();
+            List<Matchs> lesMatchs = new List<Matchs>();
             MySqlCommand cmd;
             String req = "SELECT * FROM MATCHS";
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            StadeDAO sDAO = new StadeDAO();
+            AdversaireDAO aDAO = new AdversaireDAO();
+            string[] idStade = new string[req.Count()];
+            string[] idAdversaire = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
-                Matchs mag = new Matchs(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]), Convert.ToDateTime(dr[2].ToString()), Convert.ToBoolean(dr[3]));
-                lesMatchss.Add(mag);
+                idStade[i] = dr[7].ToString();
+                idAdversaire[i] = dr[6].ToString();
+                i++;
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                string[] res2 = dr[2].ToString().Split(':');
+                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]), Int32.Parse(res2[0]), Int32.Parse(res2[1]), Int32.Parse(res2[2]));
+                Matchs mag = new Matchs(Convert.ToInt32(dr[0]), date, Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]), Convert.ToBoolean(dr[5]), null, null);
+                lesMatchs.Add(mag);
             }
             dr.Close();
-            return lesMatchss;
+            for(int k=0; k<i; k++)
+            {
+                lesMatchs[k].LeStade = sDAO.findById(idStade[k]);
+                lesMatchs[k].LAdversaire = aDAO.findById(idAdversaire[k]);
+            }
+            return lesMatchs;
         }
     }
 }

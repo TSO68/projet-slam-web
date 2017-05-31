@@ -75,12 +75,16 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Staff m = null;
+            string idRole = null;
+            RoleDAO rDAO = new RoleDAO();
             if (dr.Read())
             {//je peux le faire
-                m = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                idRole = dr[1].ToString();
+                m = new Staff(dr[0].ToString(), null, Convert.ToInt32(dr[2]), dr[3].ToString(), dr[4].ToString(), Convert.ToDateTime(dr[5]), dr[6].ToString(), dr[7].ToString());
             }
             dr.Close();
             return m;
+            
         }
 
         public List<Staff> readAll()
@@ -92,12 +96,20 @@ namespace Client
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            RoleDAO rDAO = new RoleDAO();
+            string[] idRole = new string[req.Count()];
+            int i = 0;
+
             while (dr.Read())
             {
-                Staff mag = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                Staff mag = new Staff(dr[0].ToString(), null, Convert.ToInt32(dr[2]), dr[3].ToString(), dr[4].ToString(), Convert.ToDateTime(dr[5]), dr[6].ToString(), dr[7].ToString());
                 lesStaffs.Add(mag);
             }
             dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesStaffs[k].LeRole = rDAO.findById(idRole[k]);
+            }
             return lesStaffs;
         }
     }

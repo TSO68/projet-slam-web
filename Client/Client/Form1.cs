@@ -19,14 +19,19 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PhotoDAO p = new PhotoDAO();
-            foreach(Photo ph in p.readAll())
-            {
-                MessageBox.Show(p.findById("15").LePersonnel);
-            }
-
-
+            //CompteDAO c = new CompteDAO();
+                //MessageBox.Show(c.chercherCompteAvecIdCommande("59245eb46b083").Nom);
+            participeDAO pa = new participeDAO();
+            MessageBox.Show(pa.readAll().Count.ToString());
             
+
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
