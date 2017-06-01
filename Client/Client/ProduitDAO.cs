@@ -21,7 +21,7 @@ namespace Client
         public void create(Produit p)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix + "','" + p.Description + "','" + p.LaPhoto + "')";
+            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix + "','" + p.Description + "','" + p.LaPhoto.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();

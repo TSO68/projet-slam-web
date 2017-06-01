@@ -155,43 +155,40 @@ namespace Client
         }
 
         public List<participe> readAll()
-        {
-            List<participe> lesparticipes = new List<participe>();
-            MySqlCommand cmd;
+        { 
             String req = "SELECT * FROM participe";
-            cmd = new MySqlCommand(req, this.c);
-
+            List<participe> lesparticipes = new List<participe>();
+            MySqlCommand cmd = new MySqlCommand(req, this.c);
+ 
+            MySqlDataReader dr2 = cmd.ExecuteReader();
+            int m = 0;
+            while (dr2.Read())
+            {
+                m++;
+            }
+            dr2.Close();
+ 
             MySqlDataReader dr = cmd.ExecuteReader();
             MatchsDAO mDAO = new MatchsDAO();
             JoueurDAO jDAO = new JoueurDAO();
-            List<string> idMatch = new List<string>();
-            List<string> idJoueur = new List<string>();
+            string[] idMatch = new string[m];
+            string[] idJoueur = new string[m];
             int i = 0;
-            while (dr.Read())
-            {
-                idMatch.Add(dr[0].ToString());
-                idJoueur.Add(dr[1].ToString());
+             while (dr.Read())
+             {
+                idMatch[i] = dr[0].ToString();
+                idJoueur[i] = dr[1].ToString();
                 i++;
                 participe p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
                 lesparticipes.Add(p);
-            }
-            dr.Close();
-            int k = 0;
-            while (k < lesparticipes.Count)
+             }
+             dr.Close();
+            for (int k = 0; k < i; k++)
             {
-                Matchs lem = null;
-                Joueur lej = null;
-                
-                lem = mDAO.findById(idMatch.ElementAt(k));
-                lej = jDAO.findById(idJoueur.ElementAt(k));
-                
-                lesparticipes.ElementAt(k).LeMatch = lem;
-                lesparticipes.ElementAt(k).LeJoueur = lej;
-                k++;
-
+                lesparticipes[k].LeMatch = mDAO.findById(idMatch[k]);
+                lesparticipes[k].LeJoueur = jDAO.findById(idJoueur[k]);
             }
-
-            return lesparticipes;
-        }
+             return lesparticipes;
+         }
     }
 }

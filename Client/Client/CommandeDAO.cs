@@ -21,7 +21,7 @@ namespace Client
         public void create(Commande t)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "')";
+            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "','" + t.LeCompte+ "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Commande t)
         {
             MySqlCommand cmd;
-            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "' WHERE id='" + t.Id + "'";
+            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "', id_COMPTE="+ t.LeCompte + "WHERE id='" + t.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
