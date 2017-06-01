@@ -21,7 +21,7 @@ namespace Client
         public void create(Adversaire a)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO ADVERSAIRE VALUES ('" + a.Id + "','" + a.Libelle + "','" + a.Logo + "')";
+            String req = "INSERT INTO ADVERSAIRE VALUES ('" + a.Id + "','" + a.Libelle + "','" + a.Logo + "','" + a.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Adversaire a)
         {
             MySqlCommand cmd;
-            String req = "UPDATE ADVERSAIRE SET libelle='" + a.Libelle + "', logo='" + a.Logo + "' WHERE id='" + a.Id + "'";
+            String req = "UPDATE ADVERSAIRE SET libelle='" + a.Libelle + "', logo='" + a.Logo + "', id_STADE='" + a.LeStade.Id + "' WHERE id='" + a.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();

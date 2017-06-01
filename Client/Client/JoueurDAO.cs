@@ -23,6 +23,10 @@ namespace Client
             MySqlCommand cmd;
             String req = "INSERT INTO JOUEUR VALUES ('" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied + "','" + j.DateVenueClub + "')";
 
+            Personnel p = new Personnel(j.Id,j.Nom,j.Prenom,j.DateNaiss,j.LieuNaiss,j.Biographie,j.LaNationalite,j.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.create(p);
+
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
@@ -32,6 +36,10 @@ namespace Client
         {
             MySqlCommand cmd;
             String req = "UPDATE JOUEUR SET num="+j.Num+", taille='" + j.Taille + "', poids='" + j.Poids + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE id='" + j.Id + "'";
+
+            Personnel p = new Personnel(j.Id, j.Nom, j.Prenom, j.DateNaiss, j.LieuNaiss, j.Biographie, j.LaNationalite, j.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.update(p);
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -43,14 +51,16 @@ namespace Client
             {
                 return false;
             }
-
-
         }
 
         public bool delete(Joueur j)
         {
             MySqlCommand cmd;
             String req = "DELETE FROM JOUEUR WHERE id='" + j.Id + "'";
+
+            Personnel p = new Personnel(j.Id, j.Nom, j.Prenom, j.DateNaiss, j.LieuNaiss, j.Biographie, j.LaNationalite, j.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.delete(p);
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
