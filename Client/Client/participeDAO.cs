@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Windows.Forms;
 namespace Client
 {
     class participeDAO
@@ -73,6 +73,7 @@ namespace Client
             String req = "SELECT * FROM participe WHERE id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
+
 
             MatchsDAO mDAO = new MatchsDAO();
             JoueurDAO jDAO = new JoueurDAO();

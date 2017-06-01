@@ -93,6 +93,8 @@ namespace Client
             string idPhoto = null;
             string idRole = null;
             Staff m = null;
+            string idRole = null;
+            RoleDAO rDAO = new RoleDAO();
             if (dr.Read())
             {//je peux le faire
                 idNationalite = dr[7].ToString();
@@ -115,6 +117,7 @@ namespace Client
                 m.LaPhoto = phDAO.findById(idPhoto); // On attribue le poste au joueur
             }
             return m;
+            
         }
 
         public List<Staff> readAll()
@@ -125,6 +128,7 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
+
             RoleDAO pDAO = new RoleDAO();
             PhotoDAO phDAO = new PhotoDAO();
             NationaliteDAO nDAO = new NationaliteDAO();

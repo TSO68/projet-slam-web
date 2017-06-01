@@ -74,12 +74,12 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Commande m = null;
+
             if (dr.Read())
             {//je peux le faire
                 string[] res = dr[1].ToString().Split('/', ':', ' ');
                 m = new Commande(dr[0].ToString(), res[0]+"/"+ res[1]+"/"+ res[2], Int32.Parse(dr[2].ToString()));
             }
-            dr.Close();
             return m;
         }
 
