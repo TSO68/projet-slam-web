@@ -25,7 +25,7 @@ namespace Client
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
-
+            
         }
 
         public bool update(Nationalite n)

@@ -28,18 +28,5 @@ namespace Client
             }
         }
 
-        public Role LeRole
-        {
-            get
-            {
-                return leRole;
-
-            }
-
-            set
-            {
-                leRole = value;
-            }
-        }
     }
 }

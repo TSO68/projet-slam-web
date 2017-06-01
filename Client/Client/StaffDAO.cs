@@ -59,14 +59,15 @@ namespace Client
         public bool delete(Staff s)
         {
             MySqlCommand cmd;
+            MySqlCommand cmd2;
             String req = "DELETE FROM STAFF WHERE id='" + s.Id + "'";
+            String req2 = "DELETE FROM PERSONNEL WHERE id='" + s.Id + "'";
 
-            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
-            PersonnelDAO pDAO = new PersonnelDAO();
-            pDAO.delete(p);
+            
 
             cmd = new MySqlCommand(req, this.c);
-            int nb = cmd.ExecuteNonQuery();
+            cmd2 = new MySqlCommand(req2, this.c);
+            int nb = cmd.ExecuteNonQuery() + cmd2.ExecuteNonQuery();
             if (nb != 0)
             {
                 return true;
@@ -96,9 +97,9 @@ namespace Client
             string idRole = null;
             Staff m = null;
 
-            string idRole = null;
+            
 
-            RoleDAO rDAO = new RoleDAO();
+            
             if (dr.Read())
             {//je peux le faire
                 idNationalite = dr[7].ToString();

@@ -56,6 +56,8 @@
     <Compile Include="Compte.cs" />
     <Compile Include="CompteDAO.cs" />
     <Compile Include="Connexion.cs" />
+    <Compile Include="Fait.cs" />
+    <Compile Include="FaitDAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

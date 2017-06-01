@@ -49,10 +49,16 @@ namespace Client
         public bool delete(Taille t)
         {
             MySqlCommand cmd;
-            String req = "DELETE FROM TAILLE WHERE id='" + t.Id + "'";
+            MySqlCommand cmd2;
+            MySqlCommand cmd3;
+            String req2 = "DELETE FROM fait WHERE id_TAILLE=" + t.Id;
+            String req3 = "DELETE FROM ligneCmd WHERE id_TAILLE=" + t.Id;
+            String req = "DELETE FROM TAILLE WHERE id=" + t.Id;
 
+            cmd3 = new MySqlCommand(req3, this.c);
+            cmd2 = new MySqlCommand(req2, this.c);
             cmd = new MySqlCommand(req, this.c);
-            int nb = cmd.ExecuteNonQuery();
+            int nb = cmd3.ExecuteNonQuery() + cmd2.ExecuteNonQuery() + cmd.ExecuteNonQuery();
             if (nb != 0)
             {
                 return true;

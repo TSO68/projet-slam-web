@@ -56,14 +56,20 @@ namespace Client
         public bool delete(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "DELETE FROM JOUEUR WHERE id='" + j.Id + "'";
+            MySqlCommand cmd2;
+            MySqlCommand cmd3;
+            String req = "DELETE FROM JOUEUR WHERE id=" + j.Id;
 
-            Personnel p = new Personnel(j.Id, j.Nom, j.Prenom, j.DateNaiss, j.LieuNaiss, j.Biographie, j.LaNationalite, j.LaPhoto);
-            PersonnelDAO pDAO = new PersonnelDAO();
-            pDAO.delete(p);
+            String req2 = "DELETE FROM participe WHERE id_PERSONNEL=" + j.Id;
+
+            String req3 = "DELETE FROM PERSONNEL WHERE id=" + j.Id;
+
+            
 
             cmd = new MySqlCommand(req, this.c);
-            int nb = cmd.ExecuteNonQuery();
+            cmd2 = new MySqlCommand(req2, this.c);
+            cmd3 = new MySqlCommand(req3, this.c);
+            int nb = cmd2.ExecuteNonQuery() + cmd.ExecuteNonQuery() + cmd3.ExecuteNonQuery();
             if (nb != 0)
             {
                 return true;

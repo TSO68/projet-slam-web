@@ -52,14 +52,17 @@ namespace Client
 
 
         }
-        
+
         public bool delete(Matchs m)
         {
             MySqlCommand cmd;
+            MySqlCommand cmd2;
             String req = "DELETE FROM MATCHS WHERE id='" + m.Id + "'";
+            String req2 = "DELETE FROM participe WHERE id='" + m.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
-            int nb = cmd.ExecuteNonQuery();
+            cmd2 = new MySqlCommand(req2, this.c);
+            int nb = cmd2.ExecuteNonQuery() + cmd.ExecuteNonQuery();
             if (nb != 0)
             {
                 return true;
