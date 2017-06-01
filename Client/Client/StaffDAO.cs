@@ -82,7 +82,9 @@ namespace Client
         public Staff findById(String code)
         {
             MySqlCommand cmd;
+
             String req = "SELECT PERSONNEL.id, id_ROLE, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON PERSONNEL.id=STAFF.id WHERE PERSONNEL.id='" + code + "'";
+
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -93,11 +95,14 @@ namespace Client
             string idPhoto = null;
             string idRole = null;
             Staff m = null;
+
             string idRole = null;
+
             RoleDAO rDAO = new RoleDAO();
             if (dr.Read())
             {//je peux le faire
                 idNationalite = dr[7].ToString();
+
                 idPhoto = dr[8].ToString();
                 idRole = dr[0].ToString();
                 string[] res = dr[4].ToString().Split('/', ':', ' ');
@@ -115,6 +120,7 @@ namespace Client
             if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
             {
                 m.LaPhoto = phDAO.findById(idPhoto); // On attribue le poste au joueur
+
             }
             return m;
             
@@ -128,6 +134,7 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
+
 
             RoleDAO pDAO = new RoleDAO();
             PhotoDAO phDAO = new PhotoDAO();
@@ -145,14 +152,17 @@ namespace Client
                 i++;
                 string[] res = dr[4].ToString().Split('/', ':', ' ');
                 Staff mag = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
+
                 lesStaffs.Add(mag);
             }
             dr.Close();
             for (int k = 0; k < i; k++)
             {
+
                 lesStaffs[k].LeRole = pDAO.findById(idRole[k]);
                 lesStaffs[k].LaNationalite = nDAO.findById(idNationalite[k]);
                 lesStaffs[k].LaPhoto = phDAO.findById(idPhoto[k]);
+
             }
             return lesStaffs;
         }

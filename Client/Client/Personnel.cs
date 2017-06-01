@@ -27,6 +27,7 @@ namespace Client
             this.biographie = biographie;
             this.laNationalite = n;
             this.laPhoto = p;
+
         }
 
         public int Id
@@ -106,6 +107,7 @@ namespace Client
                 biographie = value;
             }
         }
+
         public Nationalite LaNationalite
         {
             get
@@ -123,11 +125,14 @@ namespace Client
             get
             {
                 return laPhoto;
+
             }
 
             set
             {
+
                 laPhoto = value;
+
             }
         }
     }

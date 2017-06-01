@@ -74,6 +74,7 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
+
             Personnel p = null;
             string idNationalite = null;
             string idPhoto = null;
@@ -89,12 +90,14 @@ namespace Client
             dr.Close();
             if (!String.IsNullOrEmpty(idNationalite))
             {
+
                 p.LaNationalite = nDAO.findById(idNationalite.ToString());
             }
 
             if (!String.IsNullOrEmpty(idPhoto))
             {
                 p.LaPhoto = pDAO.findById(idPhoto.ToString());
+
             }
             return p;
         }
@@ -113,6 +116,7 @@ namespace Client
             }
             dr2.Close();
             MySqlDataReader dr = cmd.ExecuteReader();
+
 
             NationaliteDAO nDAO = new NationaliteDAO();
             PhotoDAO pDAO = new PhotoDAO();
@@ -135,6 +139,7 @@ namespace Client
             {
                 lesPersonnels[k].LaNationalite = nDAO.findById(idNationalite[k]);
                 lesPersonnels[k].LaPhoto = pDAO.findById(idPhoto[k]);
+
             }
             return lesPersonnels;
         }

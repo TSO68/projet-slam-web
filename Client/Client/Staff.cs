@@ -33,6 +33,7 @@ namespace Client
             get
             {
                 return leRole;
+
             }
 
             set

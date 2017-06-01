@@ -81,12 +81,14 @@ namespace Client
             MySqlCommand cmd;
 
             String req = "SELECT num,taille,poids,pied,venueClub, id_POSTE, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id WHERE PERSONNEL.id=" + code + "";
+
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
 
 
             PosteDAO pDAO = new PosteDAO();
+
             PhotoDAO phDAO = new PhotoDAO();
             NationaliteDAO nDAO = new NationaliteDAO();
 
@@ -94,10 +96,12 @@ namespace Client
             string idPoste = null;
             string idNationalite = null;
             string idPhoto= null;
+
             if (dr.Read())
             {//je peux le faire
                 idPoste = dr[5].ToString();
                 idNationalite = dr[12].ToString();
+
                 idPhoto = dr[13].ToString();
                 string[] res = dr[9].ToString().Split('/', ':', ' ');
                 m = new Joueur(Convert.ToInt32(dr[0]), float.Parse(dr[1].ToString()), float.Parse(dr[2].ToString()), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[10].ToString(), dr[11].ToString(), null, null);
@@ -111,11 +115,13 @@ namespace Client
             }
             if (!String.IsNullOrEmpty(idNationalite)) // Si idPoste n'est pas null
             {
+
                 m.LaNationalite = nDAO.findById(idNationalite); // On attribue le poste au joueur
             }
             if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
             {
                 m.LaPhoto = phDAO.findById(idPhoto); // On attribue le poste au joueur
+
             }
             return m;
         }
@@ -124,27 +130,35 @@ namespace Client
         {
             List<Joueur> lesJoueurs = new List<Joueur>();
             MySqlCommand cmd;
+
             String req = "SELECT num,taille,poids,pied,venueClub,id_POSTE, PERSONNEL.id, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM JOUEUR INNER JOIN PERSONNEL ON JOUEUR.id = PERSONNEL.id";
+
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
             PosteDAO pDAO = new PosteDAO();
+
             PhotoDAO phDAO = new PhotoDAO();
+
             NationaliteDAO nDAO = new NationaliteDAO();
 
             Joueur m = null;
             string[] idPoste = new string[req.Count()];
             string[] idNationalite = new string[req.Count()];
+
             string[] idPhoto = new string[req.Count()];
             int i = 0;
+
             while (dr.Read())
             {
                 idPoste[i] = dr[5].ToString();
                 idNationalite[i] = dr[12].ToString();
+
                 idPhoto[i] = dr[13].ToString();
                 i++;
                 string[] res = dr[9].ToString().Split('/', ':', ' ');
                 m = new Joueur(Convert.ToInt32(dr[0]), float.Parse(dr[1].ToString()), float.Parse(dr[2].ToString()), dr[3].ToString(), dr[4].ToString(), null, Convert.ToInt32(dr[6]), dr[7].ToString(), dr[8].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[10].ToString(), dr[11].ToString(), null, null);
+
                 lesJoueurs.Add(m);
 
             }
@@ -153,8 +167,10 @@ namespace Client
             for (int k = 0; k < i; k++)
             {
                 lesJoueurs[k].LePoste = pDAO.findById(idPoste[k]);
+
                 lesJoueurs[k].LaNationalite = nDAO.findById(idNationalite[k]);
                 lesJoueurs[k].LaPhoto = phDAO.findById(idPhoto[k]);
+
             }
             return lesJoueurs;
         }
