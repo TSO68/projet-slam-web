@@ -14,8 +14,9 @@ namespace Client
         private DateTime dateNaiss;
         private String lieuNaiss;
         private String biographie;
+        private Nationalite nationalite;
 
-        public Personnel(int id, string nom, string prenom, DateTime dateNaiss, string lieuNaiss, string biographie)
+        public Personnel(int id, string nom, string prenom, DateTime dateNaiss, string lieuNaiss, string biographie, Nationalite nationalite)
         {
             this.id = id;
             this.nom = nom;
@@ -23,6 +24,7 @@ namespace Client
             this.dateNaiss = dateNaiss;
             this.lieuNaiss = lieuNaiss;
             this.biographie = biographie;
+            this.Nationalite = nationalite;
         }
 
         public int Id
@@ -100,6 +102,19 @@ namespace Client
             set
             {
                 biographie = value;
+            }
+        }
+
+        internal Nationalite Nationalite
+        {
+            get
+            {
+                return nationalite;
+            }
+
+            set
+            {
+                nationalite = value;
             }
         }
     }

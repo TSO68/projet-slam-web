@@ -74,13 +74,20 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            Personnel m = null;
+            Personnel p=null;
+            string idNationalite = null;
+            NationaliteDAO nDAO = new NationaliteDAO();
             if (dr.Read())
             {//je peux le faire
-                m = new Personnel(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[3]), dr[4].ToString(), dr[5].ToString());
+                idNationalite= dr[6].ToString();
+                 p = new Personnel(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[3]), dr[4].ToString(), dr[5].ToString(), null);
             }
             dr.Close();
-            return m;
+            if (!String.IsNullOrEmpty(idNationalite))
+            {
+                p.Nationalite = nDAO.findById(idNationalite.ToString());
+            }
+            return p;
         }
 
         public List<Personnel> readAll()
@@ -91,13 +98,24 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
-
+            Personnel p;
+            NationaliteDAO nDAO = new NationaliteDAO();
+            string[] idNationalite = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
-                Personnel mag = new Personnel(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[3]), dr[4].ToString(), dr[5].ToString());
-                lesPersonnels.Add(mag);
+                System.Diagnostics.Debug.Write("Issou"+req.Count().ToString());
+                idNationalite[i] = dr[5].ToString();
+                i++;
+                p = new Personnel(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), Convert.ToDateTime(dr[3]), dr[4].ToString(), dr[5].ToString(), null);
+                lesPersonnels.Add(p);
             }
             dr.Close();
+            dr.Dispose();
+            for (int k = 0; k < i; k++)
+            {
+                lesPersonnels[k].Nationalite = nDAO.findById(idNationalite[k]);
+            }
             return lesPersonnels;
         }
     }

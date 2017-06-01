@@ -70,16 +70,31 @@ namespace Client
         public Staff findById(String code)
         {
             MySqlCommand cmd;
-            String req = "SELECT * FROM STAFF WHERE id='" + code + "'";
+            String req = "SELECT STAFF.id,id_ROLE,nom,prenom,dateNaiss,lieuNaiss,biographie,id_NATIONALITE,id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON STAFF.id = PERSONNEL.id  WHERE STAFF.id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Staff m = null;
+            string idNationalite=null;
+            string idRole = null;
+            NationaliteDAO nDAO = new NationaliteDAO();
+            RoleDAO rDAO = new RoleDAO();
             if (dr.Read())
             {//je peux le faire
-                m = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                idNationalite = dr[7].ToString();
+                idRole = dr[8].ToString();
+                m = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4].ToString()), dr[5].ToString(), dr[6].ToString(),null,null);
             }
             dr.Close();
+            if (!String.IsNullOrEmpty(idNationalite))
+            {
+                m.Nationalite = nDAO.findById(idNationalite.ToString());
+            }
+
+            if (!String.IsNullOrEmpty(idRole))
+            {
+                m.Role = rDAO.findById(idRole.ToString());
+            }
             return m;
         }
 
@@ -92,12 +107,26 @@ namespace Client
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            RoleDAO rDAO = new RoleDAO();
+            NationaliteDAO nDAO = new NationaliteDAO();
+            string[] idNationalite = new string[req.Count()];
+            string[] idRole = new string[req.Count()];
+            int i = 0;
+
             while (dr.Read())
             {
-                Staff mag = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString());
+                idNationalite[i] = dr[7].ToString();
+                idRole[i] = dr[8].ToString();
+                i++;
+                Staff mag = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString(),null,null);
                 lesStaffs.Add(mag);
             }
             dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesStaffs[k].Nationalite = nDAO.findById(idNationalite[k]);
+                lesStaffs[k].Role = rDAO.findById(idRole[k]);
+            }
             return lesStaffs;
         }
     }
