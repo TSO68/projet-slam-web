@@ -21,7 +21,7 @@ namespace Client
         public void create(Commande t)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "')";
+            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "','" + t.LeCompte+ "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Commande t)
         {
             MySqlCommand cmd;
-            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "' WHERE id='" + t.Id + "'";
+            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "', id_COMPTE="+ t.LeCompte + "WHERE id='" + t.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -74,12 +74,11 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Commande m = null;
-            foreach (Commande c in readAll())
-            {
-                if (c.Id.ToString() == dr[0].ToString())
-                {
-                    m = c;
-                }
+
+            if (dr.Read())
+            {//je peux le faire
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                m = new Commande(dr[0].ToString(), res[0]+"/"+ res[1]+"/"+ res[2], Int32.Parse(dr[2].ToString()));
             }
             return m;
         }
@@ -98,9 +97,7 @@ namespace Client
             while (dr.Read())
             {
                 string[] res = dr[1].ToString().Split('/', ':', ' ');
-                DateTime date = new DateTime(Int32.Parse(res[2]), Int32.Parse(res[1]), Int32.Parse(res[0]));
-                DateTime dateOnly = date.Date;
-                Commande mag = new Commande(dr[0].ToString(), dateOnly, Int32.Parse(dr[2].ToString()));
+                Commande mag = new Commande(dr[0].ToString(), res[0] + "/" + res[1] + "/" + res[2], Int32.Parse(dr[2].ToString()));
                 lesCommandes.Add(mag);
             }
             dr.Close();

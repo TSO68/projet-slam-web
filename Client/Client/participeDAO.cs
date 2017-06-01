@@ -66,81 +66,130 @@ namespace Client
 
         }
 
-        public participe findById(String code)
+        public List<participe> findByIdMatch(String code)
         {
+            List<participe> lesparticipes = new List<participe>();
             MySqlCommand cmd;
             String req = "SELECT * FROM participe WHERE id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            participe p = null;
-            string idMatch = null;
-            string idJoueur = null;
+
             MatchsDAO mDAO = new MatchsDAO();
             JoueurDAO jDAO = new JoueurDAO();
-            if (dr.Read())
-            {//je peux le faire
-                idMatch = dr[0].ToString();
-                idJoueur = dr[1].ToString();
-                p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
-            }
-            dr.Close();
-            if (!String.IsNullOrEmpty(idMatch))
-            {
-                p.LeMatch = mDAO.findById(idMatch.ToString());
-            }
-
-            if (!String.IsNullOrEmpty(idJoueur))
-            {
-                p.LeJoueur = jDAO.findById(idJoueur.ToString());
-            }
-            return p;
-        }
-
-        public List<participe> readAll()
-        {
-            List<participe> lesparticipes = new List<participe>();
-            MySqlCommand cmd;
-            String req = "SELECT * FROM participe";
-            cmd = new MySqlCommand(req, this.c);
-
-            MySqlDataReader dr = cmd.ExecuteReader();
-            MatchsDAO mDAO = new MatchsDAO();
-            JoueurDAO jDAO = new JoueurDAO();
-            List<string> idMatch = new List<string>();
-            List<string> idJoueur = new List<string>();
+            string[] idMatch = new string[req.Count()];
+            string[] idJoueur = new string[req.Count()];
             int i = 0;
             while (dr.Read())
             {
-                idMatch.Add(dr[0].ToString());
-                idJoueur.Add(dr[1].ToString());
+                idMatch[i] = dr[0].ToString();
+                idJoueur[i] = dr[1].ToString();
                 i++;
                 participe p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
                 lesparticipes.Add(p);
             }
             dr.Close();
-            int k = 0;
-            MessageBox.Show(lesparticipes.Count.ToString());
-            while (k<lesparticipes.Count)
+            for (int k = 0; k < i; k++)
             {
-                Matchs lem=null;
-                Joueur lej=null;
-                try
-                {
-                    lem = mDAO.findById(idMatch.ElementAt(k));
-                    lej = jDAO.findById(idJoueur.ElementAt(k));
-                }
-                catch
-                {
-                    MessageBox.Show("pp");
-                }
-                    lesparticipes.ElementAt(k).LeMatch = lem;
-                    lesparticipes.ElementAt(k).LeJoueur = lej;
-                k++;
-
+                lesparticipes[k].LeMatch = mDAO.findById(idMatch[k]);
+                lesparticipes[k].LeJoueur = jDAO.findById(idJoueur[k]);
             }
-            
             return lesparticipes;
         }
+        public List<participe> findByIdJoueur(String code)
+        {
+            List<participe> lesparticipes = new List<participe>();
+            MySqlCommand cmd;
+            String req = "SELECT * FROM participe WHERE id_PERSONNEL='" + code + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            MatchsDAO mDAO = new MatchsDAO();
+            JoueurDAO jDAO = new JoueurDAO();
+            string[] idMatch = new string[req.Count()];
+            string[] idJoueur = new string[req.Count()];
+            int i = 0;
+            while (dr.Read())
+            {
+                idMatch[i] = dr[0].ToString();
+                idJoueur[i] = dr[1].ToString();
+                i++;
+                participe p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
+                lesparticipes.Add(p);
+            }
+            dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesparticipes[k].LeMatch = mDAO.findById(idMatch[k]);
+                lesparticipes[k].LeJoueur = jDAO.findById(idJoueur[k]);
+            }
+            return lesparticipes;
+        }
+        public List<participe> findByIdJoueurEtMatch(String code, String a)
+        {
+            List<participe> lesparticipes = new List<participe>();
+            MySqlCommand cmd;
+            String req = "SELECT * FROM participe WHERE id_PERSONNEL='" + code + "' AND id='" + a + "'";
+            cmd = new MySqlCommand(req, this.c);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            MatchsDAO mDAO = new MatchsDAO();
+            JoueurDAO jDAO = new JoueurDAO();
+            string[] idMatch = new string[req.Count()];
+            string[] idJoueur = new string[req.Count()];
+            int i = 0;
+            while (dr.Read())
+            {
+                idMatch[i] = dr[0].ToString();
+                idJoueur[i] = dr[1].ToString();
+                i++;
+                participe p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
+                lesparticipes.Add(p);
+            }
+            dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesparticipes[k].LeMatch = mDAO.findById(idMatch[k]);
+                lesparticipes[k].LeJoueur = jDAO.findById(idJoueur[k]);
+            }
+            return lesparticipes;
+        }
+
+        public List<participe> readAll()
+        { 
+            String req = "SELECT * FROM participe";
+            List<participe> lesparticipes = new List<participe>();
+            MySqlCommand cmd = new MySqlCommand(req, this.c);
+ 
+            MySqlDataReader dr2 = cmd.ExecuteReader();
+            int m = 0;
+            while (dr2.Read())
+            {
+                m++;
+            }
+            dr2.Close();
+ 
+            MySqlDataReader dr = cmd.ExecuteReader();
+            MatchsDAO mDAO = new MatchsDAO();
+            JoueurDAO jDAO = new JoueurDAO();
+            string[] idMatch = new string[m];
+            string[] idJoueur = new string[m];
+            int i = 0;
+             while (dr.Read())
+             {
+                idMatch[i] = dr[0].ToString();
+                idJoueur[i] = dr[1].ToString();
+                i++;
+                participe p = new participe(null, null, Convert.ToInt32(dr[2]), Convert.ToInt32(dr[3]), Convert.ToBoolean(dr[4]), Convert.ToBoolean(dr[5]), Convert.ToInt32(dr[6]));
+                lesparticipes.Add(p);
+             }
+             dr.Close();
+            for (int k = 0; k < i; k++)
+            {
+                lesparticipes[k].LeMatch = mDAO.findById(idMatch[k]);
+                lesparticipes[k].LeJoueur = jDAO.findById(idJoueur[k]);
+            }
+             return lesparticipes;
+         }
     }
 }

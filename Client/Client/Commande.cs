@@ -9,11 +9,11 @@ namespace Client
     class Commande
     {
         private string id;
-        private DateTime dateCommande;
+        private string dateCommande;
 
         private int leCompte;
 
-        public Commande(string id, DateTime dateCommande, int compte)
+        public Commande(string id, string dateCommande, int compte)
         {
             this.id = id;
             this.dateCommande = dateCommande;
@@ -33,7 +33,7 @@ namespace Client
             }
         }
 
-        public DateTime DateCommande
+        public string DateCommande
         {
             get
             {

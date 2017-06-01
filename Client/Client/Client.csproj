@@ -64,6 +64,8 @@
     </Compile>
     <Compile Include="Joueur.cs" />
     <Compile Include="JoueurDAO.cs" />
+    <Compile Include="ligneCmd.cs" />
+    <Compile Include="ligneCmdDAO.cs" />
     <Compile Include="Matchs.cs" />
     <Compile Include="MatchsDAO.cs" />
     <Compile Include="Nationalite.cs" />

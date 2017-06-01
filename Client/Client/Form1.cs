@@ -19,21 +19,20 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //CompteDAO c = new CompteDAO();
-            //MessageBox.Show(c.chercherCompteAvecIdCommande("59245eb46b083").Nom);
-            //participeDAO pa = new participeDAO();
-            //MessageBox.Show(pa.readAll().Count.ToString());
-            FaitDAO f = new FaitDAO();
-            //MessageBox.Show(f.findById("5").LeProduit.Nom);
-            //MessageBox.Show(f.findById("10").LaTaille.Libelle.ToString());
 
-            foreach(Fait fait in f.readAll())
+            /*participeDAO perso = new participeDAO();
+            foreach(participe j in perso.readAll())
             {
-                MessageBox.Show(fait.LeProduit.Nom.ToString());
-            }
-
-
-
+                MessageBox.Show(j.ButMarques.ToString());
+            }*/
+            /*
+            participeDAO p = new participeDAO();
+            MessageBox.Show(p.findByIdMatch("5").);*/
+             participeDAO perso = new participeDAO();
+             foreach (participe j in perso.findByIdMatch("5"))
+             {
+                 MessageBox.Show(j.PasseDecisives.ToString());
+             }
         }
 
         private void Form1_Load(object sender, EventArgs e)

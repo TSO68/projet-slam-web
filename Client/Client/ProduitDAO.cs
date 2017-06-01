@@ -21,7 +21,7 @@ namespace Client
         public void create(Produit p)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix + "','" + p.Description + "')";
+            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix + "','" + p.Description + "','" + p.LaPhoto.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Produit p)
         {
             MySqlCommand cmd;
-            String req = "UPDATE PRODUIT SET nom='" + p.Nom + "' WHERE id='" + p.Id + "'";
+            String req = "UPDATE PRODUIT SET nom='" + p.Nom + "', id="+p.Id+ ", prix="+p.Prix+", description='"+p.Description+"', id_PHOTO="+p.LaPhoto.Id+" WHERE id='" + p.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -73,13 +73,22 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            Produit m = null;
+            PhotoDAO pDAO = new PhotoDAO();
+            Produit p = null;
+            string idPhoto = null;
+            
             if (dr.Read())
             {//je peux le faire
-                m = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]),dr[3].ToString());
+                idPhoto = dr[4].ToString();
+                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]),dr[3].ToString(), null);
             }
-            dr.Close();
-            return m;
+            dr.Close(); // On coupte la connexion
+            dr.Dispose();
+            if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
+            {
+                p.LaPhoto = pDAO.findById(idPhoto); // On attribue le poste au joueur
+            }
+            return p;
         }
 
         public List<Produit> readAll()
@@ -90,13 +99,24 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
+            PhotoDAO pDAO = new PhotoDAO();
 
+            Produit p = null;
+            string[] idPhoto = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
-                Produit mag = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]), dr[3].ToString());
-                lesProduits.Add(mag);
+                idPhoto[i] = dr[4].ToString();
+                i++;
+                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]), dr[3].ToString(), null);
+                lesProduits.Add(p);
             }
             dr.Close();
+            dr.Dispose();
+            for (int k = 0; k < i; k++)
+            {
+                lesProduits[k].LaPhoto = pDAO.findById(idPhoto[k]);
+            }
             return lesProduits;
         }
     }
