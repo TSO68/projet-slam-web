@@ -105,11 +105,19 @@ namespace Client
             String req = "SELECT * FROM fait";
             cmd = new MySqlCommand(req, this.c);
 
+            MySqlDataReader dr2 = cmd.ExecuteReader();
+            int m = 0;
+            while (dr2.Read())
+            {
+                m++;
+            }
+            dr2.Close();
+
             MySqlDataReader dr = cmd.ExecuteReader();
             ProduitDAO pDAO = new ProduitDAO();
             TailleDAO tDAO = new TailleDAO();
-            string[] idProduit = new string[req.Count()];
-            string[] idTaille = new string[req.Count()];
+            string[] idProduit = new string[m];
+            string[] idTaille = new string[m];
             int i = 0;
 
             while (dr.Read())
@@ -117,8 +125,8 @@ namespace Client
                 idProduit[i] = dr[0].ToString();
                 idTaille[i] = dr[1].ToString();
                 i++;
-                Fait mag = new Fait(null, null);
-                lesFaits.Add(mag);
+                Fait fa = new Fait(null, null);
+                lesFaits.Add(fa);
             }
             dr.Close();
             for (int k = 0; k < i; k++)

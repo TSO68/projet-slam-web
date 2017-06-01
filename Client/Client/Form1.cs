@@ -24,8 +24,13 @@ namespace Client
             //participeDAO pa = new participeDAO();
             //MessageBox.Show(pa.readAll().Count.ToString());
             FaitDAO f = new FaitDAO();
-            MessageBox.Show(f.findById("5").LeProduit.Nom);
-            MessageBox.Show(f.findById("10").LaTaille.Libelle.ToString());
+            //MessageBox.Show(f.findById("5").LeProduit.Nom);
+            //MessageBox.Show(f.findById("10").LaTaille.Libelle.ToString());
+
+            foreach(Fait fait in f.readAll())
+            {
+                MessageBox.Show(fait.LeProduit.Nom.ToString());
+            }
 
 
 
