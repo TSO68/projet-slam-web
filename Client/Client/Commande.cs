@@ -8,16 +8,19 @@ namespace Client
 {
     class Commande
     {
-        private int id;
-        private DateTime dateCommande;
+        private string id;
+        private string dateCommande;
 
-        public Commande(int id, DateTime dateCommande)
+        private int leCompte;
+
+        public Commande(string id, string dateCommande, int compte)
         {
             this.id = id;
             this.dateCommande = dateCommande;
+            this.leCompte = compte;
         }
 
-        public int Id
+        public string Id
         {
             get
             {
@@ -30,7 +33,7 @@ namespace Client
             }
         }
 
-        public DateTime DateCommande
+        public string DateCommande
         {
             get
             {
@@ -40,6 +43,19 @@ namespace Client
             set
             {
                 dateCommande = value;
+            }
+        }
+
+        public int LeCompte
+        {
+            get
+            {
+                return leCompte;
+            }
+
+            set
+            {
+                leCompte = value;
             }
         }
     }

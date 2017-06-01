@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
+using System.Windows.Forms;
 namespace Client
 {
     class CommandeDAO
@@ -21,7 +21,7 @@ namespace Client
         public void create(Commande t)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "')";
+            String req = "INSERT INTO COMMANDE VALUES ('" + t.Id + "','" + t.DateCommande + "','" + t.LeCompte+ "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Commande t)
         {
             MySqlCommand cmd;
-            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "' WHERE id='" + t.Id + "'";
+            String req = "UPDATE COMMANDE SET dateCommande='" + t.DateCommande + "', id_COMPTE="+ t.LeCompte + "WHERE id='" + t.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -74,11 +74,12 @@ namespace Client
             MySqlDataReader dr = cmd.ExecuteReader();
 
             Commande m = null;
+
             if (dr.Read())
             {//je peux le faire
-                m = new Commande(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]));
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                m = new Commande(dr[0].ToString(), res[0]+"/"+ res[1]+"/"+ res[2], Int32.Parse(dr[2].ToString()));
             }
-            dr.Close();
             return m;
         }
 
@@ -90,10 +91,13 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
+            CompteDAO cDAO = new CompteDAO();
+            string[] idCompte = new string[req.Count()];
 
             while (dr.Read())
             {
-                Commande mag = new Commande(Convert.ToInt32(dr[0]), Convert.ToDateTime(dr[1]));
+                string[] res = dr[1].ToString().Split('/', ':', ' ');
+                Commande mag = new Commande(dr[0].ToString(), res[0] + "/" + res[1] + "/" + res[2], Int32.Parse(dr[2].ToString()));
                 lesCommandes.Add(mag);
             }
             dr.Close();

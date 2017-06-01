@@ -21,7 +21,7 @@ namespace Client
         public void create(Adversaire a)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO ADVERSAIRE VALUES ('" + a.Id + "','" + a.Libelle + "','" + a.Logo + "')";
+            String req = "INSERT INTO ADVERSAIRE VALUES ('" + a.Id + "','" + a.Libelle + "','" + a.Logo + "','" + a.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Adversaire a)
         {
             MySqlCommand cmd;
-            String req = "UPDATE ADVERSAIRE SET libelle='" + a.Libelle + "', logo='" + a.Logo + "' WHERE id='" + a.Id + "'";
+            String req = "UPDATE ADVERSAIRE SET libelle='" + a.Libelle + "', logo='" + a.Logo + "', id_STADE='" + a.LeStade.Id + "' WHERE id='" + a.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -73,13 +73,20 @@ namespace Client
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            Adversaire m = null;
+            StadeDAO sDAO = new StadeDAO();
+            string idStade = null;
+            Adversaire a = null;
             if (dr.Read())
             {//je peux le faire
-                m = new Adversaire(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString());
+                idStade = dr[3].ToString();
+                a = new Adversaire(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), null);
             }
             dr.Close();
-            return m;
+            if (!String.IsNullOrEmpty(idStade))
+            {
+                a.LeStade = sDAO.findById(idStade.ToString());
+            }
+            return a;
         }
 
         public List<Adversaire> readAll()
@@ -91,12 +98,21 @@ namespace Client
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
+            StadeDAO sDAO = new StadeDAO();
+            string[] idStade = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
-                Adversaire mag = new Adversaire(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString());
+                idStade[i] = dr[3].ToString();
+                i++;
+                Adversaire mag = new Adversaire(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), null);
                 lesAdversaires.Add(mag);
             }
             dr.Close();
+            for(int k = 0; k < i; k++)
+            {
+                lesAdversaires[k].LeStade = sDAO.findById(idStade[k]);
+            }
             return lesAdversaires;
         }
     }

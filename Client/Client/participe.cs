@@ -8,34 +8,23 @@ namespace Client
 {
     class participe
     {
-        private int id;
+        private Matchs leMatch;
+        private Joueur leJoueur;
         private int butMarques;
         private int passeDecisives;
         private Boolean cartonJauneON;
         private Boolean cartonRougeON;
         private int minutesJouees;
 
-        public participe(int id, int butMarques, int passeDecisives, bool cartonJauneON, bool cartonRougeON, int minutesJouees)
+        public participe(Matchs m, Joueur j, int butMarques, int passeDecisives, bool cartonJauneON, bool cartonRougeON, int minutesJouees)
         {
-            this.id = id;
+            this.leMatch = m;
+            this.leJoueur = j;
             this.butMarques = butMarques;
             this.passeDecisives = passeDecisives;
             this.cartonJauneON = cartonJauneON;
             this.cartonRougeON = cartonRougeON;
             this.minutesJouees = minutesJouees;
-        }
-
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
         }
 
         public int ButMarques
@@ -100,6 +89,30 @@ namespace Client
             set
             {
                 minutesJouees = value;
+            }
+        }
+        public Joueur LeJoueur
+        {
+            get
+            {
+                return leJoueur;
+            }
+
+            set
+            {
+                leJoueur = value;
+            }
+        }
+        public Matchs LeMatch
+        {
+            get
+            {
+                return leMatch;
+            }
+
+            set
+            {
+                leMatch = value;
             }
         }
     }

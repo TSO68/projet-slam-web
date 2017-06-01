@@ -8,23 +8,37 @@ namespace Client
 {
     class Staff : Personnel
     {
-        private int id;
-        private Role idRole;
-        public Staff(String role, int id, string nom, string prenom, DateTime dateNaiss, string lieuNaiss, string biographie, Nationalite nationalite, Role Role) : base(id, nom, prenom, dateNaiss, lieuNaiss, biographie, nationalite)
+
+        private Role leRole;
+        public Staff(Role r, int id, string nom, string prenom, string dateNaiss, string lieuNaiss, string biographie, Nationalite n, Photo p) : base(id, nom, prenom, dateNaiss, lieuNaiss, biographie, n, p)
         {
-            this.idRole = Role;
+            this.leRole = r;
         }
 
-        public Role Role
+        public Role LeRole
         {
             get
             {
-                return idRole;
+                return leRole;
             }
 
             set
             {
-                idRole = value;
+                leRole = value;
+            }
+        }
+
+        public Role LeRole
+        {
+            get
+            {
+                return leRole;
+
+            }
+
+            set
+            {
+                leRole = value;
             }
         }
     }

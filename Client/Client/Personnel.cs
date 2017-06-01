@@ -11,12 +11,13 @@ namespace Client
         private int id;
         private String nom;
         private String prenom;
-        private DateTime dateNaiss;
+        private string dateNaiss;
         private String lieuNaiss;
         private String biographie;
-        private Nationalite nationalite;
+        private Nationalite laNationalite;
+        private Photo laPhoto;
 
-        public Personnel(int id, string nom, string prenom, DateTime dateNaiss, string lieuNaiss, string biographie, Nationalite nationalite)
+        public Personnel(int id, string nom, string prenom, string dateNaiss, string lieuNaiss, string biographie, Nationalite n, Photo p)
         {
             this.id = id;
             this.nom = nom;
@@ -24,7 +25,9 @@ namespace Client
             this.dateNaiss = dateNaiss;
             this.lieuNaiss = lieuNaiss;
             this.biographie = biographie;
-            this.Nationalite = nationalite;
+            this.laNationalite = n;
+            this.laPhoto = p;
+
         }
 
         public int Id
@@ -66,7 +69,7 @@ namespace Client
             }
         }
 
-        public DateTime DateNaiss
+        public string DateNaiss
         {
             get
             {
@@ -105,17 +108,33 @@ namespace Client
             }
         }
 
-        internal Nationalite Nationalite
+        public Nationalite LaNationalite
         {
             get
             {
-                return nationalite;
+                return laNationalite;
             }
 
             set
             {
-                nationalite = value;
+                laNationalite = value;
+            }
+        }
+        public Photo LaPhoto
+        {
+            get
+            {
+                return laPhoto;
+
+            }
+
+            set
+            {
+
+                laPhoto = value;
+
             }
         }
     }
 }
+

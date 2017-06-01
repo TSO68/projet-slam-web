@@ -19,15 +19,26 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PersonnelDAO perso = new PersonnelDAO();
-            foreach(Personnel j in perso.readAll())
+
+
+            /*participeDAO perso = new participeDAO();
+            foreach(participe j in perso.readAll())
             {
-                MessageBox.Show(j.Prenom+" "+j.Nom+" est le numéro ");
-            }
-            //PersonnelDAO p = new PersonnelDAO();
-            //MessageBox.Show(p.findById("1").Nom);
-            //StaffDAO s = new StaffDAO();
-            //MessageBox.Show(s.findById("31").Role.Libelle);
+                MessageBox.Show(j.ButMarques.ToString());
+            }*/
+            /*
+            participeDAO p = new participeDAO();
+            MessageBox.Show(p.findByIdMatch("5").);*/
+             participeDAO perso = new participeDAO();
+             foreach (participe j in perso.findByIdMatch("5"))
+             {
+                 MessageBox.Show(j.PasseDecisives.ToString());
+             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

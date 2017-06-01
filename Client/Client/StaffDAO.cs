@@ -22,7 +22,11 @@ namespace Client
         public void create(Staff s)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO STAFF VALUES ('" + s.Role + "')";
+            String req = "INSERT INTO STAFF VALUES ('" + s.LeRole.Id + "')";
+
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.create(p);
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -32,7 +36,11 @@ namespace Client
         public bool update(Staff s)
         {
             MySqlCommand cmd;
-            String req = "UPDATE STAFF SET nom='" + s.Role + "'";
+            String req = "UPDATE STAFF SET id_ROLE='" + s.LeRole.Id + "'";
+
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.update(p);
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -53,6 +61,10 @@ namespace Client
             MySqlCommand cmd;
             String req = "DELETE FROM STAFF WHERE id='" + s.Id + "'";
 
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.delete(p);
+
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
             if (nb != 0)
@@ -70,62 +82,87 @@ namespace Client
         public Staff findById(String code)
         {
             MySqlCommand cmd;
-            String req = "SELECT STAFF.id,id_ROLE,nom,prenom,dateNaiss,lieuNaiss,biographie,id_NATIONALITE,id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON STAFF.id = PERSONNEL.id  WHERE STAFF.id='" + code + "'";
+
+            String req = "SELECT PERSONNEL.id, id_ROLE, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON PERSONNEL.id=STAFF.id WHERE PERSONNEL.id='" + code + "'";
+
             cmd = new MySqlCommand(req, this.c);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            Staff m = null;
-            string idNationalite=null;
-            string idRole = null;
+            PhotoDAO phDAO = new PhotoDAO();
             NationaliteDAO nDAO = new NationaliteDAO();
+            RoleDAO rDAO = new RoleDAO();
+            string idNationalite = null;
+            string idPhoto = null;
+            string idRole = null;
+            Staff m = null;
+
+            string idRole = null;
+
             RoleDAO rDAO = new RoleDAO();
             if (dr.Read())
             {//je peux le faire
                 idNationalite = dr[7].ToString();
-                idRole = dr[8].ToString();
-                m = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4].ToString()), dr[5].ToString(), dr[6].ToString(),null,null);
+
+                idPhoto = dr[8].ToString();
+                idRole = dr[0].ToString();
+                string[] res = dr[4].ToString().Split('/', ':', ' ');
+                m = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
             }
             dr.Close();
-            if (!String.IsNullOrEmpty(idNationalite))
+            if (!String.IsNullOrEmpty(idRole)) // Si idPoste n'est pas null
             {
-                m.Nationalite = nDAO.findById(idNationalite.ToString());
+                m.LeRole = rDAO.findById(idRole); // On attribue le poste au joueur
             }
-
-            if (!String.IsNullOrEmpty(idRole))
+            if (!String.IsNullOrEmpty(idNationalite)) // Si idPoste n'est pas null
             {
-                m.Role = rDAO.findById(idRole.ToString());
+                m.LaNationalite = nDAO.findById(idNationalite); // On attribue le poste au joueur
+            }
+            if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
+            {
+                m.LaPhoto = phDAO.findById(idPhoto); // On attribue le poste au joueur
+
             }
             return m;
+            
         }
 
         public List<Staff> readAll()
         {
             List<Staff> lesStaffs = new List<Staff>();
             MySqlCommand cmd;
-            String req = "SELECT * FROM STAFF";
+            String req = "SELECT PERSONNEL.id, id_ROLE, nom, prenom, dateNaiss, lieuNaiss, biographie, id_NATIONALITE, id_PHOTO FROM STAFF INNER JOIN PERSONNEL ON PERSONNEL.id=STAFF.id";
             cmd = new MySqlCommand(req, this.c);
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            RoleDAO rDAO = new RoleDAO();
-            NationaliteDAO nDAO = new NationaliteDAO();
-            string[] idNationalite = new string[req.Count()];
-            string[] idRole = new string[req.Count()];
-            int i = 0;
 
+            RoleDAO pDAO = new RoleDAO();
+            PhotoDAO phDAO = new PhotoDAO();
+            NationaliteDAO nDAO = new NationaliteDAO();
+            
+            string[] idRole = new string[req.Count()];
+            string[] idNationalite = new string[req.Count()];
+            string[] idPhoto = new string[req.Count()];
+            int i = 0;
             while (dr.Read())
             {
+                idRole[i] = dr[0].ToString();
                 idNationalite[i] = dr[7].ToString();
-                idRole[i] = dr[8].ToString();
+                idPhoto[i] = dr[8].ToString();
                 i++;
-                Staff mag = new Staff(dr[0].ToString(), Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), Convert.ToDateTime(dr[4]), dr[5].ToString(), dr[6].ToString(),null,null);
+                string[] res = dr[4].ToString().Split('/', ':', ' ');
+                Staff mag = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
+
                 lesStaffs.Add(mag);
             }
             dr.Close();
             for (int k = 0; k < i; k++)
             {
-                lesStaffs[k].Nationalite = nDAO.findById(idNationalite[k]);
-                lesStaffs[k].Role = rDAO.findById(idRole[k]);
+
+                lesStaffs[k].LeRole = pDAO.findById(idRole[k]);
+                lesStaffs[k].LaNationalite = nDAO.findById(idNationalite[k]);
+                lesStaffs[k].LaPhoto = phDAO.findById(idPhoto[k]);
+
             }
             return lesStaffs;
         }
