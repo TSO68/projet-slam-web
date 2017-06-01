@@ -24,6 +24,10 @@ namespace Client
             MySqlCommand cmd;
             String req = "INSERT INTO STAFF VALUES ('" + s.LeRole.Id + "')";
 
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.create(p);
+
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
 
@@ -33,6 +37,10 @@ namespace Client
         {
             MySqlCommand cmd;
             String req = "UPDATE STAFF SET id_ROLE='" + s.LeRole.Id + "'";
+
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.update(p);
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -52,6 +60,10 @@ namespace Client
         {
             MySqlCommand cmd;
             String req = "DELETE FROM STAFF WHERE id='" + s.Id + "'";
+
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            PersonnelDAO pDAO = new PersonnelDAO();
+            pDAO.delete(p);
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();

@@ -19,10 +19,10 @@ namespace Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            JoueurDAO perso = new JoueurDAO();
-            foreach(Joueur j in perso.readAll())
+            PersonnelDAO perso = new PersonnelDAO();
+            foreach(Personnel j in perso.readAll())
             {
-                MessageBox.Show(j.LaPhoto.Id.ToString());
+                MessageBox.Show(j.LaNationalite.Id.ToString());
             }
 
             /*JoueurDAO p = new JoueurDAO();
