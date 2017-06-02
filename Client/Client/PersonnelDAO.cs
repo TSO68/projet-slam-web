@@ -22,7 +22,7 @@ namespace Client
         public void create(Personnel p)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO PERSONNEL VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prenom + "','" + p.DateNaiss + "','" + p.LieuNaiss + "','" + p.Biographie + "','" + p.LaNationalite + "','" + p.LaPhoto + "')";
+            String req = "INSERT INTO PERSONNEL VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prenom + "','" + p.DateNaiss + "','" + p.LieuNaiss + "','" + p.Biographie + "','" + p.LaNationalite.Id + "','" + p.LaPhoto.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();

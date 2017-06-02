@@ -21,7 +21,7 @@ namespace Client
         public void create(Fait f)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO fait VALUES ('" + f.LeProduit + "','" + f.LaTaille + "')";
+            String req = "INSERT INTO fait VALUES ('" + f.LeProduit.Id + "','" + f.LaTaille.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();
@@ -31,7 +31,7 @@ namespace Client
         public bool update(Fait f)
         {
             MySqlCommand cmd;
-            String req = "UPDATE fait SET id_TAILLE='" + f.LaTaille + "' WHERE id='" + f.LeProduit + "'";
+            String req = "UPDATE fait SET id_TAILLE='" + f.LaTaille.Id + "' WHERE id='" + f.LeProduit.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();

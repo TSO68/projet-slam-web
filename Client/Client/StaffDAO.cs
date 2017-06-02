@@ -22,13 +22,13 @@ namespace Client
         public void create(Staff s)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO STAFF VALUES ('" + s.LeRole.Id + "')";
-
-            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
-            PersonnelDAO pDAO = new PersonnelDAO();
-            pDAO.create(p);
+            MySqlCommand cmd2;
+            String req = "INSERT INTO STAFF VALUES ("+s.Id+",'" + s.LeRole.Id + "')";
+            String req2 = "INSERT INTO PERSONNEL VALUES (" + s.Id + ", '" + s.Nom + "', '" + s.Prenom + "', '" + s.DateNaiss + "', '" + s.LieuNaiss + "', '" + s.Biographie + "', " + s.LaNationalite.Id + ", " + s.LaPhoto.Id + ")";
 
             cmd = new MySqlCommand(req, this.c);
+            cmd2 = new MySqlCommand(req2, this.c);
+            cmd2.ExecuteNonQuery();
             cmd.ExecuteNonQuery();
 
         }

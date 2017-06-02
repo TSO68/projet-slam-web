@@ -19,7 +19,7 @@ namespace Client
         public void create(ligneCmd l)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO ligneCmd VALUES ('" + l.LeProduit+", " + l.LaTaille + ", " +l.LaCommande+ ", " +l.Quantite+ "')";
+            String req = "INSERT INTO ligneCmd VALUES ('" + l.LeProduit.Id+", " + l.LaTaille.Id + ", " +l.LaCommande.Id+ ", " +l.Quantite+ "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();

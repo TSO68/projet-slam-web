@@ -21,9 +21,10 @@ namespace Client
         public void create(Matchs m)
         {
             MySqlCommand cmd;
-            string[] res = m.DateMatch.ToString().Split(' ');
-            string date = res[0];
-            string heure = res[1];
+            string[] res = m.DateMatch.ToString().Split(' ',':','/');
+            string date = res[2]+"-"+res[1]+"-"+res[0];
+            string heure = res[3]+":00:00";
+            System.Windows.Forms.MessageBox.Show(date +" "+ heure);
             String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + date + "','" + heure + "','" + m.ScoreDom + "','" + m.ScoreExt + "','" + m.ExterieurON + "','" + m.LAdversaire.Id + "','" + m.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);

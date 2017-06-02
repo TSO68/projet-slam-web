@@ -21,15 +21,16 @@ namespace Client
         public void create(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO JOUEUR VALUES ('" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied + "','" + j.DateVenueClub + "')";
+            MySqlCommand cmd2;
 
-            Personnel p = new Personnel(j.Id,j.Nom,j.Prenom,j.DateNaiss,j.LieuNaiss,j.Biographie,j.LaNationalite,j.LaPhoto);
-            PersonnelDAO pDAO = new PersonnelDAO();
-            pDAO.create(p);
+            String req = "INSERT INTO JOUEUR VALUES ('" + j.Id + "','" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied + "','" + j.DateVenueClub + "')";
+            String req2 = "INSERT INTO PERSONNEL VALUES (" + j.Id + ", '" + j.Nom + "', '" + j.Prenom + "', '" + j.DateNaiss + "', '" + j.LieuNaiss + "', '" + j.Biographie + "', " + j.LaNationalite.Id + ", " + j.LaPhoto.Id + ")";
 
+            cmd2 = new MySqlCommand(req, this.c);
             cmd = new MySqlCommand(req, this.c);
-            cmd.ExecuteNonQuery();
 
+            cmd2.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
         }
 
         public bool update(Joueur j)
