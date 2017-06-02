@@ -246,7 +246,6 @@ namespace Client
             PosteDAO pD = new PosteDAO();
             NationaliteDAO nD = new NationaliteDAO();
             PhotoDAO phD = new PhotoDAO();
-            MessageBox.Show("taille = "+ float.Parse(textBox17.Text.Replace('.', ','))+" poids = "+ float.Parse(textBox16.Text.Replace('.', ','))+" date = "+ textBox12.Text.ToString());
             Joueur j = new Joueur(Convert.ToInt32(numericUpDown10.Value), float.Parse(textBox17.Text.Replace('.', ',')), float.Parse(textBox16.Text.Replace('.', ',')), textBox15.Text.ToString(), textBox18.Text.ToString(), pD.findById(numericUpDown9.Value.ToString()), Convert.ToInt32(numericUpDown11.Value), textBox14.Text.ToString(), textBox13.Text.ToString(), textBox12.Text.ToString(), textBox11.Text.ToString(), textBox10.Text.ToString(), nD.findById(numericUpDown8.Value.ToString()), phD.findById(numericUpDown7.Value.ToString()));
             jD.update(j);
         }
