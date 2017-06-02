@@ -36,6 +36,7 @@
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -56,11 +57,21 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -98,27 +109,28 @@
             // trouverToolStripMenuItem
             // 
             this.trouverToolStripMenuItem.Name = "trouverToolStripMenuItem";
-            this.trouverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trouverToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.trouverToolStripMenuItem.Text = "Rechercher";
             this.trouverToolStripMenuItem.Click += new System.EventHandler(this.trouverToolStripMenuItem_Click);
             // 
             // ajouterToolStripMenuItem
             // 
             this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
@@ -136,6 +148,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supprimer";
             this.groupBox1.Visible = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(105, 70);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 4;
             // 
             // label2
             // 
@@ -329,12 +348,101 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Table :";
             // 
-            // textBox3
+            // groupBox4
             // 
-            this.textBox3.Location = new System.Drawing.Point(105, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 4;
+            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.comboBox3);
+            this.groupBox4.Controls.Add(this.comboBox6);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Location = new System.Drawing.Point(12, 27);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(485, 244);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Modifier";
+            this.groupBox4.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(380, 198);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 39);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Modifier";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(105, 126);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 20);
+            this.textBox5.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Nouvelle valeur :";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(105, 68);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 11;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(105, 41);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 21);
+            this.comboBox6.TabIndex = 10;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(59, 73);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Attribut :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(59, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Table :";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(105, 96);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(121, 20);
+            this.textBox6.TabIndex = 16;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(59, 101);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "ID :";
             // 
             // Form1
             // 
@@ -342,6 +450,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 283);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -357,6 +466,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,6 +504,16 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label12;
     }
 }
 

@@ -101,6 +101,7 @@ namespace Client
                 comboBox2.Items.Add(table[i]);
                 comboBox1.Items.Add(table[i]);
                 comboBox5.Items.Add(table[i]);
+                comboBox6.Items.Add(table[i]);
             }
             //////////////////////////////////////// Fin remplir combobox
 
@@ -117,6 +118,7 @@ namespace Client
         {
             groupBox1.Visible = false;
             groupBox3.Visible = false;
+            groupBox4.Visible = false;
             groupBox2.Visible = true;
         }
 
@@ -124,7 +126,9 @@ namespace Client
         {
             groupBox2.Visible = false;
             groupBox3.Visible = false;
+            groupBox4.Visible = false;
             groupBox1.Visible = true;
+            
             
         }
 
@@ -516,6 +520,7 @@ namespace Client
                 if (!string.IsNullOrEmpty(attributs[table][i]))
                 {
                     comboBox4.Items.Add(attributs[table][i].ToString());
+                    comboBox3.Items.Add(attributs[table][i].ToString());
                 }
             }
 
@@ -643,8 +648,11 @@ namespace Client
 
         private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
             groupBox2.Visible = false;
             groupBox1.Visible = false;
+            groupBox4.Visible = false;
             groupBox3.Visible = true;
         }
 
@@ -732,6 +740,182 @@ namespace Client
             {
                 valeurs[comboBox4.SelectedIndex] = textBox2.Text.ToString();
                 
+            }
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+            groupBox3.Visible = false;
+            groupBox4.Visible = true;
+
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox4.Items.Clear();
+            comboBox4.Text = "";
+            switch (comboBox6.Text.ToString())
+            {
+                case "ADVERSAIRE":
+                    setAttributs(0);
+                    break;
+                case "COMMANDE":
+                    setAttributs(1);
+                    break;
+                case "COMPTE":
+                    setAttributs(2);
+                    break;
+                case "fait":
+                    setAttributs(3);
+                    break;
+                case "JOUEUR":
+                    setAttributs(4);
+                    break;
+                case "ligneCmd":
+                    setAttributs(5);
+                    break;
+                case "MATCHS":
+                    setAttributs(6);
+                    break;
+                case "NATIONALITE":
+                    setAttributs(7);
+                    break;
+                case "participe":
+                    setAttributs(8);
+                    break;
+                case "PERSONNEL":
+                    setAttributs(9);
+                    break;
+                case "PHOTO":
+                    setAttributs(10);
+                    break;
+                case "POSTE":
+                    setAttributs(11);
+                    break;
+                case "PRODUIT":
+                    setAttributs(12);
+                    break;
+                case "ROLE":
+                    setAttributs(13);
+                    break;
+                case "STADE":
+                    setAttributs(14);
+                    break;
+                case "STAFF":
+                    setAttributs(15);
+                    break;
+                case "TAILLE":
+                    setAttributs(16);
+                    break;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e) // Bouton modifier
+        {
+            string valeur = textBox5.Text.ToString();
+            if (valeur == null)
+            {
+                MessageBox.Show("Problème");
+            }
+            else
+            {
+                switch (comboBox5.Text.ToString())
+                {
+                    case "ADVERSAIRE":
+                        AdversaireDAO a = new AdversaireDAO();
+                        StadeDAO s = new StadeDAO();
+                        Adversaire ad = new Adversaire(Convert.ToInt32(valeurs[0]), valeurs[1], valeurs[2], s.findById(valeurs[3]));
+                        a.create(ad);
+                        a.findById(valeur);
+                        break;
+                    case "COMMANDE":
+                        CommandeDAO c = new CommandeDAO();
+                        Commande co = new Commande(valeurs[0], valeurs[1], Convert.ToInt32(valeurs[2]));
+                        c.create(co);
+                        break;
+                    case "COMPTE":
+                        CompteDAO com = new CompteDAO();
+                        Compte comp = new Compte(Convert.ToInt32(valeurs[0]), valeurs[1], valeurs[2], valeurs[3], valeurs[4], valeurs[5], valeurs[6], valeurs[7], valeurs[8]);
+                        com.create(comp);
+                        break;
+                    case "JOUEUR":
+                        JoueurDAO j = new JoueurDAO();
+                        PosteDAO pos = new PosteDAO();
+                        NationaliteDAO nat = new NationaliteDAO();
+                        PhotoDAO phot = new PhotoDAO();
+                        Joueur jo = new Joueur(Convert.ToInt32(valeurs[0]), float.Parse(valeurs[1]), float.Parse(valeurs[2]), valeurs[3], valeurs[4], pos.findById(valeurs[5]), Convert.ToInt32(valeurs[6]), valeurs[7], valeurs[8], valeurs[9], valeurs[10], valeurs[11], nat.findById(valeurs[12]), phot.findById(valeurs[13]));
+
+                        j.create(jo);
+                        break;
+                    case "MATCHS":
+                        MatchsDAO m = new MatchsDAO();
+                        AdversaireDAO adv = new AdversaireDAO();
+                        StadeDAO st = new StadeDAO();
+                        string[] res = valeurs[1].ToString().Split('-', ':', ' ');
+                        MessageBox.Show(res[0] + " " + res[1] + " " + res[2].ToString() + " " + valeurs[2].ToString());
+                        DateTime date = new DateTime(Int32.Parse(res[0]), Int32.Parse(res[1]), Int32.Parse(res[2]), Int32.Parse(valeurs[2]), 0, 0);
+                        Matchs ma = new Matchs(Convert.ToInt32(valeurs[0]), date, Convert.ToInt32(valeurs[3]), Convert.ToInt32(valeurs[4]), Convert.ToBoolean(valeurs[5]), adv.findById(valeurs[6]), st.findById(valeurs[7]));
+                        m.create(ma);
+                        break;
+                    case "NATIONALITE":
+                        NationaliteDAO n = new NationaliteDAO();
+                        Nationalite na = new Nationalite(Convert.ToInt32(valeurs[0]), valeurs[1]);
+                        n.create(na);
+                        break;
+                    case "PERSONNEL":
+                        PersonnelDAO pe = new PersonnelDAO();
+                        NationaliteDAO nati = new NationaliteDAO();
+                        PhotoDAO photo = new PhotoDAO();
+                        Personnel perso = new Personnel(Convert.ToInt32(valeurs[0]), valeurs[1], valeurs[2], valeurs[3], valeurs[4], valeurs[5], nati.findById(valeurs[6]), photo.findById(valeurs[7]));
+                        pe.create(perso);
+                        break;
+                    case "PHOTO":
+                        PhotoDAO p = new PhotoDAO();
+                        PersonnelDAO per = new PersonnelDAO();
+                        ProduitDAO pr = new ProduitDAO();
+                        Photo ph = new Photo(Convert.ToInt32(valeurs[0]), valeurs[1], per.findById(valeurs[2]), pr.findById(valeurs[3]));
+                        p.create(ph);
+                        break;
+                    case "POSTE":
+                        PosteDAO post = new PosteDAO();
+                        Poste poste = new Poste(Convert.ToInt32(valeurs[0]), valeurs[1]);
+                        post.create(poste);
+                        break;
+                    case "PRODUIT"://fait
+                        ProduitDAO prod = new ProduitDAO();
+                        PhotoDAO pho = new PhotoDAO();
+                        Produit produit = new Produit(Convert.ToInt32(valeurs[0]), valeurs[1], Convert.ToInt32(valeurs[2]), valeurs[3], pho.findById(valeurs[4]));
+                        prod.create(produit);
+                        break;
+                    case "ROLE":
+                        RoleDAO r = new RoleDAO();
+                        Role ro = new Role(Convert.ToInt32(valeurs[0]), valeurs[1]);
+                        r.create(ro);
+                        break;
+                    case "STADE":
+                        StadeDAO stad = new StadeDAO();
+                        Stade sta = new Stade(Convert.ToInt32(valeurs[0]), valeurs[1], Convert.ToInt32(valeurs[2]));
+                        stad.create(sta);
+                        break;
+                    case "STAFF":
+                        StaffDAO staf = new StaffDAO();
+                        NationaliteDAO natio = new NationaliteDAO();
+                        PhotoDAO photoD = new PhotoDAO();
+                        RoleDAO rol = new RoleDAO();
+                        Staff staff = new Staff(rol.findById(valeurs[1]), Convert.ToInt32(valeurs[0]), valeurs[2], valeurs[3], valeurs[4], valeurs[5], valeurs[6], natio.findById(valeurs[7]), photoD.findById(valeurs[8]));
+                        staf.create(staff);
+                        break;
+                    case "TAILLE":
+                        TailleDAO t = new TailleDAO();
+                        Taille ta = new Taille(Convert.ToInt32(valeurs[0]), valeurs[1]);
+                        t.create(ta);
+                        break;
+
+                }
             }
         }
     }
