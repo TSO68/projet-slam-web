@@ -32,7 +32,7 @@ namespace Client
         public bool update(Personnel p)
         {
             MySqlCommand cmd;
-            String req = "UPDATE PERSONNEL SET nom='" + p.Nom + "', prenom='" + p.Prenom + "', dateNaiss='" + p.DateNaiss + "', lieuNaiss='" + p.LieuNaiss + "', biographie='" + p.Biographie + "', id_NATIONALITE=" + p.LaNationalite.Id + "', id_PHOTO=" + p.LaPhoto.Id + " WHERE mag_num='" + p.Id + "'";
+            String req = "UPDATE PERSONNEL SET nom='" + p.Nom + "', prenom='" + p.Prenom + "', dateNaiss='" + p.DateNaiss + "', lieuNaiss='" + p.LieuNaiss + "', biographie='" + p.Biographie + "', id_NATIONALITE=" + p.LaNationalite.Id + ", id_PHOTO=" + p.LaPhoto.Id + " WHERE id=" + p.Id;
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
@@ -44,8 +44,6 @@ namespace Client
             {
                 return false;
             }
-
-
         }
 
         public bool delete(Personnel p)

@@ -20,23 +20,26 @@ namespace Client
 
         public void create(Joueur j)
         {
+            PersonnelDAO pD = new PersonnelDAO();
+            Personnel p = new Personnel(j.Id,j.Nom,j.Prenom, j.DateNaiss,j.LieuNaiss,j.Biographie,j.LaNationalite,j.LaPhoto);
+            pD.create(p);
             MySqlCommand cmd;
-            MySqlCommand cmd2;
+           // MySqlCommand cmd2;
 
-            String req = "INSERT INTO JOUEUR VALUES ('" + j.Id + "','" + j.Num + "','" + j.Taille + "','" + j.Poids + "','" + j.Pied + "','" + j.DateVenueClub + "')";
-            String req2 = "INSERT INTO PERSONNEL VALUES (" + j.Id + ", '" + j.Nom + "', '" + j.Prenom + "', '" + j.DateNaiss + "', '" + j.LieuNaiss + "', '" + j.Biographie + "', " + j.LaNationalite.Id + ", " + j.LaPhoto.Id + ")";
+            String req = "INSERT INTO JOUEUR VALUES ("+  j.Num + ",'" + j.Taille.ToString().Replace(',', '.') + "','" + j.Poids.ToString().Replace(',', '.') + "','" + j.Pied + "','" + j.DateVenueClub + "','" + j.Id + "','" + j.LePoste.Id + "')";
+            //String req2 = "INSERT INTO PERSONNEL VALUES (" + j.Id + ", '" + j.Nom + "', '" + j.Prenom + "', '" + j.DateNaiss + "', '" + j.LieuNaiss + "', '" + j.Biographie + "', " + j.LaNationalite.Id + ", " + j.LaPhoto.Id + ")";
 
-            cmd2 = new MySqlCommand(req, this.c);
+            //cmd2 = new MySqlCommand(req2, this.c);
             cmd = new MySqlCommand(req, this.c);
 
-            cmd2.ExecuteNonQuery();
+            //cmd2.ExecuteNonQuery();
             cmd.ExecuteNonQuery();
         }
 
         public bool update(Joueur j)
         {
             MySqlCommand cmd;
-            String req = "UPDATE JOUEUR SET num="+j.Num+", taille='" + j.Taille + "', poids='" + j.Poids + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE id='" + j.Id + "'";
+            String req = "UPDATE JOUEUR SET num="+j.Num+", taille='" + j.Taille.ToString().Replace(',', '.') + "', poids='" + j.Poids.ToString().Replace(',', '.') + "', pied='" + j.Pied + "', venueClub='" + j.DateVenueClub + "' WHERE id='" + j.Id + "'";
 
             Personnel p = new Personnel(j.Id, j.Nom, j.Prenom, j.DateNaiss, j.LieuNaiss, j.Biographie, j.LaNationalite, j.LaPhoto);
             PersonnelDAO pDAO = new PersonnelDAO();
