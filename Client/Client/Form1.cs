@@ -182,12 +182,20 @@ namespace Client
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            JoueurDAO jD = new JoueurDAO();
-            PosteDAO pD = new PosteDAO();
-            NationaliteDAO nD = new NationaliteDAO();
-            PhotoDAO phD = new PhotoDAO();
-            Joueur j = new Joueur(Convert.ToInt32(numericUpDown2.Value), float.Parse(textBox2.Text.Replace('.',',')), float.Parse(textBox3.Text.Replace('.', ',')), textBox4.Text.ToString(), textBox1.Text.ToString(), pD.findById(numericUpDown3.Value.ToString()), Convert.ToInt32(numericUpDown1.Value), textBox5.Text.ToString(), textBox6.Text.ToString(), textBox7.Text.ToString(), textBox8.Text.ToString(), textBox9.Text.ToString(), nD.findById(numericUpDown4.Value.ToString()), phD.findById(numericUpDown5.Value.ToString()));
-            jD.create(j);
+            try
+            {
+                JoueurDAO jD = new JoueurDAO();
+                PosteDAO pD = new PosteDAO();
+                NationaliteDAO nD = new NationaliteDAO();
+                PhotoDAO phD = new PhotoDAO();
+                Joueur j = new Joueur(Convert.ToInt32(numericUpDown2.Value), float.Parse(textBox2.Text.Replace('.',',')), float.Parse(textBox3.Text.Replace('.', ',')), textBox4.Text.ToString(), textBox1.Text.ToString(), pD.findById(numericUpDown3.Value.ToString()), Convert.ToInt32(numericUpDown1.Value), textBox5.Text.ToString(), textBox6.Text.ToString(), textBox7.Text.ToString(), textBox8.Text.ToString(), textBox9.Text.ToString(), nD.findById(numericUpDown4.Value.ToString()), phD.findById(numericUpDown5.Value.ToString()));
+                jD.create(j);
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le joueur n'a pas pu être ajouté.");
+            }
+            
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -197,8 +205,16 @@ namespace Client
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            JoueurDAO jD = new JoueurDAO();
-            jD.delete(jD.findById(numericUpDown6.Value.ToString()));
+            try
+            {
+                JoueurDAO jD = new JoueurDAO();
+                jD.delete(jD.findById(numericUpDown6.Value.ToString()));
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le joueur n'a pas pu être ajouté.");
+            }
+            
         }
 
         private void numericUpDown11_ValueChanged(object sender, EventArgs e)
@@ -242,12 +258,20 @@ namespace Client
 
         private void button6_Click(object sender, EventArgs e)
         {
-            JoueurDAO jD = new JoueurDAO();
-            PosteDAO pD = new PosteDAO();
-            NationaliteDAO nD = new NationaliteDAO();
-            PhotoDAO phD = new PhotoDAO();
-            Joueur j = new Joueur(Convert.ToInt32(numericUpDown10.Value), float.Parse(textBox17.Text.Replace('.', ',')), float.Parse(textBox16.Text.Replace('.', ',')), textBox15.Text.ToString(), textBox18.Text.ToString(), pD.findById(numericUpDown9.Value.ToString()), Convert.ToInt32(numericUpDown11.Value), textBox14.Text.ToString(), textBox13.Text.ToString(), textBox12.Text.ToString(), textBox11.Text.ToString(), textBox10.Text.ToString(), nD.findById(numericUpDown8.Value.ToString()), phD.findById(numericUpDown7.Value.ToString()));
-            jD.update(j);
+            try
+            {
+                JoueurDAO jD = new JoueurDAO();
+                PosteDAO pD = new PosteDAO();
+                NationaliteDAO nD = new NationaliteDAO();
+                PhotoDAO phD = new PhotoDAO();
+                Joueur j = new Joueur(Convert.ToInt32(numericUpDown10.Value), float.Parse(textBox17.Text.Replace('.', ',')), float.Parse(textBox16.Text.Replace('.', ',')), textBox15.Text.ToString(), textBox18.Text.ToString(), pD.findById(numericUpDown9.Value.ToString()), Convert.ToInt32(numericUpDown11.Value), textBox14.Text.ToString(), textBox13.Text.ToString(), textBox12.Text.ToString(), textBox11.Text.ToString(), textBox10.Text.ToString(), nD.findById(numericUpDown8.Value.ToString()), phD.findById(numericUpDown7.Value.ToString()));
+                jD.update(j);
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le joueur n'a pas pu être modifié.");
+            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
