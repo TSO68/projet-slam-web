@@ -24,8 +24,16 @@ namespace Client
             string[] res = m.DateMatch.ToString().Split(' ',':','/');
             string date = res[2]+"-"+res[1]+"-"+res[0];
             string heure = res[3]+":00:00";
-            System.Windows.Forms.MessageBox.Show(date +" "+ heure);
-            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + date + "','" + heure + "','" + m.ScoreDom + "','" + m.ScoreExt + "','" + m.ExterieurON + "','" + m.LAdversaire.Id + "','" + m.LeStade.Id + "')";
+            string exterieurBool = "";
+            if (m.ExterieurON == true)
+            {
+                exterieurBool = "1";
+            }
+            else
+            {
+                exterieurBool = "0";
+            }
+            String req = "INSERT INTO MATCHS VALUES ('" + m.Id + "','" + date + "','" + heure + "','" + m.ScoreDom + "','" + m.ScoreExt + "','" + exterieurBool + "','" + m.LAdversaire.Id + "','" + m.LeStade.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
             cmd.ExecuteNonQuery();

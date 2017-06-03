@@ -109,7 +109,7 @@ namespace Client
 
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        private void testToolStripMenuItem_Click(object sender, EventArgs e) // Menu Joueur
         {
             joueurMenu.BackColor = Color.DarkGray;
             staffMenu.BackColor = Color.Empty;
@@ -121,7 +121,7 @@ namespace Client
             tabControl4.Visible = false; // Produit
 
         }
-        private void pypToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pypToolStripMenuItem_Click(object sender, EventArgs e) // Menu Staff
         {
             joueurMenu.BackColor = Color.Empty;
             staffMenu.BackColor = Color.DarkGray;
@@ -133,7 +133,7 @@ namespace Client
             tabControl4.Visible = false; // Produit
         }
 
-        private void matchMenu_Click(object sender, EventArgs e)
+        private void matchMenu_Click(object sender, EventArgs e) // Menu Match
         {
             joueurMenu.BackColor = Color.Empty;
             staffMenu.BackColor = Color.Empty;
@@ -145,7 +145,7 @@ namespace Client
             tabControl4.Visible = false; // Produit
         }
 
-        private void produitMenu_Click(object sender, EventArgs e)
+        private void produitMenu_Click(object sender, EventArgs e) // Menu Produit
         {
             joueurMenu.BackColor = Color.Empty;
             staffMenu.BackColor = Color.Empty;
@@ -162,7 +162,7 @@ namespace Client
 
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e) // Bouton Annuler ==> Joueur Ajouter
         {
             numericUpDown1.Value=0;
             numericUpDown2.Value = 0;
@@ -180,7 +180,7 @@ namespace Client
             textBox9.ResetText();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e) // Joueur Bouton Ajouter
         {
             try
             {
@@ -203,7 +203,7 @@ namespace Client
 
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e) // Joueur Bonton Supprimer
         {
             try
             {
@@ -212,12 +212,12 @@ namespace Client
             }
             catch
             {
-                MessageBox.Show("ERREUR : Le joueur n'a pas pu être ajouté.");
+                MessageBox.Show("ERREUR : Le joueur n'a pas pu être supprimé.");
             }
             
         }
 
-        private void numericUpDown11_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown11_ValueChanged(object sender, EventArgs e)// Joueur Modifier Changement d'ID 
         {
             JoueurDAO jD = new JoueurDAO();
             Joueur j = jD.findById(numericUpDown11.Value.ToString());
@@ -256,7 +256,7 @@ namespace Client
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) // Joueur Bonton Modifier
         {
             try
             {
@@ -274,7 +274,7 @@ namespace Client
             
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)// Bouton Annuler ==> Joueur Modifier
         {
             numericUpDown10.Value = 0;
             textBox17.ResetText();
@@ -289,6 +289,114 @@ namespace Client
             textBox10.ResetText();
             numericUpDown8.Value = 0;
             numericUpDown7.Value = 0;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)// Bouton Annuler ==> Joueur Supprimer
+        {
+            numericUpDown6.Value = 0;
+        }
+
+        private void button7_Click(object sender, EventArgs e)// Bouton Annuler ==> Match Ajouter
+        {
+            numericUpDown16.Value = 0;
+            numericUpDown15.Value = 0;
+            numericUpDown14.Value = 0;
+            numericUpDown13.Value = 0;
+            numericUpDown12.Value = 0;
+            dateTimePicker1.Value = DateTime.Today;
+            checkBox1.Checked = false;
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)// Match Bonton Ajouter
+        {
+            try
+            {
+                MatchsDAO mD = new MatchsDAO();
+                AdversaireDAO aD = new AdversaireDAO();
+                StadeDAO sD = new StadeDAO();
+                Matchs m = new Matchs(Convert.ToInt32(numericUpDown16.Value), dateTimePicker1.Value, Convert.ToInt32(numericUpDown15.Value), Convert.ToInt32(numericUpDown14.Value), checkBox1.Checked, aD.findById(numericUpDown13.Value.ToString()), sD.findById(numericUpDown12.Value.ToString()));
+                MessageBox.Show("Le match a été ajouté !");
+                mD.create(m);
+                button7.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le match n'a pas pu être ajouté.");
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e) // Bouton Annuler ==> Match Modifier
+        {
+            numericUpDown21.Value = 0;
+            numericUpDown20.Value = 0;
+            numericUpDown19.Value = 0;
+            numericUpDown18.Value = 0;
+            numericUpDown17.Value = 0;
+            dateTimePicker2.Value = DateTime.Today;
+            checkBox2.Checked = false;
+        }
+
+        private void button10_Click(object sender, EventArgs e)// Match Bonton Modifier
+        {
+            try
+            {
+                MatchsDAO mD = new MatchsDAO();
+                AdversaireDAO aD = new AdversaireDAO();
+                StadeDAO sD = new StadeDAO();
+                Matchs m = new Matchs(Convert.ToInt32(numericUpDown16.Value), dateTimePicker1.Value, Convert.ToInt32(numericUpDown15.Value), Convert.ToInt32(numericUpDown14.Value), checkBox1.Checked, aD.findById(numericUpDown13.Value.ToString()), sD.findById(numericUpDown12.Value.ToString()));
+                 MessageBox.Show("Le match a été modifié !");
+                mD.update(m);
+                button7.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le match n'a pas pu être modifié.");
+            }
+        }
+
+        private void numericUpDown21_ValueChanged(object sender, EventArgs e)// Match Modifier Changement d'ID 
+        {
+            MatchsDAO mD = new MatchsDAO();
+            Matchs m = mD.findById(numericUpDown21.Value.ToString());
+            if (m != null)
+            {
+                numericUpDown21.Value = m.Id;
+                numericUpDown20.Value = m.ScoreDom;
+                numericUpDown19.Value = m.ScoreExt;
+                numericUpDown18.Value = m.LAdversaire.Id;
+                numericUpDown17.Value = m.LeStade.Id;
+                dateTimePicker2.Value = m.DateMatch;
+                checkBox2.Checked = m.ExterieurON;
+            }
+            else
+            {
+                numericUpDown21.Value = 0;
+                numericUpDown20.Value = 0;
+                numericUpDown19.Value = 0;
+                numericUpDown18.Value = 0;
+                numericUpDown17.Value = 0;
+                dateTimePicker2.Value = DateTime.Today;
+                checkBox2.Checked = false;
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e) // Bouton Annuler ==> Match Supprimer
+        {
+            numericUpDown22.Value = 0;
+        }
+
+        private void button12_Click(object sender, EventArgs e)// Match Bouton Supprimer
+        {
+            try
+            {
+                MatchsDAO mD = new MatchsDAO();
+                mD.delete(mD.findById(numericUpDown22.Value.ToString()));
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le match n'a pas pu être supprimé.");
+            }
         }
     }
 }
