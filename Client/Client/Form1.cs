@@ -175,7 +175,7 @@ namespace Client
             textBox4.ResetText();
             textBox5.ResetText();
             textBox6.ResetText();
-            textBox7.ResetText();
+            dateTimePicker5.Value=DateTime.Today;
             textBox8.ResetText();
             textBox9.ResetText();
         }
@@ -188,8 +188,11 @@ namespace Client
                 PosteDAO pD = new PosteDAO();
                 NationaliteDAO nD = new NationaliteDAO();
                 PhotoDAO phD = new PhotoDAO();
-                Joueur j = new Joueur(Convert.ToInt32(numericUpDown2.Value), float.Parse(textBox2.Text.Replace('.',',')), float.Parse(textBox3.Text.Replace('.', ',')), textBox4.Text.ToString(), textBox1.Text.ToString(), pD.findById(numericUpDown3.Value.ToString()), Convert.ToInt32(numericUpDown1.Value), textBox5.Text.ToString(), textBox6.Text.ToString(), textBox7.Text.ToString(), textBox8.Text.ToString(), textBox9.Text.ToString(), nD.findById(numericUpDown4.Value.ToString()), phD.findById(numericUpDown5.Value.ToString()));
+                string[] res = dateTimePicker5.Value.ToString().Split('/', ' ');
+                string date = res[2] + "-" + res[1] + "-" + res[0];
+                Joueur j = new Joueur(Convert.ToInt32(numericUpDown2.Value), float.Parse(textBox2.Text.Replace('.',',')), float.Parse(textBox3.Text.Replace('.', ',')), textBox4.Text.ToString(), textBox1.Text.ToString(), pD.findById(numericUpDown3.Value.ToString()), Convert.ToInt32(numericUpDown1.Value), textBox5.Text.ToString(), textBox6.Text.ToString(), date, textBox8.Text.ToString(), textBox9.Text.ToString(), nD.findById(numericUpDown4.Value.ToString()), phD.findById(numericUpDown5.Value.ToString()));
                 jD.create(j);
+                MessageBox.Show("Le joueur a bien été ajouté!");
             }
             catch
             {
@@ -209,6 +212,7 @@ namespace Client
             {
                 JoueurDAO jD = new JoueurDAO();
                 jD.delete(jD.findById(numericUpDown6.Value.ToString()));
+                MessageBox.Show("Le joueur a bien été supprimé!");
             }
             catch
             {
@@ -223,7 +227,6 @@ namespace Client
             Joueur j = jD.findById(numericUpDown11.Value.ToString());
             if (j != null)
             {
-                string[] res = j.DateNaiss.ToString().Split('/', ':', ' ');
                 numericUpDown10.Value = j.Num;
                 textBox17.Text = j.Taille.ToString();
                 textBox16.Text = j.Poids.ToString();
@@ -232,7 +235,7 @@ namespace Client
                 numericUpDown9.Value = j.LePoste.Id;
                 textBox14.Text = j.Nom;
                 textBox13.Text = j.Prenom;
-                textBox12.Text = res[2] + "-" + res[1] + "-" + res[0];
+                dateTimePicker6.Value = Convert.ToDateTime(j.DateNaiss);
                 textBox11.Text = j.LieuNaiss;
                 textBox10.Text = j.Biographie;
                 numericUpDown8.Value = j.LaNationalite.Id;
@@ -248,7 +251,7 @@ namespace Client
                 numericUpDown9.Value=0;
                 textBox14.ResetText();
                 textBox13.ResetText();
-                textBox12.ResetText();
+                dateTimePicker6.Value=DateTime.Today;
                 textBox11.ResetText();
                 textBox10.ResetText();
                 numericUpDown8.Value = 0;
@@ -264,8 +267,11 @@ namespace Client
                 PosteDAO pD = new PosteDAO();
                 NationaliteDAO nD = new NationaliteDAO();
                 PhotoDAO phD = new PhotoDAO();
-                Joueur j = new Joueur(Convert.ToInt32(numericUpDown10.Value), float.Parse(textBox17.Text.Replace('.', ',')), float.Parse(textBox16.Text.Replace('.', ',')), textBox15.Text.ToString(), textBox18.Text.ToString(), pD.findById(numericUpDown9.Value.ToString()), Convert.ToInt32(numericUpDown11.Value), textBox14.Text.ToString(), textBox13.Text.ToString(), textBox12.Text.ToString(), textBox11.Text.ToString(), textBox10.Text.ToString(), nD.findById(numericUpDown8.Value.ToString()), phD.findById(numericUpDown7.Value.ToString()));
+                string[] res = dateTimePicker6.Value.ToString().Split('/', ' ');
+                string date = res[2] + "-" + res[1] + "-" + res[0];
+                Joueur j = new Joueur(Convert.ToInt32(numericUpDown10.Value), float.Parse(textBox17.Text.Replace('.', ',')), float.Parse(textBox16.Text.Replace('.', ',')), textBox15.Text.ToString(), textBox18.Text.ToString(), pD.findById(numericUpDown9.Value.ToString()), Convert.ToInt32(numericUpDown11.Value), textBox14.Text.ToString(), textBox13.Text.ToString(), date, textBox11.Text.ToString(), textBox10.Text.ToString(), nD.findById(numericUpDown8.Value.ToString()), phD.findById(numericUpDown7.Value.ToString()));
                 jD.update(j);
+                MessageBox.Show("Le joueur a bien été modifié!");
             }
             catch
             {
@@ -284,7 +290,7 @@ namespace Client
             numericUpDown9.Value = 0;
             textBox14.ResetText();
             textBox13.ResetText();
-            textBox12.ResetText();
+            dateTimePicker6.Value=DateTime.Today;
             textBox11.ResetText();
             textBox10.ResetText();
             numericUpDown8.Value = 0;
@@ -345,7 +351,7 @@ namespace Client
                 AdversaireDAO aD = new AdversaireDAO();
                 StadeDAO sD = new StadeDAO();
                 Matchs m = new Matchs(Convert.ToInt32(numericUpDown16.Value), dateTimePicker1.Value, Convert.ToInt32(numericUpDown15.Value), Convert.ToInt32(numericUpDown14.Value), checkBox1.Checked, aD.findById(numericUpDown13.Value.ToString()), sD.findById(numericUpDown12.Value.ToString()));
-                 MessageBox.Show("Le match a été modifié !");
+                MessageBox.Show("Le match a été modifié !");
                 mD.update(m);
                 button7.PerformClick();
             }
@@ -392,10 +398,127 @@ namespace Client
             {
                 MatchsDAO mD = new MatchsDAO();
                 mD.delete(mD.findById(numericUpDown22.Value.ToString()));
+                MessageBox.Show("Le match a bien été supprimé!");
             }
             catch
             {
                 MessageBox.Show("ERREUR : Le match n'a pas pu être supprimé.");
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StaffDAO sD = new StaffDAO();
+                RoleDAO rD = new RoleDAO();
+                NationaliteDAO nD = new NationaliteDAO();
+                PhotoDAO phD = new PhotoDAO();
+                string[] res = dateTimePicker3.Value.ToString().Split('/', ' ');
+                string date = res[2] + "-" + res[1] + "-" + res[0];
+                Staff s = new Staff(rD.findById(numericUpDown25.Value.ToString()), Convert.ToInt32(numericUpDown27.Value), textBox23.Text, textBox22.Text, date, textBox20.Text, textBox19.Text, nD.findById(numericUpDown24.Value.ToString()), phD.findById(numericUpDown23.Value.ToString()));
+                sD.create(s);
+                MessageBox.Show("Le personnel du staff a bien été ajouté!");
+                button13.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le personnel du staff n'a pas pu être ajouté.");
+            }
+}
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            numericUpDown25.Value = 0;
+            numericUpDown27.Value = 0;
+            numericUpDown24.Value = 0;
+            numericUpDown23.Value = 0;
+            dateTimePicker3.Value = DateTime.Today;
+            textBox23.ResetText();
+            textBox22.ResetText();
+            textBox20.ResetText();
+            textBox19.ResetText();
+        }
+
+        private void numericUpDown30_ValueChanged(object sender, EventArgs e)
+        {
+            StaffDAO sD = new StaffDAO();
+            Staff s = sD.findById(numericUpDown30.Value.ToString());
+            if (s != null)
+            {
+                numericUpDown29.Value = s.LeRole.Id;
+                numericUpDown28.Value = s.LaNationalite.Id;
+                numericUpDown26.Value = s.LaPhoto.Id;
+                dateTimePicker4.Value = Convert.ToDateTime(s.DateNaiss);
+                textBox26.Text = s.Nom;
+                textBox25.Text = s.Prenom;
+                textBox24.Text = s.LieuNaiss;
+                textBox21.Text = s.Biographie;
+            }
+            else
+            {
+                numericUpDown29.Value = 0;
+                numericUpDown28.Value = 0;
+                numericUpDown26.Value = 0;
+                dateTimePicker4.Value = DateTime.Today;
+                textBox26.ResetText();
+                textBox25.ResetText();
+                textBox24.ResetText();
+                textBox21.ResetText();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            numericUpDown30.Value = 0;
+            numericUpDown29.Value = 0;
+            numericUpDown28.Value = 0;
+            numericUpDown26.Value = 0;
+            dateTimePicker4.Value = DateTime.Today;
+            textBox26.ResetText();
+            textBox25.ResetText();
+            textBox24.ResetText();
+            textBox21.ResetText();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StaffDAO sD = new StaffDAO();
+                RoleDAO rD = new RoleDAO();
+                NationaliteDAO nD = new NationaliteDAO();
+                PhotoDAO phD = new PhotoDAO();
+                string[] res = dateTimePicker4.Value.ToString().Split('/', ' ');
+                string date = res[2] + "-" + res[1] + "-" + res[0];
+                Staff s = new Staff(rD.findById(numericUpDown29.Value.ToString()), Convert.ToInt32(numericUpDown30.Value), textBox26.Text, textBox25.Text, date, textBox24.Text, textBox21.Text, nD.findById(numericUpDown28.Value.ToString()), phD.findById(numericUpDown26.Value.ToString()));
+                sD.update(s);
+                MessageBox.Show("Le personnel du staff a bien été modifié!");
+                button15.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le personnel du staff n'a pas pu être modifié.");
+            }           
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            numericUpDown31.Value = 0;
+        }
+
+        private void supprimerStaff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StaffDAO sD = new StaffDAO();
+                sD.delete(sD.findById(numericUpDown31.Value.ToString()));
+                MessageBox.Show("Le personnel du staff a bien été supprimé!");
+                button17.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le personnel du staff n'a pas pu être supprimé.");
             }
         }
     }

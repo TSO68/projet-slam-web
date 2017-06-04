@@ -21,14 +21,14 @@ namespace Client
 
         public void create(Staff s)
         {
+            PersonnelDAO pD = new PersonnelDAO();
+            Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
+            pD.create(p);
+
             MySqlCommand cmd;
-            MySqlCommand cmd2;
             String req = "INSERT INTO STAFF VALUES ("+s.Id+",'" + s.LeRole.Id + "')";
-            String req2 = "INSERT INTO PERSONNEL VALUES (" + s.Id + ", '" + s.Nom + "', '" + s.Prenom + "', '" + s.DateNaiss + "', '" + s.LieuNaiss + "', '" + s.Biographie + "', " + s.LaNationalite.Id + ", " + s.LaPhoto.Id + ")";
 
             cmd = new MySqlCommand(req, this.c);
-            cmd2 = new MySqlCommand(req2, this.c);
-            cmd2.ExecuteNonQuery();
             cmd.ExecuteNonQuery();
 
         }
@@ -36,7 +36,7 @@ namespace Client
         public bool update(Staff s)
         {
             MySqlCommand cmd;
-            String req = "UPDATE STAFF SET id_ROLE='" + s.LeRole.Id + "'";
+            String req = "UPDATE STAFF SET id_ROLE=" + s.LeRole.Id +  " WHERE id=" + s.Id ;
 
             Personnel p = new Personnel(s.Id, s.Nom, s.Prenom, s.DateNaiss, s.LieuNaiss, s.Biographie, s.LaNationalite, s.LaPhoto);
             PersonnelDAO pDAO = new PersonnelDAO();
@@ -52,8 +52,6 @@ namespace Client
             {
                 return false;
             }
-
-
         }
 
         public bool delete(Staff s)
@@ -105,9 +103,9 @@ namespace Client
                 idNationalite = dr[7].ToString();
 
                 idPhoto = dr[8].ToString();
-                idRole = dr[0].ToString();
+                idRole = dr[1].ToString();
                 string[] res = dr[4].ToString().Split('/', ':', ' ');
-                m = new Staff(null, Convert.ToInt32(dr[1]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
+                m = new Staff(null, Convert.ToInt32(dr[0]), dr[2].ToString(), dr[3].ToString(), res[0] + "/" + res[1] + "/" + res[2], dr[5].ToString(), dr[6].ToString(), null, null);
             }
             dr.Close();
             if (!String.IsNullOrEmpty(idRole)) // Si idPoste n'est pas null

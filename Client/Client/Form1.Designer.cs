@@ -35,6 +35,7 @@
             this.produitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.joueurTab = new System.Windows.Forms.TabPage();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -66,6 +66,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
@@ -104,16 +104,56 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.numericUpDown23 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown24 = new System.Windows.Forms.NumericUpDown();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.numericUpDown25 = new System.Windows.Forms.NumericUpDown();
+            this.label60 = new System.Windows.Forms.Label();
+            this.numericUpDown27 = new System.Windows.Forms.NumericUpDown();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown28 = new System.Windows.Forms.NumericUpDown();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.numericUpDown29 = new System.Windows.Forms.NumericUpDown();
+            this.label64 = new System.Windows.Forms.Label();
+            this.numericUpDown30 = new System.Windows.Forms.NumericUpDown();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button17 = new System.Windows.Forms.Button();
+            this.label65 = new System.Windows.Forms.Label();
+            this.numericUpDown31 = new System.Windows.Forms.NumericUpDown();
+            this.label66 = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
@@ -128,8 +168,13 @@
             this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
             this.label44 = new System.Windows.Forms.Label();
             this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
+            this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
+            this.label46 = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button9 = new System.Windows.Forms.Button();
@@ -146,11 +191,11 @@
             this.numericUpDown20 = new System.Windows.Forms.NumericUpDown();
             this.label37 = new System.Windows.Forms.Label();
             this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.label45 = new System.Windows.Forms.Label();
-            this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
-            this.label46 = new System.Windows.Forms.Label();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.supprimerStaff = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.joueurTab.SuspendLayout();
@@ -168,22 +213,34 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown30)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown31)).BeginInit();
             this.tabControl3.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.tabControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
+            this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
+            this.tabControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -241,6 +298,7 @@
             // 
             // joueurTab
             // 
+            this.joueurTab.Controls.Add(this.dateTimePicker5);
             this.joueurTab.Controls.Add(this.button2);
             this.joueurTab.Controls.Add(this.button1);
             this.joueurTab.Controls.Add(this.label14);
@@ -260,7 +318,6 @@
             this.joueurTab.Controls.Add(this.label2);
             this.joueurTab.Controls.Add(this.textBox9);
             this.joueurTab.Controls.Add(this.textBox8);
-            this.joueurTab.Controls.Add(this.textBox7);
             this.joueurTab.Controls.Add(this.textBox6);
             this.joueurTab.Controls.Add(this.textBox5);
             this.joueurTab.Controls.Add(this.numericUpDown3);
@@ -279,6 +336,13 @@
             this.joueurTab.Text = "Ajouter";
             this.joueurTab.UseVisualStyleBackColor = true;
             this.joueurTab.Click += new System.EventHandler(this.joueurTab_Click);
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Location = new System.Drawing.Point(500, 114);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker5.TabIndex = 69;
             // 
             // button2
             // 
@@ -445,13 +509,6 @@
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 50;
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(500, 113);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 49;
-            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(500, 87);
@@ -526,6 +583,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dateTimePicker6);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.label17);
@@ -545,7 +603,6 @@
             this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.textBox10);
             this.tabPage2.Controls.Add(this.textBox11);
-            this.tabPage2.Controls.Add(this.textBox12);
             this.tabPage2.Controls.Add(this.textBox13);
             this.tabPage2.Controls.Add(this.textBox14);
             this.tabPage2.Controls.Add(this.numericUpDown9);
@@ -563,6 +620,13 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modifier";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(498, 113);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker6.TabIndex = 99;
             // 
             // button5
             // 
@@ -729,13 +793,6 @@
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 80;
             // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(498, 113);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 79;
-            // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(498, 87);
@@ -884,6 +941,26 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dateTimePicker3);
+            this.tabPage1.Controls.Add(this.button13);
+            this.tabPage1.Controls.Add(this.button14);
+            this.tabPage1.Controls.Add(this.label47);
+            this.tabPage1.Controls.Add(this.label48);
+            this.tabPage1.Controls.Add(this.numericUpDown23);
+            this.tabPage1.Controls.Add(this.numericUpDown24);
+            this.tabPage1.Controls.Add(this.label49);
+            this.tabPage1.Controls.Add(this.label50);
+            this.tabPage1.Controls.Add(this.label51);
+            this.tabPage1.Controls.Add(this.label52);
+            this.tabPage1.Controls.Add(this.label53);
+            this.tabPage1.Controls.Add(this.label54);
+            this.tabPage1.Controls.Add(this.textBox19);
+            this.tabPage1.Controls.Add(this.textBox20);
+            this.tabPage1.Controls.Add(this.textBox22);
+            this.tabPage1.Controls.Add(this.textBox23);
+            this.tabPage1.Controls.Add(this.numericUpDown25);
+            this.tabPage1.Controls.Add(this.label60);
+            this.tabPage1.Controls.Add(this.numericUpDown27);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -892,8 +969,192 @@
             this.tabPage1.Text = "Ajouter";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(116, 179);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker3.TabIndex = 116;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(435, 268);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(119, 34);
+            this.button13.TabIndex = 98;
+            this.button13.Text = "Annuler";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(562, 268);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(119, 34);
+            this.button14.TabIndex = 97;
+            this.button14.Text = "Ajouter";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(442, 152);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(55, 13);
+            this.label47.TabIndex = 96;
+            this.label47.Text = "id_Photo :";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(420, 126);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(77, 13);
+            this.label48.TabIndex = 95;
+            this.label48.Text = "id_Nationalité :";
+            // 
+            // numericUpDown23
+            // 
+            this.numericUpDown23.Location = new System.Drawing.Point(503, 150);
+            this.numericUpDown23.Name = "numericUpDown23";
+            this.numericUpDown23.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown23.TabIndex = 94;
+            // 
+            // numericUpDown24
+            // 
+            this.numericUpDown24.Location = new System.Drawing.Point(503, 124);
+            this.numericUpDown24.Name = "numericUpDown24";
+            this.numericUpDown24.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown24.TabIndex = 93;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(434, 100);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(63, 13);
+            this.label49.TabIndex = 92;
+            this.label49.Text = "Biographie :";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(439, 74);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(58, 13);
+            this.label50.TabIndex = 91;
+            this.label50.Text = "lieuNaiss : ";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(50, 182);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(60, 13);
+            this.label51.TabIndex = 90;
+            this.label51.Text = "dateNaiss :";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(61, 156);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(49, 13);
+            this.label52.TabIndex = 89;
+            this.label52.Text = "Prénom :";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(75, 130);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(35, 13);
+            this.label53.TabIndex = 88;
+            this.label53.Text = "Nom :";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(61, 101);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(49, 13);
+            this.label54.TabIndex = 87;
+            this.label54.Text = "id_Role :";
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(503, 97);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.TabIndex = 81;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(503, 71);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(100, 20);
+            this.textBox20.TabIndex = 80;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(116, 153);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(100, 20);
+            this.textBox22.TabIndex = 78;
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(116, 127);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(100, 20);
+            this.textBox23.TabIndex = 77;
+            // 
+            // numericUpDown25
+            // 
+            this.numericUpDown25.Location = new System.Drawing.Point(116, 99);
+            this.numericUpDown25.Name = "numericUpDown25";
+            this.numericUpDown25.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown25.TabIndex = 76;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(86, 74);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(24, 13);
+            this.label60.TabIndex = 70;
+            this.label60.Text = "ID :";
+            // 
+            // numericUpDown27
+            // 
+            this.numericUpDown27.Location = new System.Drawing.Point(116, 71);
+            this.numericUpDown27.Name = "numericUpDown27";
+            this.numericUpDown27.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown27.TabIndex = 69;
+            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.dateTimePicker4);
+            this.tabPage4.Controls.Add(this.button15);
+            this.tabPage4.Controls.Add(this.button16);
+            this.tabPage4.Controls.Add(this.label55);
+            this.tabPage4.Controls.Add(this.label56);
+            this.tabPage4.Controls.Add(this.numericUpDown26);
+            this.tabPage4.Controls.Add(this.numericUpDown28);
+            this.tabPage4.Controls.Add(this.label57);
+            this.tabPage4.Controls.Add(this.label58);
+            this.tabPage4.Controls.Add(this.label59);
+            this.tabPage4.Controls.Add(this.label61);
+            this.tabPage4.Controls.Add(this.label62);
+            this.tabPage4.Controls.Add(this.label63);
+            this.tabPage4.Controls.Add(this.textBox21);
+            this.tabPage4.Controls.Add(this.textBox24);
+            this.tabPage4.Controls.Add(this.textBox25);
+            this.tabPage4.Controls.Add(this.textBox26);
+            this.tabPage4.Controls.Add(this.numericUpDown29);
+            this.tabPage4.Controls.Add(this.label64);
+            this.tabPage4.Controls.Add(this.numericUpDown30);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -902,8 +1163,178 @@
             this.tabPage4.Text = "Modifier";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Location = new System.Drawing.Point(117, 176);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker4.TabIndex = 136;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(436, 265);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(119, 34);
+            this.button15.TabIndex = 135;
+            this.button15.Text = "Annuler";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(563, 265);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(119, 34);
+            this.button16.TabIndex = 134;
+            this.button16.Text = "Modifier";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(443, 149);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(55, 13);
+            this.label55.TabIndex = 133;
+            this.label55.Text = "id_Photo :";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(421, 123);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(77, 13);
+            this.label56.TabIndex = 132;
+            this.label56.Text = "id_Nationalité :";
+            // 
+            // numericUpDown26
+            // 
+            this.numericUpDown26.Location = new System.Drawing.Point(504, 147);
+            this.numericUpDown26.Name = "numericUpDown26";
+            this.numericUpDown26.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown26.TabIndex = 131;
+            // 
+            // numericUpDown28
+            // 
+            this.numericUpDown28.Location = new System.Drawing.Point(504, 121);
+            this.numericUpDown28.Name = "numericUpDown28";
+            this.numericUpDown28.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown28.TabIndex = 130;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(435, 97);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(63, 13);
+            this.label57.TabIndex = 129;
+            this.label57.Text = "Biographie :";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(440, 71);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(58, 13);
+            this.label58.TabIndex = 128;
+            this.label58.Text = "lieuNaiss : ";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(51, 179);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(60, 13);
+            this.label59.TabIndex = 127;
+            this.label59.Text = "dateNaiss :";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(62, 153);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(49, 13);
+            this.label61.TabIndex = 126;
+            this.label61.Text = "Prénom :";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(76, 127);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(35, 13);
+            this.label62.TabIndex = 125;
+            this.label62.Text = "Nom :";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(62, 98);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(49, 13);
+            this.label63.TabIndex = 124;
+            this.label63.Text = "id_Role :";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(504, 94);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(100, 20);
+            this.textBox21.TabIndex = 123;
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(504, 68);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(100, 20);
+            this.textBox24.TabIndex = 122;
+            // 
+            // textBox25
+            // 
+            this.textBox25.Location = new System.Drawing.Point(117, 150);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(100, 20);
+            this.textBox25.TabIndex = 121;
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(117, 124);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(100, 20);
+            this.textBox26.TabIndex = 120;
+            // 
+            // numericUpDown29
+            // 
+            this.numericUpDown29.Location = new System.Drawing.Point(117, 96);
+            this.numericUpDown29.Name = "numericUpDown29";
+            this.numericUpDown29.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown29.TabIndex = 119;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(87, 71);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(24, 13);
+            this.label64.TabIndex = 118;
+            this.label64.Text = "ID :";
+            // 
+            // numericUpDown30
+            // 
+            this.numericUpDown30.Location = new System.Drawing.Point(117, 68);
+            this.numericUpDown30.Name = "numericUpDown30";
+            this.numericUpDown30.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDown30.TabIndex = 117;
+            this.numericUpDown30.ValueChanged += new System.EventHandler(this.numericUpDown30_ValueChanged);
+            // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.supprimerStaff);
+            this.tabPage5.Controls.Add(this.button17);
+            this.tabPage5.Controls.Add(this.label65);
+            this.tabPage5.Controls.Add(this.numericUpDown31);
+            this.tabPage5.Controls.Add(this.label66);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -912,12 +1343,49 @@
             this.tabPage5.Text = "Supprimer";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(459, 275);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(119, 34);
+            this.button17.TabIndex = 74;
+            this.button17.Text = "Annuler";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(219, 90);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(29, 16);
+            this.label65.TabIndex = 72;
+            this.label65.Text = "Id :";
+            // 
+            // numericUpDown31
+            // 
+            this.numericUpDown31.Location = new System.Drawing.Point(254, 90);
+            this.numericUpDown31.Name = "numericUpDown31";
+            this.numericUpDown31.Size = new System.Drawing.Size(112, 20);
+            this.numericUpDown31.TabIndex = 71;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(22, 28);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(233, 24);
+            this.label66.TabIndex = 70;
+            this.label66.Text = "Saisissez un identifiant :";
+            // 
             // tabControl3
             // 
             this.tabControl3.Controls.Add(this.tabPage6);
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage7);
-            this.tabControl3.Location = new System.Drawing.Point(13, 27);
+            this.tabControl3.Location = new System.Drawing.Point(12, 27);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             this.tabControl3.Size = new System.Drawing.Size(732, 362);
@@ -949,87 +1417,22 @@
             this.tabPage6.Text = "Ajouter";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // checkBox1
             // 
-            this.tabPage7.Controls.Add(this.checkBox2);
-            this.tabPage7.Controls.Add(this.dateTimePicker2);
-            this.tabPage7.Controls.Add(this.button9);
-            this.tabPage7.Controls.Add(this.button10);
-            this.tabPage7.Controls.Add(this.numericUpDown17);
-            this.tabPage7.Controls.Add(this.numericUpDown18);
-            this.tabPage7.Controls.Add(this.label31);
-            this.tabPage7.Controls.Add(this.label32);
-            this.tabPage7.Controls.Add(this.label33);
-            this.tabPage7.Controls.Add(this.label34);
-            this.tabPage7.Controls.Add(this.label35);
-            this.tabPage7.Controls.Add(this.label36);
-            this.tabPage7.Controls.Add(this.numericUpDown19);
-            this.tabPage7.Controls.Add(this.numericUpDown20);
-            this.tabPage7.Controls.Add(this.label37);
-            this.tabPage7.Controls.Add(this.numericUpDown21);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(724, 336);
-            this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "Modifier";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(126, 168);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(108, 17);
+            this.checkBox1.TabIndex = 100;
+            this.checkBox1.Text = "Match extérieur ?";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
+            // dateTimePicker1
             // 
-            this.tabPage8.Controls.Add(this.button11);
-            this.tabPage8.Controls.Add(this.button12);
-            this.tabPage8.Controls.Add(this.label45);
-            this.tabPage8.Controls.Add(this.numericUpDown22);
-            this.tabPage8.Controls.Add(this.label46);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(724, 336);
-            this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "Supprimer";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabControl4
-            // 
-            this.tabControl4.Controls.Add(this.tabPage9);
-            this.tabControl4.Controls.Add(this.tabPage10);
-            this.tabControl4.Controls.Add(this.tabPage11);
-            this.tabControl4.Location = new System.Drawing.Point(13, 27);
-            this.tabControl4.Name = "tabControl4";
-            this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(732, 362);
-            this.tabControl4.TabIndex = 5;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(724, 336);
-            this.tabPage9.TabIndex = 0;
-            this.tabPage9.Text = "Ajouter";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(724, 336);
-            this.tabPage10.TabIndex = 1;
-            this.tabPage10.Text = "Modifier";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(724, 336);
-            this.tabPage11.TabIndex = 2;
-            this.tabPage11.Text = "Supprimer";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(126, 84);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 99;
             // 
             // button7
             // 
@@ -1149,22 +1552,93 @@
             this.numericUpDown16.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown16.TabIndex = 69;
             // 
-            // dateTimePicker1
+            // tabPage8
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(126, 84);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 99;
+            this.tabPage8.Controls.Add(this.button11);
+            this.tabPage8.Controls.Add(this.button12);
+            this.tabPage8.Controls.Add(this.label45);
+            this.tabPage8.Controls.Add(this.numericUpDown22);
+            this.tabPage8.Controls.Add(this.label46);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(724, 336);
+            this.tabPage8.TabIndex = 2;
+            this.tabPage8.Text = "Supprimer";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // button11
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(126, 168);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(108, 17);
-            this.checkBox1.TabIndex = 100;
-            this.checkBox1.Text = "Match extérieur ?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(443, 279);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(119, 34);
+            this.button11.TabIndex = 74;
+            this.button11.Text = "Annuler";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(568, 279);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(119, 34);
+            this.button12.TabIndex = 73;
+            this.button12.Text = "Supprimer";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(203, 94);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(29, 16);
+            this.label45.TabIndex = 72;
+            this.label45.Text = "Id :";
+            // 
+            // numericUpDown22
+            // 
+            this.numericUpDown22.Location = new System.Drawing.Point(238, 94);
+            this.numericUpDown22.Name = "numericUpDown22";
+            this.numericUpDown22.Size = new System.Drawing.Size(112, 20);
+            this.numericUpDown22.TabIndex = 71;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(6, 32);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(233, 24);
+            this.label46.TabIndex = 70;
+            this.label46.Text = "Saisissez un identifiant :";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.checkBox2);
+            this.tabPage7.Controls.Add(this.dateTimePicker2);
+            this.tabPage7.Controls.Add(this.button9);
+            this.tabPage7.Controls.Add(this.button10);
+            this.tabPage7.Controls.Add(this.numericUpDown17);
+            this.tabPage7.Controls.Add(this.numericUpDown18);
+            this.tabPage7.Controls.Add(this.label31);
+            this.tabPage7.Controls.Add(this.label32);
+            this.tabPage7.Controls.Add(this.label33);
+            this.tabPage7.Controls.Add(this.label34);
+            this.tabPage7.Controls.Add(this.label35);
+            this.tabPage7.Controls.Add(this.label36);
+            this.tabPage7.Controls.Add(this.numericUpDown19);
+            this.tabPage7.Controls.Add(this.numericUpDown20);
+            this.tabPage7.Controls.Add(this.label37);
+            this.tabPage7.Controls.Add(this.numericUpDown21);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(724, 336);
+            this.tabPage7.TabIndex = 1;
+            this.tabPage7.Text = "Modifier";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
@@ -1302,52 +1776,56 @@
             this.numericUpDown21.TabIndex = 101;
             this.numericUpDown21.ValueChanged += new System.EventHandler(this.numericUpDown21_ValueChanged);
             // 
-            // button11
+            // tabControl4
             // 
-            this.button11.Location = new System.Drawing.Point(443, 279);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(119, 34);
-            this.button11.TabIndex = 74;
-            this.button11.Text = "Annuler";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.tabControl4.Controls.Add(this.tabPage9);
+            this.tabControl4.Controls.Add(this.tabPage10);
+            this.tabControl4.Controls.Add(this.tabPage11);
+            this.tabControl4.Location = new System.Drawing.Point(13, 27);
+            this.tabControl4.Name = "tabControl4";
+            this.tabControl4.SelectedIndex = 0;
+            this.tabControl4.Size = new System.Drawing.Size(732, 362);
+            this.tabControl4.TabIndex = 5;
             // 
-            // button12
+            // tabPage9
             // 
-            this.button12.Location = new System.Drawing.Point(568, 279);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(119, 34);
-            this.button12.TabIndex = 73;
-            this.button12.Text = "Supprimer";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(724, 336);
+            this.tabPage9.TabIndex = 0;
+            this.tabPage9.Text = "Ajouter";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // label45
+            // tabPage10
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(203, 94);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(29, 16);
-            this.label45.TabIndex = 72;
-            this.label45.Text = "Id :";
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(724, 336);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "Modifier";
+            this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown22
+            // tabPage11
             // 
-            this.numericUpDown22.Location = new System.Drawing.Point(238, 94);
-            this.numericUpDown22.Name = "numericUpDown22";
-            this.numericUpDown22.Size = new System.Drawing.Size(112, 20);
-            this.numericUpDown22.TabIndex = 71;
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(724, 336);
+            this.tabPage11.TabIndex = 2;
+            this.tabPage11.Text = "Supprimer";
+            this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // label46
+            // supprimerStaff
             // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(6, 32);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(233, 24);
-            this.label46.TabIndex = 70;
-            this.label46.Text = "Saisissez un identifiant :";
+            this.supprimerStaff.Location = new System.Drawing.Point(584, 275);
+            this.supprimerStaff.Name = "supprimerStaff";
+            this.supprimerStaff.Size = new System.Drawing.Size(119, 34);
+            this.supprimerStaff.TabIndex = 75;
+            this.supprimerStaff.Text = "Supprimer";
+            this.supprimerStaff.UseVisualStyleBackColor = true;
+            this.supprimerStaff.Click += new System.EventHandler(this.supprimerStaff_Click);
             // 
             // Form1
             // 
@@ -1355,10 +1833,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 401);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.tabControl3);
-            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tabControl4);
+            this.Controls.Add(this.tabControl3);
+            this.Controls.Add(this.tabControl2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Client";
@@ -1384,25 +1862,40 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown30)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown31)).EndInit();
             this.tabControl3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            this.tabControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
+            this.tabControl4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1447,7 +1940,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
@@ -1484,7 +1976,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
@@ -1532,6 +2023,53 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.NumericUpDown numericUpDown22;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.NumericUpDown numericUpDown23;
+        private System.Windows.Forms.NumericUpDown numericUpDown24;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.NumericUpDown numericUpDown25;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.NumericUpDown numericUpDown27;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.NumericUpDown numericUpDown26;
+        private System.Windows.Forms.NumericUpDown numericUpDown28;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.NumericUpDown numericUpDown29;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.NumericUpDown numericUpDown30;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.NumericUpDown numericUpDown31;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.Button supprimerStaff;
     }
 }
 
