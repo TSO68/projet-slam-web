@@ -48,7 +48,7 @@ namespace Client
         public bool delete(ligneCmd l)
         {
             MySqlCommand cmd;
-            String req = "DELETE FROM ligneCmd WHERE id_PRODUIT='" + l.LeProduit.Id + " AND id_TAILLE=" + l.LaTaille.Id + " AND id_COMMANDE=" + l.LaCommande.Id + "";
+            String req = "DELETE FROM ligneCmd WHERE id_PRODUIT='" + l.LeProduit.Id + " OR id_TAILLE=" + l.LaTaille.Id + " OR id_COMMANDE=" + l.LaCommande.Id + "";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();

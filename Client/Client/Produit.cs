@@ -13,14 +13,16 @@ namespace Client
         private float prix;
         private String description;
         private Photo laPhoto;
+        private string idTaille;
 
-        public Produit(int id, string nom, float prix, string description, Photo p)
+        public Produit(int id, string nom, float prix, string description, Photo p, string t)
         {
             this.id = id;
             this.nom = nom;
             this.prix = prix;
             this.description = description;
             this.laPhoto = p;
+            this.idTaille = t;
         }
 
         public int Id
@@ -85,6 +87,19 @@ namespace Client
             set
             {
                 laPhoto = value;
+            }
+        }
+
+        public string IdTaille
+        {
+            get
+            {
+                return idTaille;
+            }
+
+            set
+            {
+                idTaille = value;
             }
         }
     }

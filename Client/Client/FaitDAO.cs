@@ -50,7 +50,7 @@ namespace Client
         public bool delete(Fait f)
         {
             MySqlCommand cmd;
-            String req = "DELETE FROM fait WHERE id='" + f.LeProduit + "'";
+            String req = "DELETE FROM fait WHERE id='" + f.LeProduit.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();

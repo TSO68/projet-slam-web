@@ -18,23 +18,58 @@ namespace Client
 
 
 
-        public void create(Produit p)
+        public bool create(Produit p)
         {
             MySqlCommand cmd;
-            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix + "','" + p.Description + "','" + p.LaPhoto.Id + "')";
+            String req = "INSERT INTO PRODUIT VALUES ('" + p.Id + "','" + p.Nom + "','" + p.Prix.ToString().Replace(',', '.') + "','" + p.Description + "','" + p.LaPhoto.Id + "')";
 
             cmd = new MySqlCommand(req, this.c);
-            cmd.ExecuteNonQuery();
+            int nb = cmd.ExecuteNonQuery();
+            
+            string[] res = p.IdTaille.Split(',');
+            FaitDAO fDAO = new FaitDAO();
+            TailleDAO tDAO = new TailleDAO();
+            for (int i = 0; i < res.Count(); i++)
+            {
+                Fait f = new Fait(p, tDAO.findById(res[i]));
+                fDAO.create(f);
+            }
+
+            if (nb != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 
         public bool update(Produit p)
         {
             MySqlCommand cmd;
-            String req = "UPDATE PRODUIT SET nom='" + p.Nom + "', id="+p.Id+ ", prix="+p.Prix+", description='"+p.Description+"', id_PHOTO="+p.LaPhoto.Id+" WHERE id='" + p.Id + "'";
+            String req = "UPDATE PRODUIT SET nom='" + p.Nom + "', id="+p.Id+ ", prix="+p.Prix.ToString().Replace(',', '.') + ", description='"+p.Description+"', id_PHOTO="+p.LaPhoto.Id+" WHERE id='" + p.Id + "'";
 
             cmd = new MySqlCommand(req, this.c);
             int nb = cmd.ExecuteNonQuery();
+
+            string[] res = p.IdTaille.Split(',');
+            FaitDAO fDAO = new FaitDAO();
+            TailleDAO tDAO = new TailleDAO();
+
+            for (int i = 0; i < res.Count(); i++)
+            {
+                Fait f = new Fait(p, tDAO.findById(res[i]));
+                fDAO.delete(f);
+            }
+
+            for (int i2 = 0; i2 < res.Count(); i2++)
+            {
+                Fait f2 = new Fait(p, tDAO.findById(res[i2]));
+                fDAO.create(f2);
+            }
+
             if (nb != 0)
             {
                 return true;
@@ -43,24 +78,40 @@ namespace Client
             {
                 return false;
             }
-
-
         }
 
         public bool delete(Produit p)
         {
             MySqlCommand cmd;
             MySqlCommand cmd2;
-            MySqlCommand cmd3;
-            String req3 = "DELETE FROM ligneCmd WHERE id_PRODUIT=" + p.Id;
-            String req2 = "DELETE FROM fait WHERE id=" + p.Id;
+            String req2 = "";
+            try
+            {
+                req2 = "DELETE FROM ligneCmd WHERE id_PRODUIT=" + p.Id;
+            }
+            catch
+            {
+
+            }
+            cmd2 = new MySqlCommand(req2, this.c);
+
             String req = "DELETE FROM PRODUIT WHERE id=" + p.Id;
 
-            cmd2 = new MySqlCommand(req2, this.c);
-            cmd3 = new MySqlCommand(req3, this.c);
+            string[] res = p.IdTaille.Split(',');
+            FaitDAO fDAO = new FaitDAO();
+            TailleDAO tDAO = new TailleDAO();
+
+            for (int i = 0; i < res.Count(); i++)
+            {
+                Fait f = new Fait(p, tDAO.findById(res[i]));
+                fDAO.delete(f);
+            }
+
             cmd = new MySqlCommand(req, this.c);
-            int nb = cmd3.ExecuteNonQuery() + cmd2.ExecuteNonQuery() + cmd.ExecuteNonQuery();
-            if (nb != 0)
+
+            int nb = cmd2.ExecuteNonQuery();
+            int nb2 = cmd.ExecuteNonQuery();
+            if (nb != 0 || nb2 !=0 )
             {
                 return true;
             }
@@ -68,28 +119,36 @@ namespace Client
             {
                 return false;
             }
-
-
         }
 
         public Produit findById(String code)
         {
-            MySqlCommand cmd;
-            String req = "SELECT * FROM PRODUIT WHERE id='" + code + "'";
+            MySqlCommand cmd, cmd2;
+            String req = "SELECT * FROM PRODUIT WHERE PRODUIT.id='" + code + "'";
+            String req2 = "SELECT id_TAILLE FROM fait WHERE id='" + code + "'";
             cmd = new MySqlCommand(req, this.c);
-            MySqlDataReader dr = cmd.ExecuteReader();
+            cmd2 = new MySqlCommand(req2, this.c);
+            MySqlDataReader dr2 = cmd2.ExecuteReader();
 
             PhotoDAO pDAO = new PhotoDAO();
             Produit p = null;
             string idPhoto = null;
+            string res = "";
             
-            if (dr.Read())
+            while (dr2.Read())
             {//je peux le faire
-                idPhoto = dr[4].ToString();
-                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]),dr[3].ToString(), null);
+                res = dr2[0].ToString() + ",";
+                
             }
-            dr.Close(); // On coupte la connexion
-            dr.Dispose();
+            dr2.Close(); // On coupte la connexion
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                idPhoto = dr[4].ToString();
+                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), float.Parse(dr[2].ToString()), dr[3].ToString(), null, res);
+            }
+            dr.Close();
             if (!String.IsNullOrEmpty(idPhoto)) // Si idPoste n'est pas null
             {
                 p.LaPhoto = pDAO.findById(idPhoto); // On attribue le poste au joueur
@@ -114,7 +173,7 @@ namespace Client
             {
                 idPhoto[i] = dr[4].ToString();
                 i++;
-                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]), dr[3].ToString(), null);
+                p = new Produit(Convert.ToInt32(dr[0]), dr[1].ToString(), Convert.ToInt32(dr[2]), dr[3].ToString(), null, p.IdTaille);
                 lesProduits.Add(p);
             }
             dr.Close();

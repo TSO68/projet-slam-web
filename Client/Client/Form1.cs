@@ -521,5 +521,98 @@ namespace Client
                 MessageBox.Show("ERREUR : Le personnel du staff n'a pas pu être supprimé.");
             }
         }
+
+        private void btnAnnulerAjoutProduit_Click_1(object sender, EventArgs e)
+        {
+            idProduit.Value = 0;
+            idPhotoProduit.Value = 0;
+            txtNomProduit.ResetText();
+            txtPrixProduit.ResetText();
+            txtDescProduit.ResetText();
+        }
+
+        private void btnAjoutProduit_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                ProduitDAO prD = new ProduitDAO();
+                PhotoDAO phD = new PhotoDAO();
+                Produit p = new Produit(Convert.ToInt32(idProduit.Value), txtNomProduit.Text.ToString(), float.Parse(txtPrixProduit.Text.Replace('.', ',')), txtDescProduit.Text.ToString(), phD.findById(idPhotoProduit.Value.ToString()), txtTailles.Text);
+                MessageBox.Show("Le produit a été ajouté !");
+                prD.create(p);
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le produit n'a pas pu être ajouté.");
+            }
+        }
+
+        private void btnAnnulModifProduit_Click_1(object sender, EventArgs e)
+        {
+            modifIdProduit.Value = 0;
+            modifIdPhoto.Value = 0;
+            txtModifNom.ResetText();
+            txtModifPrix.ResetText();
+            txtModifDesc.ResetText();
+            txtModifTailles.ResetText();
+        }
+
+        private void btnModifProduit_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                ProduitDAO prD = new ProduitDAO();
+                PhotoDAO phD = new PhotoDAO();
+                Produit p = new Produit(Convert.ToInt32(modifIdProduit.Value), txtModifNom.Text.ToString(), float.Parse(txtModifPrix.Text.Replace('.', ',')), txtModifDesc.Text.ToString(), phD.findById(modifIdPhoto.Value.ToString()), txtModifTailles.Text);
+                MessageBox.Show("Le produit a été modifié !");
+                prD.update(p);
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le produit n'a pas pu être modifié.");
+            }
+        }
+
+        private void btnAnnulSuppr_Click_1(object sender, EventArgs e)
+        {
+            idProduitSuppr.Value = 0;
+        }
+
+        private void btnSupprProduit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProduitDAO prD = new ProduitDAO();
+                prD.delete(prD.findById(idProduitSuppr.Value.ToString()));
+                MessageBox.Show("Le produit a été supprimé !");
+            }
+            catch
+            {
+                MessageBox.Show("ERREUR : Le produit n'a pas pu être supprimé.");
+            }
+        }
+
+        private void modifIdProduit_ValueChanged_1(object sender, EventArgs e)
+        {
+            ProduitDAO prD = new ProduitDAO();
+            Produit p = prD.findById(modifIdProduit.Value.ToString());
+            if (p != null)
+            {
+                modifIdProduit.Value = p.Id;
+                txtModifNom.Text = p.Nom;
+                txtModifPrix.Text = p.Prix.ToString();
+                txtModifDesc.Text = p.Description;
+                modifIdPhoto.Value = p.LaPhoto.Id;
+            }
+            else
+            {
+                modifIdProduit.Value = 0;
+                modifIdPhoto.Value = 0;
+                txtModifNom.ResetText();
+                txtModifPrix.ResetText();
+                txtModifDesc.ResetText();
+                txtModifTailles.ResetText();
+            }
+        }
     }
 }
