@@ -28,7 +28,15 @@ namespace Client
                  +
                 "pwd=admin68;"; // mot de passe
                 c = new MySqlConnection(chaineDeConnexion);
-                c.Open();
+                try
+                {
+                    c.Open();
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("ERREUR : La connexion SQL n'a pas pu être établie.");
+                }
+                
 
             }
             return c;

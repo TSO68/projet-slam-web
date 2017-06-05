@@ -406,7 +406,7 @@ namespace Client
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void button14_Click(object sender, EventArgs e) // Staff Bouton Ajouter
         {
             try
             {
@@ -427,7 +427,7 @@ namespace Client
             }
 }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e)// Bouton Annuler ==> Staff Ajouter
         {
             numericUpDown25.Value = 0;
             numericUpDown27.Value = 0;
@@ -440,7 +440,7 @@ namespace Client
             textBox19.ResetText();
         }
 
-        private void numericUpDown30_ValueChanged(object sender, EventArgs e)
+        private void numericUpDown30_ValueChanged(object sender, EventArgs e) // Staff Modifier Changement d'ID 
         {
             StaffDAO sD = new StaffDAO();
             Staff s = sD.findById(numericUpDown30.Value.ToString());
@@ -468,7 +468,7 @@ namespace Client
             }
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e)// Bouton Annuler ==> Staff Modifier
         {
             numericUpDown30.Value = 0;
             numericUpDown29.Value = 0;
@@ -481,7 +481,7 @@ namespace Client
             textBox21.ResetText();
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void button16_Click(object sender, EventArgs e)// Staff Bouton Modifier
         {
             try
             {
@@ -502,12 +502,12 @@ namespace Client
             }           
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void button17_Click(object sender, EventArgs e) // Bouton Annuler ==> Staff Supprimer
         {
             numericUpDown31.Value = 0;
         }
 
-        private void supprimerStaff_Click(object sender, EventArgs e)
+        private void supprimerStaff_Click(object sender, EventArgs e) // Staff Bouton Supprimer
         {
             try
             {
