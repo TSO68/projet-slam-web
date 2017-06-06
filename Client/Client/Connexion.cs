@@ -22,7 +22,7 @@ namespace Client
                 String chaineDeConnexion;
                 chaineDeConnexion = "server=front-ha-mysql-01.shpv.fr;" // serveur
                  +
-                "database=rnsycxun_projet_slam_bdd;" // nom de la base de données
+                "database=rnsycxun_projet_slam_bdd_samy;" // nom de la base de données
                  +
                 "uid=rnsycxun_root;" // nom de compte
                  +
